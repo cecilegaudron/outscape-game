@@ -1,108 +1,108 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+## Deployment
 
-Welcome cecilegaudron,
+The website has been deployed via Heroku.
+The project is created on GitHub with the 'gitpod full template' provided by Code Institute. [Code Institute Template](https://github.com/Code-Institute-Org/gitpod-full-template)  
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+The project name is *outscape*.  
+The name of the app is *outscapebooking*.  
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+- **Install Django and supporting libraries**
+On Gitpod, it is necessary to install Django and supporting libraries. I decide to follow the deployment steps proposed by Code Institute. 
+  1. Install Django4, psycopg2 and Cloudinary  
 
-## Gitpod Reminders
+    > pip3 install 'django<4' gunicorn  
+    > pip3 install dj_database_url psycopg2  
+    > pip3 install dj3-cloudinary-storage  
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+  2. Then create the requirements file with the command :  
 
-`python3 -m http.server`
+    > *pip3 freeze --local > requirements.txt*
 
-A blue button should appear to click: _Make Public_,
+- **Create an external database**  
+ElephantSQL is the service of choice for creating an external database.
+  1. Create a free account
+  2. Create new instance
+  3. Name the database with the project name
+  4. Choose a geographical region
+  5. Copy the URL of the database  
 
-Another blue button should appear to click: _Open Browser_.
+- **Create an app in Heroku**
+  1. Create a new app
+  2. Open the Settings tab
+  3. Reveal Config Vars
+  4. Add a new Config Var called *DATABASE_URL* and paste the external database URL as the value
+  5. Add a new Config Var called *SECRET_KEY* and paste my Secret Key
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+- **Create the env.py file**  
+This file contains the secret datas about the project.  
 
-A blue button should appear to click: _Make Public_,
+  > import os
+  > os.environ["DATABASE_URL"] = "Paste the database URL"
+  > os.environ["SECRET_KEY"] = "My Secret Key"
 
-Another blue button should appear to click: _Open Browser_.
+- **Prepare the environment**  
+  1. Do a reference to the env.py on the settings file.  
+    > import os
+    > import dj_database_url
+    >
+    >if os.path.isfile("env.py"):
+    >   import env
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+  2. Remove the secret key and link it to the SECRET_KEY variable on Heroku.
+    > SECRET_KEY = os.environ.get('SECRET_KEY')
 
-To log into the Heroku toolbelt CLI:
+  3. Comment out the old database section. And paste a new database paragraph and link to the DATABASE_URL variable on Heroku.
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+    > DATABASES = {
+    >   'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+    >}
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+  4. Make the migrations.
 
-------
+- **Create the media files stored**  
+Cloudinary is the service used to stored the media.   
 
-## Release History
+  1. Need to create an account
+  2. Copy the API Environment Variable available in the dashboard
+  3. In the env.py file, paste the API previously copied
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+    > os.environ["CLOUDINARY_URL"] = "cloudinary://************************"
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+  4. Create a Config Vars in Heroku and to paste the API previously copied as a value
+  5. Create a new Config Vars with *DISABLE_COLLECTSTATIC* as key and *1* as value. I will remove this new entry at the end of the project.
+  6. Add Cloudinary libraries to the installed apps in settings.py :  
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+    > 'cloudinary_storage',
+    > 'cloudinary',
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+  7. Specify to Django to use Cloudinary to store media and static files
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+    > STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
+    > STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+    > STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+    > 
+    > MEDIA_URL = '/media/'
+    > DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+  8. Link with the templates directory :
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+    > TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+  9. Change the templates directory :
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+    > 'DIRS': [TEMPLATES_DIR],
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+  10. Add Heroku Hostname to *ALLOWED_HOSTS*
+  11. Create three new folders : media, static and templates
+  12. Create a new file with the name Procfile
+  13. In the Procfile file, add the code :
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+    > web: gunicorn outscape.wsgi
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+- **Deployment on Heroku**
+  1. On Heroku, choose GitHub as the deployment method
+  2. Connect Heroku with the project on GitHub
+  3. Be sure to select the *main* branch on the Manual Deploy section
+  4. Click on the *Deploy branch* button
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
-------
-
-## FAQ about the uptime script
-
-**Why have you added this script?**
-
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
-
-**How will this affect me?**
-
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
-
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
-
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
-
-**So….?**
-
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
-
-**Can I opt out?**
-
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
-
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
-
-**Anything more?**
-
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
-
----
-
-Happy coding!
+The site is live here : [OUTscape website on Heroku](https://outscapebooking.herokuapp.com/)
