@@ -9,12 +9,11 @@ STATUS = ((0, "Pending"), (1, "Confirmed"), (2, "Declined"))
 # Database model for booking app
 # Every data is saved in the database
 class Booking(models.Model):
-    # Username and email are inherit from the user model
-    # user = models.ForeignKey(User, on_delete=models.CASCADE, unique=True)
-    email = models.OneToOneField(User, on_delete=models.CASCADE, blank=False)
+    # user = models.ForeignKey(User, on_delete=models.CASCADE)
     # User info
     first_name = models.CharField(max_length=80, blank=False)
     last_name = models.CharField(max_length=80, blank=False)
+    email = models.EmailField(blank=False, unique=True)
     mobile = models.CharField(max_length=14, blank=False)
     # Date and hour of booking
     date = models.DateField(blank=False)
@@ -22,7 +21,7 @@ class Booking(models.Model):
     # Number of players
     players = models.PositiveIntegerField(blank=False)
     # Number of transport tickets needed for the game
-    tickets = models.PositiveIntegerField(blank=True)
+    tickets = models.IntegerField("BVG tickets needed", blank=True, null=True)
     # Comment from the customer
     comment = models.TextField(max_length=300, blank=True)
     # Date of the booking creation
