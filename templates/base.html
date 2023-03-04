@@ -1,0 +1,68 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TO BE COMPLETED">
+    <meta name="keywords" content="TO BE COMPLETED">
+    <meta name="author" content="CÉcile Gaudron">
+    <title>TO BE COMPLETED</title>
+    <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+    <link rel="icon" type="image/x-icon" href="/assets/images/favicon.png">
+</head>
+
+<body>
+    <!-- Header with logo and navigation bar -->
+    <header>
+        <div>
+            <h1>OUTscape game Berlin</h1>
+        </div>
+
+        <!-- Navigation bar -->
+        <!-- Inspiration from DjangoBlog challenge -->
+        <nav>
+            <div>
+                <ul>
+                    <li>
+                        <a href="{% url 'index' %}">Home</a>
+                    </li>
+                    <!-- Loop if user authentification -->
+                    {% if user.is_authenticated %}
+                    <li>
+                        <a href="#">Logout</a>
+                    </li>
+                    {% else %}
+                    <li>
+                        <a href="#">Registrer</a>
+                    </li>
+                    <li>
+                        <a href="#">Login</a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Content block -->
+    <section>
+        {% block content %}
+        <!-- Place for content -->
+        {% endblock content %}
+    </section>
+
+    <!-- Footer with Copyright and Social Networks Links -->
+    <footer>
+        <div>
+            <p id="educational">This is an educational site created as part of <a href="https://codeinstitute.net/" target="_blank" rel="noopener" aria-label="Visit the Code Institude website">Code Institute</a>'s Full Stack Software Development course by CÉcile</p>
+        </div>
+        <div id="social-networks">
+            <p><a href="https://github.com/cecilegaudron/" target="_blank" rel="noopener" aria-label="Visit my GitHub account>"><i class="fa-brands fa-github"></i></a></p>
+            <p><a href="https://www.linkedin.com/in/cecilegaudron/" target="_blank" rel="noopener" aria-label="Reach out in LinkedIn"><i class="fa-brands fa-linkedin"></i></a></p>
+        </div>
+    </footer>
+</body>
+</html>
