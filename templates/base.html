@@ -10,7 +10,7 @@
     <meta name="keywords" content="TO BE COMPLETED">
     <meta name="author" content="CÉcile Gaudron">
     <title>TO BE COMPLETED</title>
-    <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+    <link href="../static/css/style.css" rel="stylesheet" type="text/css">
     <link rel="icon" type="image/x-icon" href="/assets/images/favicon.png">
 </head>
 
@@ -32,14 +32,17 @@
                     <!-- Loop if user authentification -->
                     {% if user.is_authenticated %}
                     <li>
-                        <a href="#">Logout</a>
+                        Hi <strong>{{ user.username }} </strong> You are connected
+                    </li>
+                    <li>
+                        <a href="accounts/logout/" name="account_logout">Logout</a>
                     </li>
                     {% else %}
                     <li>
-                        <a href="#">Registrer</a>
+                        <a href="accounts/signup/" name="account_signup">Registrer</a>
                     </li>
                     <li>
-                        <a href="#">Login</a>
+                        <a href="accounts/login/" name="account_login">Login</a>
                     </li>
                     {% endif %}
                 </ul>
