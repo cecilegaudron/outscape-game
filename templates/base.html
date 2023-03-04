@@ -29,20 +29,20 @@
                     <li>
                         <a href="{% url 'index' %}">Home</a>
                     </li>
-                    <!-- Loop if user authentification -->
+                    <!-- Info about User authentification -->
                     {% if user.is_authenticated %}
                     <li>
                         Hi <strong>{{ user.username }} </strong> You are connected
                     </li>
                     <li>
-                        <a href="accounts/logout/" name="account_logout">Logout</a>
+                        <a href="{% url 'account_logout' %}">Logout</a>
                     </li>
                     {% else %}
                     <li>
-                        <a href="accounts/signup/" name="account_signup">Registrer</a>
+                        <a href="{% url 'account_signup' %}">Registrer</a>
                     </li>
                     <li>
-                        <a href="accounts/login/" name="account_login">Login</a>
+                        <a href="{% url 'account_login' %}">Login</a>
                     </li>
                     {% endif %}
                 </ul>
