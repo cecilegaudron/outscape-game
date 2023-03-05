@@ -22,3 +22,9 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('', include('outscapebooking.urls'), name='booking_urls'),
 ]
+
+# Change Admin panel header text
+# https://www.section.io/engineering-education/customizing-django-admin/
+admin.site.site_header = "OUTscape game ADMIN"
+admin.site.site_title = "OUTscape game ADMIN"
+admin.site.index_title = "OUTscape game admin"
