@@ -32,7 +32,7 @@ class Booking(models.Model):
 
     # Date and hour of booking
     date = models.DateField(help_text="DD-MM-YYYY", blank=False)
-    timeslot = models.CharField(choices=TIMESLOT_LIST, blank=False, null=False, max_length=11)
+    timeslot = models.IntegerField(choices=TIMESLOT_LIST, blank=False, null=False)
     hour = models.TimeField(blank=False)
 
     # Number of players
