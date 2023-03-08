@@ -16,6 +16,16 @@ Follow the course of CI and this page https://docs.djangoproject.com/fr/4.1/topi
 """
 class Booking(models.Model):  
 
+    def validate_bookdate(value):
+        # Validate the booking if the booked date is before today
+        # https://stackoverflow.com/questions/66882721/how-to-add-todays-date-to-django-templates
+        # https://stackoverflow.com/questions/50439356/django-date-validation-help-needed
+        # https://docs.djangoproject.com/en/4.1/ref/validators/
+        # Help in Slack
+        today = now().date()
+        if value <= today:
+            raise ValidationError("The date cannot be in the past!")
+
     # List with available timeslots
     # https://blog.devgenius.io/django-tutorial-on-how-to-create-a-booking-system-for-a-health-clinic-9b1920fc2b78
     TIMESLOT_LIST = (
@@ -36,8 +46,8 @@ class Booking(models.Model):
     mobile = models.CharField(max_length=14, blank=False)
 
     # Date and timeslots of booking
-    bookdate = models.DateField(help_text="DD-MM-YYYY", blank=False)
-    #date = models.DateField(help_text="DD-MM-YYYY", blank=False, validators=[validate_date])
+    bookdate = models.DateField(help_text="DD-MM-YYYY", blank=False, validators=[validate_bookdate])
+    #date = models.DateField(help_text="DD-MM-YYYY", blank=False, validators=[validate_bookdate])
     timeslot = models.CharField(choices=TIMESLOT_LIST, blank=False, null=False, max_length=40)
 
     # Number of players
@@ -70,33 +80,6 @@ class Booking(models.Model):
         # Display the date and timeslot of booking as the title
         return f'Booking on {self.bookdate} {self.timeslot}'
 
-    #def save(bookdate, *args, **kwargs):
-        #today = now().date()
-        #if bookdate < today():
-            #raise ValidationError("The date cannot be in the past!")
-        #super(Booking, self).save(*args, **kwargs)
-
     @property
     def time(self):
         return self.TIMESLOT_LIST[self.timeslot][1]
-    
-    @property
-    def is_past_due(self):
-        if bookdate < today():
-            return False
-        return True
-
-"""
-    def clean(bookdate):
-        # Validate the booking if the booked date in after today
-        # https://docs.python.org/3/reference/datamodel.html#object.__lt__
-        # https://stackoverflow.com/questions/66882721/how-to-add-todays-date-to-django-templates
-        # https://stackoverflow.com/questions/50439356/django-date-validation-help-needed
-        today = now().date()
-        if bookdate.__ge__(today):
-            raise ValidationError('You must reserve a date that has not already passed!')
-        #return super().clean()
-            return f'{bookdate}'
-"""
-    
-    
