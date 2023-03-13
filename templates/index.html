@@ -12,7 +12,7 @@
         <div style="background-color: beige;">
             {% for booking in booking_list %}
             <div>
-                    <h2>Your booking is the : {{ booking.bookdate }}</h2>
+                    <h2>Your booking is booked for the : {{ booking.bookdate }}</h2>
                     <p>Hour : {{booking.timeslot}}</p>
                     <p>Number of players :{{ booking.players }}</p>
                     <p>Number of BVG tickets :{{ booking.tickets }}</p>
