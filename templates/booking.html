@@ -10,7 +10,9 @@
     <section>
         <div style="background-color: blanchedalmond;">
             <form method="POST" action="{% url 'booking' %}">
+                <!-- Security tocken -->
                 {% csrf_token %}
+                {{ form.as_p }}
                 <button type="submit" value="Post">Book the game</button>
             </form>
         </div>

@@ -12,15 +12,7 @@ def make_booking(request):
 
     context ={}
     context['form']= BookingForm()
-    return render(request, "index.html", context)
-    #form = BookingForm
-    """
-    context = {
-        "form": form
-    }
-    """
-    #return render(request, "{% url 'index' %}", {'form': form})
-    #return render(request, "{% url 'index' %}", {"form": form})
+    return render(request, "booking.html", context)
 
 # Bookings list 
 class BookingList(generic.ListView):

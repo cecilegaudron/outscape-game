@@ -14,7 +14,7 @@ STATUS = ((0, "Pending"), (1, "Confirmed"), (2, "Declined"))
 Every data is save in the database
 Follow the course of CI and this page https://docs.djangoproject.com/fr/4.1/topics/db/models/
 """
-class Booking(models.Model):  
+class Booking(models.Model):
 
     def validate_bookdate(value):
         # Validate the booking if the booked date is before today
