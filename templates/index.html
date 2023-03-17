@@ -5,9 +5,19 @@
 <div>
     <h1>This is my Home Page</h1>
 </div>
-
-    <!-- Block with list of Bookings -->
     <!-- Add these info in the correct document when it is working properly -->
+    <section>
+        <div>
+            <form method="POST" action="">   
+                <!-- Security tocken -->
+                {% csrf_token %}
+                
+                {{ form.as_p }}
+
+                <button type="submit" value="Submit">Request a Booking</button>
+            </form>
+        </div>
+    </section>
     <section>
         <div style="background-color: beige;">
             {% for booking in booking_list %}

@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 from django.utils.timezone import now
 from datetime import date
-from django.core.validators import MaxValueValidator, MinValueValidator 
+from django.core.validators import MaxValueValidator, MinValueValidator
 
 # Different status for the booking
 # By default the booking status is 'pending'
@@ -55,7 +55,7 @@ class Booking(models.Model):
     players = models.PositiveIntegerField(blank=False, validators=[MinValueValidator(1), MaxValueValidator(10)])
 
     # Number of transport tickets needed for the game
-    tickets = models.PositiveIntegerField("BVG tickets needed", blank=True, null=True, validators=[MaxValueValidator(10)])
+    tickets = models.PositiveIntegerField(blank=True, null=True, validators=[MaxValueValidator(10)])
 
     # Comment from the customer
     comment = models.TextField(max_length=300, blank=True)

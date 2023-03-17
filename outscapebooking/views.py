@@ -1,11 +1,26 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from django.views import generic
+from django.views import generic, View
 from django.views.generic import TemplateView
-from .models import Booking
 from django.utils.timezone import now
 from datetime import date
+from .forms import BookingForm
+from .models import Booking
 
+# Booking form
+def make_booking(request):
+
+    context ={}
+    context['form']= BookingForm()
+    return render(request, "index.html", context)
+    #form = BookingForm
+    """
+    context = {
+        "form": form
+    }
+    """
+    #return render(request, "{% url 'index' %}", {'form': form})
+    #return render(request, "{% url 'index' %}", {"form": form})
 
 # Bookings list 
 class BookingList(generic.ListView):
