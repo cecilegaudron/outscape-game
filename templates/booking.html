@@ -1,21 +1,24 @@
 {% extends "base.html" %}
 
 {% block content %}
+<section>
+    <div>
+        <h1>MAKE A BOOKING</h1>
+    </div>
+    <div style="background-color: blanchedalmond;">
+        {% if submitted %}
+            Your reservation request has been sent. You will get a feedback from the organizers very soon
 
-<div>
-    <h1>MAKE A BOOKING</h1>
-</div>
-
-    <!-- Block booking form -->
-    <section>
-        <div style="background-color: blanchedalmond;">
+        {% else %}
+        <!-- Block booking form -->
             <form method="POST" action="{% url 'booking' %}">
                 <!-- Security tocken -->
                 {% csrf_token %}
+                <!-- https://www.geeksforgeeks.org/form-as_p-render-django-forms-as-paragraph/ -->
                 {{ form.as_p }}
-                <button type="submit" value="Post">Book the game</button>
+                <button type="submit" value="Submit">Book the game</button>
             </form>
-        </div>
-    </section>
-
+        {% endif %}
+    </div>
+</section>
 {% endblock %}
