@@ -38,27 +38,76 @@ class Booking(models.Model):
         ("16:00-19:00", "16:00-19:00"),
     )
 
-    # User info
-    first_name = models.CharField(max_length=80, blank=False)
-    last_name = models.CharField(max_length=80, blank=False)
-    email = models.EmailField(blank=False, unique=True)
-    # https://docs.djangoproject.com/en/2.2/ref/validators/
-    mobile = models.CharField(max_length=14, blank=False)
+    # User info with whole name
+    first_name = models.CharField(
+        "Your first name*",
+        max_length=80,
+        blank=False
+        )
 
-    # Date and timeslots of booking
-    bookdate = models.DateField(help_text="DD-MM-YYYY", blank=False, validators=[validate_bookdate])
-    #date = models.DateField(help_text="DD-MM-YYYY", blank=False, validators=[validate_bookdate])
-    timeslot = models.CharField(choices=TIMESLOT_LIST, blank=False, null=False, max_length=40)
+    last_name = models.CharField(
+        "Your last name*",
+        max_length=80,
+        blank=False
+        )
+
+    # Email
+    email = models.EmailField(
+        "Your email address*", 
+        blank=False,
+        unique=True
+        )
+
+    # Mobile number
+    # https://docs.djangoproject.com/en/2.2/ref/validators/
+    mobile = models.CharField(
+        "Your phone number*", 
+        help_text="[Indicate your country code]",
+        max_length=14,
+        blank=False,
+        )
+
+    # Date
+    bookdate = models.DateField(
+        "The booking date*",
+        help_text="[It is not possible to book the current day]",
+        blank=False,
+        validators=[validate_bookdate]
+        )
+    
+    # Timeslots
+    timeslot = models.CharField(
+        "Choose your time slot*",
+        help_text="[The game lasts for the duration of the slot]",
+        choices=TIMESLOT_LIST,
+        blank=False,
+        null=False,
+        max_length=40
+        )
 
     # Number of players
     # https://stackoverflow.com/questions/42425933/how-do-i-set-a-default-max-and-min-value-for-an-integerfield-django
-    players = models.PositiveIntegerField(blank=False, validators=[MinValueValidator(1), MaxValueValidator(10)])
+    players = models.PositiveIntegerField(
+        "Number of players*",
+        help_text="[You can't reserve for more than 10 players]",
+        blank=False,
+        validators=[MinValueValidator(1), MaxValueValidator(10)]
+        )
 
     # Number of transport tickets needed for the game
-    tickets = models.PositiveIntegerField(blank=True, null=True, validators=[MaxValueValidator(10)])
+    tickets = models.PositiveIntegerField(
+        "Number of public transport tickets",
+        blank=True,
+        null=True,
+        validators=[MaxValueValidator(10)]
+        )
 
     # Comment from the customer
-    comment = models.TextField(max_length=300, blank=True)
+    comment = models.TextField(
+        "Your comment",
+        max_length=300,
+        blank=True
+        )
 
     # Date of the booking creation
     created_on = models.DateTimeField(auto_now_add=True)
