@@ -3,23 +3,22 @@ from django.forms import ModelForm
 from .models import Booking
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.core.exceptions import ValidationError
+from django.forms.fields import DateField
 
 '''
 https://docs.djangoproject.com/en/4.1/ref/forms/widgets/
 '''
 
-TIMESLOT_LIST = (
-    ("10:00-13:00", "10:00-13:00"),
-    ("11:00-14:00", "11:00-14:00"),
-    ("12:00-15:00", "12:00-15:00"),
-    ("13:00-16:00", "13:00-16:00"),
-    ("14:00-17:00", "14:00-17:00"),
-    ("15:00-18:00", "15:00-18:00"),
-    ("16:00-19:00", "16:00-19:00"),
-    )
+# Creation of custom widget for a calendar
+# https://stackoverflow.com/questions/42165163/how-do-i-use-a-datepicker-on-a-simple-django-form
+class DateInput(forms.DateInput):
+    input_type = 'date'
 
-
+# Form class
 class BookingForm(ModelForm):
+
+    # Calendar call
+    bookdate = forms.DateField(widget=DateInput)
 
     class Meta:
 
@@ -27,3 +26,4 @@ class BookingForm(ModelForm):
 
         # Fields required
         fields = ('first_name', 'last_name', 'email', 'mobile', 'bookdate', 'timeslot', 'players', 'tickets', 'comment')
+
