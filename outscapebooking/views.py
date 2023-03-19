@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
 from django.views import generic, View
 from django.views.generic import TemplateView
@@ -42,3 +42,77 @@ class BookingList(generic.ListView):
     template_name = 'index.html'
     # If more of 6 bookings a new page is created
     paginate_by = 10
+
+"""
+# Display the booking to the user
+class MyBooking(View):
+
+    def get(self, request):
+        query set
+
+        if request.user.is_authenticated:
+            reservation = get_object_or_404(Booking, id=reservation_id)
+            current_user = request.user
+
+            if current_user == reservation.user:
+                context = {
+                    "Your booking is the:": reservation.bookdate,
+                    "At:": reservation.timeslot
+                }
+            else:
+                return redirect(reverse("booking"))
+        else:
+            return redirect(reverse("account_login"))
+"""
+
+class MyBooking(View):
+
+    def get(self, request, *args, **kwargs):
+        """
+        queryset = Booking.objects.filter(status=1)
+        booking = get_object_or_404(queryset)
+
+        return render(
+            request,
+            "booking_detail.html",
+            {
+                "Your booking": booking,
+                "submitted": False,
+            },
+        )
+        """
+        if request.user.is_authenticated:
+            booking = Booking.objects.filter(user=request.user)
+
+            return render(
+                request, 'booking.html',
+                {
+                    'bookings': bookings,
+                },
+            )
+
+        else:
+            return redirect(reverse("account_login"))
+    
+    def post(self, request, *args, **kwargs):
+
+        queryset = Booking.objects.filter(status=1)
+        booking = get_object_or_404(queryset)
+
+        booking_form = BookingForm(data=request.POST)
+        if booking_form.is_valid():
+            booking_form.instance.email = request.user.email
+            booking_form.instance.name = request.user.username
+            booking = booking_form.save(commit=False)
+            booking.save()
+        else:
+            booking_form = BookingForm()
+
+        return render(
+            request,
+            "booking_detail.html",
+            {
+                "Your booking": booking,
+                "submitted": True,
+            },
+        )

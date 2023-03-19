@@ -38,6 +38,9 @@ class Booking(models.Model):
         ("16:00-19:00", "16:00-19:00"),
     )
 
+    # User model
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+
     # User info with whole name
     first_name = models.CharField(
         "Your first name*",
@@ -114,6 +117,9 @@ class Booking(models.Model):
 
     # status of the booking by default it is 'pending'
     status = models.IntegerField(choices=STATUS, default=0)
+
+    # Slug
+    #slug = models.SlugField(max_length=100, unique=True)
 
     class Meta:
         
