@@ -13,7 +13,7 @@
             Your booking is awaiting approval
         </div>
         {% else %}
-        {% if user.is_authenticated %}
+        <!-- {% if user.is_authenticated %} -->
         <div style="background-color: beige;">
             {% for booking in booking_list %}
             <div>
@@ -31,7 +31,7 @@
             </div>
             {% endfor %}
         </div>
-        
+        <!-- {% endif %} -->
         {% endif %}
     </div>
 </section>

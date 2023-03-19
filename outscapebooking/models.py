@@ -39,7 +39,10 @@ class Booking(models.Model):
     )
 
     # User model
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    player_name = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE
+        )
 
     # User info with whole name
     first_name = models.CharField(
@@ -115,8 +118,11 @@ class Booking(models.Model):
     # Date of the booking creation
     created_on = models.DateTimeField(auto_now_add=True)
 
-    # status of the booking by default it is 'pending'
+    # Status of the booking by default it is 'pending'
     status = models.IntegerField(choices=STATUS, default=0)
+
+    # Reservation ID
+    booking_id = models.AutoField(auto_created=True, primary_key=True)
 
     # Slug
     #slug = models.SlugField(max_length=100, unique=True)

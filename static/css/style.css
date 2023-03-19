@@ -1,7 +1,50 @@
+/* import fonts from fonts google */
+@import url('https://fonts.google.com/specimen/Kanit?preview.text=BERLIN%20%C3%9F%20%C3%A9%20%C3%A8%20&preview.text_type=custom&category=Sans+Serif,Display,Monospace');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: white;
+    font-family: 'Kanit', sans-serif;
+    font-size: 1.2rem;
+}
+
+#logo {
+    width: 5%;
+}
+
+nav {
+    background-color: #e8e7e7;
+}
+
+nav a {
+    color: black;
+    text-transform: capitalize;
+}
+
+nav a:hover {
+    color: #c26c51;
+    text-decoration: none;
+    text-transform: capitalize;
+}
+
 footer {
     background-color: black;
+    margin: auto;
+    padding: 4%;
 }
 
 footer p {
     color: white;
+}
+
+footer a {
+    color: white;
+}
+
+footer a:hover {
+    color: #c26c51;
 }

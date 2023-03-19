@@ -11,7 +11,7 @@
     <meta name="author" content="CÉcile Gaudron">
     <title>TO BE COMPLETED</title>
     <link href="../static/css/style.css" rel="stylesheet" type="text/css">
-    <link rel="icon" type="image/x-icon" href="/assets/images/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'favicon/favicon.ico' %}">
     <!-- Load Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
@@ -23,35 +23,55 @@
 <body>
     <!-- Header with logo and navigation bar -->
     <header>
-        <div>
-            <h1>OUTscape game Berlin</h1>
+        <div id="logo">
+            <img class="img-flui img-responsive" src="https://res.cloudinary.com/di8utbjhc/image/upload/v1679248476/outscape/logo-outscape_ova2gu.png" alt="OUTscape logo">
         </div>
 
         <!-- Navigation bar -->
         <!-- Inspiration from DjangoBlog challenge -->
         <nav>
-            <div>
-                <ul>
-                    <li>
-                        <a href="{% url 'index' %}">Home</a>
-                    </li>
-                    <!-- Info about User authentification -->
-                    {% if user.is_authenticated %}
-                    <li>
-                        Hi <strong>{{ user.username }} </strong> You are connected
-                    </li>
-                    <li>
-                        <a href="{% url 'account_logout' %}">Logout</a>
-                    </li>
-                    {% else %}
-                    <li>
-                        <a href="{% url 'account_signup' %}">Registrer</a>
-                    </li>
-                    <li>
-                        <a href="{% url 'account_login' %}">Login</a>
-                    </li>
-                    {% endif %}
-                </ul>
+            <div class="container">
+                <div class="row">
+                  <div class="col-sm">
+                    <a href="{% url 'index' %}">Home</a>
+                  </div>
+                  <div class="col-sm">
+                    <a href="game.html">The Game</a>
+                  </div>
+                  <div class="col-sm">
+                    <a href="{% url 'booking' %}">Book</a>
+                  </div>
+                  <div class="col-sm">
+                    <a href="contact.html">Contact</a>
+                  </div>
+                  <div class="col-sm">
+                    <a href="https://www.instagram.com" target="_blank" rel="noopener" aria-label="Reach out in Instagram"><i class="fa-brands fa-instagram"></i></a>
+                  </div>
+                  <div class="col-sm">
+                    <a href="https://www.facebook.com" target="_blank" rel="noopener" aria-label="Reach out in Facebook"><i class="fa-brands fa-facebook"></i></a>
+                  </div>
+                </div>
+            </div>
+        </nav>
+                    <ul>
+                        <!-- Info about User authentification -->
+                        {% if user.is_authenticated %}
+                        <li>
+                            Hi <strong>{{ user.username }} </strong> You are connected
+                        </li>
+                        <li>
+                            <a href="{% url 'account_logout' %}">Logout</a>
+                        </li>
+                        {% else %}
+                        <li>
+                            <a href="{% url 'account_signup' %}">Registrer</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'account_login' %}">Login</a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </div>
             </div>
             <div>
                 <ul>
@@ -72,13 +92,28 @@
 
     <!-- Footer with Copyright and Social Networks Links -->
     <footer>
-        <div>
-            <p id="educational">This is an educational site created as part of <a href="https://codeinstitute.net/" target="_blank" rel="noopener" aria-label="Visit the Code Institude website">Code Institute</a>'s Full Stack Software Development course by CÉcile</p>
-        </div>
-        <div id="social-networks">
-            <p><a href="https://github.com/cecilegaudron/" target="_blank" rel="noopener" aria-label="Visit my GitHub account>"><i class="fa-brands fa-github"></i></a></p>
-            <p><a href="https://www.linkedin.com/in/cecilegaudron/" target="_blank" rel="noopener" aria-label="Reach out in LinkedIn"><i class="fa-brands fa-linkedin"></i></a></p>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm">
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="col-sm">
+                    <a href="https://www.instagram.com" target="_blank" rel="noopener" aria-label="Reach out in Instagram"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+                <div class="col-sm">
+                <a href="https://www.facebook.com" target="_blank" rel="noopener" aria-label="Reach out in Facebook"><i class="fa-brands fa-facebook"></i></a>
+                </div>
+                <div class="col-sm">
+                    <p>© OUTscape - {% now 'Y' %}</p>
+                </div>
+            </div>
+            <div>
+                    <p>This is an educational site created as part of <a href="https://codeinstitute.net/" target="_blank" rel="noopener" aria-label="Visit the Code Institude website">Code Institute</a>'s Full Stack Software Development course. Created by CÉcile <a href="https://github.com/cecilegaudron/" target="_blank" rel="noopener" aria-label="Visit my GitHub account>"><i class="fa-brands fa-github"></i></a></p>
+            </div>
+            </div>
         </div>
     </footer>
+    <!-- Font awesome script -->
+    <script src="https://kit.fontawesome.com/3ee526735d.js" crossorigin="anonymous"></script>
 </body>
 </html>

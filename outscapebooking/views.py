@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
 from django.views import generic, View
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, DetailView
 from django.utils.timezone import now
 from datetime import date
 from .forms import BookingForm
@@ -43,32 +43,51 @@ class BookingList(generic.ListView):
     # If more of 6 bookings a new page is created
     paginate_by = 10
 
-"""
+
 # Display the booking to the user
+class BookingDetailView(DetailView):
+    model = Booking
+
+"""
 class MyBooking(View):
 
     def get(self, request):
-        query set
 
         if request.user.is_authenticated:
-            reservation = get_object_or_404(Booking, id=reservation_id)
+            model = Booking
+            #reservation = get_object_or_404(Booking, id=booking_id)
             current_user = request.user
+            player_name = current_user
+            queryset = Booking.objects.filter(status=1, bookdate__gte=now().date())
 
-            if current_user == reservation.user:
+            if current_user == player_name:
+                #template_name = 'booking-detail'
+                #return HttpResponseRedirect('booking_detail.html')
+                booking = Booking.objects.filter(player_name)
+
                 context = {
-                    "Your booking is the:": reservation.bookdate,
-                    "At:": reservation.timeslot
+                    "Your booking is the:": bookdate,
+                    "At:": timeslot,
+                    "Info": comment
                 }
+
             else:
                 return redirect(reverse("booking"))
         else:
             return redirect(reverse("account_login"))
-"""
+
 
 class MyBooking(View):
 
     def get(self, request, *args, **kwargs):
-        """
+        model = Booking
+        queryset = Booking.objects.filter(status=1, bookdate__gte=now().date())
+        # The list view is display on the index page
+        template_name = 'booking-detail'
+
+class MyBooking(View):
+
+    def get(self, request, *args, **kwargs):
         queryset = Booking.objects.filter(status=1)
         booking = get_object_or_404(queryset)
 
@@ -80,20 +99,19 @@ class MyBooking(View):
                 "submitted": False,
             },
         )
-        """
         if request.user.is_authenticated:
             booking = Booking.objects.filter(user=request.user)
 
             return render(
                 request, 'booking.html',
                 {
-                    'bookings': bookings,
+                    'bookings': booking,
                 },
             )
 
         else:
             return redirect(reverse("account_login"))
-    
+
     def post(self, request, *args, **kwargs):
 
         queryset = Booking.objects.filter(status=1)
@@ -116,3 +134,4 @@ class MyBooking(View):
                 "submitted": True,
             },
         )
+"""
