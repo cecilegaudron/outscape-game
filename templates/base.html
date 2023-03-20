@@ -11,7 +11,7 @@
     <meta name="author" content="CÉcile Gaudron">
     <title>TO BE COMPLETED</title>
     <link href="../static/css/style.css" rel="stylesheet" type="text/css">
-    <link rel="shortcut icon" type="image/x-icon" href="{% static 'favicon/favicon.ico' %}">
+    <link rel="icon" type="image/x-icon" href="https://res.cloudinary.com/di8utbjhc/image/upload/v1679309942/outscape/favicon_y13mcs.png">
     <!-- Load Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
@@ -24,7 +24,7 @@
     <!-- Header with logo and navigation bar -->
     <header>
         <div id="logo">
-            <img class="img-flui img-responsive" src="https://res.cloudinary.com/di8utbjhc/image/upload/v1679248476/outscape/logo-outscape_ova2gu.png" alt="OUTscape logo">
+            <a href="{% url 'index' %}"><img class="img-fluid" src="https://res.cloudinary.com/di8utbjhc/image/upload/v1679248476/outscape/logo-outscape_ova2gu.png" alt="OUTscape logo"></a>
         </div>
 
         <!-- Navigation bar -->
@@ -38,7 +38,7 @@
                   <div class="col-sm">
                     <a href="game.html">The Game</a>
                   </div>
-                  <div class="col-sm">
+                  <div class="col-sm" id="book">
                     <a href="{% url 'booking' %}">Book</a>
                   </div>
                   <div class="col-sm">
@@ -84,11 +84,11 @@
     </header>
 
     <!-- Content block -->
-    <section>
+    <main>
         {% block content %}
         <!-- Place for content -->
         {% endblock content %}
-    </section>
+    </main>
 
     <!-- Footer with Copyright and Social Networks Links -->
     <footer>
@@ -98,10 +98,10 @@
                     <a href="contact.html">Contact</a>
                 </div>
                 <div class="col-sm">
-                    <a href="https://www.instagram.com" target="_blank" rel="noopener" aria-label="Reach out in Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.instagram.com" target="_blank" rel="noopener" aria-label="Reach out in Instagram"><i class="fa-brands fa-instagram icon-footer"></i></a>
                 </div>
                 <div class="col-sm">
-                <a href="https://www.facebook.com" target="_blank" rel="noopener" aria-label="Reach out in Facebook"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.facebook.com" target="_blank" rel="noopener" aria-label="Reach out in Facebook"><i class="fa-brands fa-facebook icon-footer"></i></a>
                 </div>
                 <div class="col-sm">
                     <p>© OUTscape - {% now 'Y' %}</p>

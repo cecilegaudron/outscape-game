@@ -46,9 +46,59 @@ class BookingList(generic.ListView):
 
 # Display the booking to the user
 class BookingDetailView(DetailView):
+    queryset = Booking.objects.filter(status=1)
+    """
     model = Booking
+    booking = Booking.booking_id
+    queryset = Booking.objects.filter(status=1)
+    template_name = ''
+    """
+
+    def detail_booking(request, booking_id):
+    #def get(self, request, booking_id, *args, **kwargs):
+        
+        if request.user.is_authenticated:
+            reservation = get_object_or_404(Booking, id=booking_id)
+            #model = Booking
+            current_user = request.user
+
+            if current_user == reservation.user:
+                context = {
+                    "id": reservation.booking_id,
+                    "date": reservation.bookdate,
+                    "time": reservation.timeslot
+                }
+        else:
+            return redirect(reverse("account_login"))
+
+            #player_name = current_user
+            #queryset = Booking.objects.filter(status=1, bookdate__gte=now().date())
 
 """
+            return render(
+                request, 
+                "booking_detail.html",
+                {
+                    "booking": Booking,
+                    "user": Booking.player_name,
+                    "id": Booking.booking_id
+                },
+            )
+        else:
+            return redirect(reverse("account_login"))
+
+        if request.user.is_authenticated:
+            model = Booking
+            
+            booking = get_object_or_404(Booking, booking_id=booking_id)
+            current_user = request.user
+            player_name = current_user
+            #queryset = Booking.objects.filter(status=1, bookdate__gte=now().date())
+        
+        else:
+            return redirect(reverse("account_login"))
+
+
 class MyBooking(View):
 
     def get(self, request):

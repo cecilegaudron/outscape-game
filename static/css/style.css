@@ -1,6 +1,7 @@
 /* import fonts from fonts google */
 @import url('https://fonts.google.com/specimen/Kanit?preview.text=BERLIN%20%C3%9F%20%C3%A9%20%C3%A8%20&preview.text_type=custom&category=Sans+Serif,Display,Monospace');
 
+/* General styles */
 * {
     margin: 0;
     padding: 0;
@@ -12,23 +13,43 @@ body {
     font-size: 1.2rem;
 }
 
+section, div {
+    max-width: 100%;
+    overflow: hidden;
+}
+
 #logo {
-    width: 5%;
+    width: 20%;
 }
 
 nav {
     background-color: #e8e7e7;
+    text-transform: uppercase;
+    font-size: 1.4rem;
 }
 
 nav a {
     color: black;
-    text-transform: capitalize;
+    text-decoration: none;
 }
 
 nav a:hover {
     color: #c26c51;
     text-decoration: none;
-    text-transform: capitalize;
+}
+
+#book {
+    background-color: #c26c51;
+}
+
+#book a {
+    color: white;
+    font-weight: bolder;
+}
+
+#book a:hover {
+    color: #e8e7e7 !important;
+    font-weight: bolder;
 }
 
 footer {
@@ -47,4 +68,17 @@ footer a {
 
 footer a:hover {
     color: #c26c51;
+}
+
+.icon-footer {
+    font-size: 2rem;
+}
+
+/* Home page */
+#welcome-img {
+    width: 100%;
+}
+
+.welcome {
+    margin: auto;
 }

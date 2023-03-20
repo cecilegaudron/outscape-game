@@ -15,7 +15,8 @@
         {% else %}
         <!-- {% if user.is_authenticated %} -->
         <div style="background-color: beige;">
-            {% for booking in booking_list %}
+            <!-- {% for booking in booking_list %} -->
+            {% url 'booking_detail' booking_id %}
             <div>
                     <h2>Your booking is booked for the : {{ booking.bookdate }}</h2>
                     <p>Hour : {{booking.timeslot}}</p>

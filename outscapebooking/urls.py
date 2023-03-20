@@ -9,5 +9,6 @@ urlpatterns = [
     path('booking.html', views.make_booking, name='booking'),
     path('booking_list.html', views.BookingList.as_view(), name='booking-list'),
     #path('booking/<int:pk>/', views.BookingDetailView.as_view(), name='booking-detail'),
+    #path('booking_detail.html/<booking_id>', views.BookingDetailView.as_view(), name='booking-detail'),
     path('booking_detail.html', views.BookingDetailView.as_view(), name='booking-detail'),
 ]
