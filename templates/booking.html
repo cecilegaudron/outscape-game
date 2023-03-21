@@ -2,11 +2,9 @@
 
 {% block content %}
 <section>
-    <div>
+    <div class="mx-auto">
         <h1>MAKE A BOOKING</h1>
-        
-    </div>
-    <div style="background-color: blanchedalmond;">
+        <div style="background-color: blanchedalmond;" class="booking-form">
         {% if user.is_authenticated %}
 
         {% if submitted %}
@@ -14,18 +12,21 @@
 
         {% else %}
         <!-- Block booking form -->
-            <form method="POST" action="{% url 'booking' %}">
-                <!-- Security tocken -->
-                {% csrf_token %}
-                <!-- https://www.geeksforgeeks.org/form-as_p-render-django-forms-as-paragraph/ -->
-                {{ form.as_p }}
-                <button type="submit" value="Submit">Book the game</button>
-            </form>
+            <div class="form-group">
+                <form method="POST" action="{% url 'booking' %}">
+                    <!-- Security tocken -->
+                    {% csrf_token %}
+                    <!-- https://www.geeksforgeeks.org/form-as_p-render-django-forms-as-paragraph/ -->
+                    {{ form.as_p }}
+                    <button type="submit" value="Submit">Book the game</button>
+                </form>
+            </div>
         <!--{% endif %}-->
         {% else %}
         <p>You need to be connected to your personal account to make a booking.<br>
-            Please <a href="{% url 'account_login' %}">login</a> or <a href="{% url 'account_signup' %}">register</a>.</p>
+        Please <a href="{% url 'account_login' %}">login</a> or <a href="{% url 'account_signup' %}">register</a>.</p>
         {% endif %}
+        </div>
     </div>
 </section>
 {% endblock %}

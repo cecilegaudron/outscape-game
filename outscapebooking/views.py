@@ -35,13 +35,16 @@ def make_booking(request):
     return render(request, "booking.html", {'form': form, 'submitted': submitted})
 """
 
+
 class AddBookingView(CreateView):
     """
     This is the view for the booking form 
     """
     model = Booking
+    form_class = BookingForm
     template_name = 'booking.html'
-    fields = ('player_name', 'first_name', 'last_name', 'email', 'mobile', 'bookdate', 'timeslot', 'players', 'tickets', 'comment')
+    #fields = ('player_name', 'first_name', 'last_name', 'email', 'mobile', 'bookdate', 'timeslot', 'players', 'tickets', 'comment')
+
 
 class BookingList(ListView):
     """

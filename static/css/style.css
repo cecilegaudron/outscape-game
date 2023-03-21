@@ -22,6 +22,7 @@ section, div {
     width: 20%;
 }
 
+/* Navigation Bar */
 nav {
     background-color: #e8e7e7;
     text-transform: uppercase;
@@ -52,6 +53,7 @@ nav a:hover {
     font-weight: bolder;
 }
 
+/* Footer */
 footer {
     background-color: black;
     margin: auto;
@@ -74,6 +76,12 @@ footer a:hover {
     font-size: 2rem;
 }
 
+/* Text */
+h1 {
+    text-align: center;
+    color: #c26c51;
+}
+
 /* Home page */
 #welcome-img {
     width: 100%;
@@ -81,4 +89,15 @@ footer a:hover {
 
 .welcome {
     margin: auto;
+}
+
+/* Booking form */
+.booking-form {
+    margin: auto !important;
+    width: 70%;
+    text-align: center;
+}
+
+TextInput {
+    
 }
