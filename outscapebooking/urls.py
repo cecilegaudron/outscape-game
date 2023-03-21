@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from .views import BookingList, BookingDetailView, AddBookingView, UpdateBookingView
+from .views import BookingList, BookingDetailView, AddBookingView, UpdateBookingView, DeleteBookingView
 
 
 
@@ -14,7 +14,10 @@ urlpatterns = [
     # URL for Booking detail called by its Primary Key
     path('booking/<int:pk>/', BookingDetailView.as_view(), name='booking-detail'),
     # URL for Booking update
-    path('booking/edit/<int:pk>/', UpdateBookingView.as_view(), name='booking-update'),
+    path('booking/update/<int:pk>/', UpdateBookingView.as_view(), name='booking-update'),
+    # URL for Booking delete
+    path('booking/<int:pk>/delete', DeleteBookingView.as_view(), name='booking-delete'),
+    
     #path('booking_detail.html/<booking_id>', views.BookingDetailView.as_view(), name='booking-detail'),
     # path('booking_detail.html', views.BookingDetailView.as_view(), name='booking-detail'),
 ]

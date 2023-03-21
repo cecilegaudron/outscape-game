@@ -1,9 +1,10 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
 #from django.views import generic, View
-from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView
+from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.utils.timezone import now
 from datetime import date
+from django.urls import reverse_lazy
 from .forms import BookingForm
 from .models import Booking
 
@@ -73,11 +74,22 @@ class BookingDetailView(DetailView):
 class UpdateBookingView(UpdateView):
     """
     ClassBased View for the booking update
+    IF NEEDED OTHERS FIELDS THAN BOOKING, JUST CREATE A NEW FORM JUST FOR THE UPDATE
     """
     model = Booking
     form_class = BookingForm
     template_name = 'booking_update.html'
     #fields = ['first_name', 'last_name', 'email', 'mobile', 'bookdate', 'timeslot', 'players', 'tickets', 'comment']
+
+
+class DeleteBookingView(DeleteView):
+    """
+    ClassBased View for the booking remove
+    """
+    model = Booking
+    template_name = 'booking_delete.html'
+    success_url = reverse_lazy('booking-list')
+
 
     """
     VOIR SI UTILE

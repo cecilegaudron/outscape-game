@@ -1,28 +1,23 @@
 {% extends "base.html" %}
-{% block title %}Edit your OUTscape game booking{% endblock %}
+{% block title %}Delete your OUTscape game booking{% endblock %}
 
 {% block content %}
 <section>
     <div class="mx-auto">
-        <h1>Update your booking</h1>
+        <h1>Delete your booking</h1>
         <div class="booking-form">
         {% if user.is_authenticated %}
-
-        {% if submitted %}
-            Your reservation request has been sent. You will get a feedback from the organizers very soon
-
-        {% else %}
+        <h3>You booked the OUTscape game for the {{ booking.bookdate }} at {{booking.timeslot}}</h3>
         <!-- Block booking form -->
             <div class="form-group">
                 <form method="POST">
                     <!-- Security tocken -->
                     {% csrf_token %}
-                    {{ form.as_p }}
-                    <button type="submit" value="Submit" class="btn btn-dark">Update</button>
+                    <h3>Are you sure ?</h3>
+                    <button type="submit" value="Submit" class="btn btn-danger">Delete booking</button>
                 </form>
             </div>
-        {% endif %}
-        {% else %}
+            {% else %}
         <p>You need to be connected to your personal account to make a booking.<br>
         Please <a href="{% url 'account_login' %}">login</a> or <a href="{% url 'account_signup' %}">register</a>.</p>
         {% endif %}
