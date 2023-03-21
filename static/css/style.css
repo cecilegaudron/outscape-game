@@ -93,6 +93,7 @@ h1 {
 
 /* Booking form */
 .booking-form {
+    background-color: blanchedalmond;
     margin: auto !important;
     width: 70%;
     text-align: center;

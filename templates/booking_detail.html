@@ -17,6 +17,8 @@
             <p>Your name : {{ booking.first_name }}, {{ booking.last_name }}</p>
             <p>Your email : {{ booking.email }}</p>
             <p>Your telephone number : {{ booking.mobile }}</p>
+            <a href="{% url 'booking-update' booking.pk %}">[Edit the booking]</a>
+            <a href="#">[Cancel the booking]</a>
         </div>
     </div>
 </section>

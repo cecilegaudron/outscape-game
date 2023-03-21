@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
 #from django.views import generic, View
-from django.views.generic import TemplateView, ListView, DetailView, CreateView
+from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView
 from django.utils.timezone import now
 from datetime import date
 from .forms import BookingForm
@@ -61,13 +61,27 @@ class BookingList(ListView):
 
 class BookingDetailView(DetailView):
     """
-    Display the booking to the user
+    ClassBased View displaying the booking to the user
     """
     model = Booking
     #booking = Booking.booking_id
     #queryset = Booking.objects.filter(status=1)
     template_name = 'booking_detail.html'
+    #fields = ['first_name', 'last_name', 'email', 'mobile', 'bookdate', 'timeslot', 'players', 'tickets', 'comment']
+
+
+class UpdateBookingView(UpdateView):
     """
+    ClassBased View for the booking update
+    """
+    model = Booking
+    form_class = BookingForm
+    template_name = 'booking_update.html'
+    #fields = ['first_name', 'last_name', 'email', 'mobile', 'bookdate', 'timeslot', 'players', 'tickets', 'comment']
+
+    """
+    VOIR SI UTILE
+    AUPARAVANT CETAIT DANS BOOKINGDETAILVIEW
     def detail_booking(request, booking_id):
     #def get(self, request, booking_id, *args, **kwargs):
         

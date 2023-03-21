@@ -16,6 +16,8 @@
             <li style="background-color: beige;">
                 <h2>Your booking is booked for the : {{ booking.bookdate }}</h2>
                 <a href="{% url 'booking-detail' booking.pk %}">See details</a>
+                <a href="{% url 'booking-update' booking.pk %}">[Edit the booking]</a>
+                <a href="#">[Cancel the booking]</a>
                 <p>Hour : {{booking.timeslot}}
                 Comment :{{ booking.comment }}<br>
                 Your username : {{ user }}<br>

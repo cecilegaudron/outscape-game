@@ -139,13 +139,11 @@ class Booking(models.Model):
     def __str__(self):
         return f'Booking on {self.bookdate} {self.timeslot}'
 
-    # Redirection when the form is submitted
-    # An ID is created
+    # Redirection to the booking list when the form is submitted
     # https://www.youtube.com/watch?v=m3efqF9abyg&list=PLCC34OHNcOtr025c1kHSPrnP18YPB-NFi&index=5
     def get_absolute_url(self):
         #return HttpResponseRedirect('booking.html?submitted=True', args=(str(self.id)) )
-        # 
-        return reverse('booking')
+        return reverse('booking-list')
 
     @property
     def time(self):
