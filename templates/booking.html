@@ -4,8 +4,7 @@
 <section>
     <div>
         <h1>MAKE A BOOKING</h1>
-        <p>You need to be connected to your personal account to make a booking.<br>
-            Please <a href="{% url 'account_login' %}">login</a> or <a href="{% url 'account_signup' %}">register</a>.</p>
+        
     </div>
     <div style="background-color: blanchedalmond;">
         {% if user.is_authenticated %}
@@ -22,7 +21,10 @@
                 {{ form.as_p }}
                 <button type="submit" value="Submit">Book the game</button>
             </form>
-        {% endif %}
+        <!--{% endif %}-->
+        {% else %}
+        <p>You need to be connected to your personal account to make a booking.<br>
+            Please <a href="{% url 'account_login' %}">login</a> or <a href="{% url 'account_signup' %}">register</a>.</p>
         {% endif %}
     </div>
 </section>

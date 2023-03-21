@@ -4,36 +4,35 @@
 <section>
     <div>
         <h1>YOUR BOOKING</h1>
-        <p>You need to be connected to your personal account to see your booking.<br>
-            Please <a href="{% url 'account_login' %}">login</a> or <a href="{% url 'account_signup' %}">register</a>.</p>
-    </div>
-    <div style="background-color: blanchedalmond;">
-        {% if submitted %}
-        <div>
-            Your booking is awaiting approval
-        </div>
-        {% else %}
-        <!-- {% if user.is_authenticated %} -->
         <div style="background-color: beige;">
-            <!-- {% for booking in booking_list %} -->
-            {% url 'booking_detail' booking_id %}
-            <div>
-                    <h2>Your booking is booked for the : {{ booking.bookdate }}</h2>
-                    <p>Hour : {{booking.timeslot}}</p>
-                    <p>Number of players :{{ booking.players }}</p>
-                    <p>Number of BVG tickets :{{ booking.tickets }}</p>
-                    <p>Comment :{{ booking.comment }}</p>
-                    <p>Status : {{ booking.status }}</p>
-                    <br>
-                    <h3>Your personal infos :</h3>
-                    <p>Your name : {{ booking.first_name }}, {{ booking.last_name }}</p>
-                    <p>Your email : {{ booking.email }}</p>
-                    <p>Your telephone number : {{ booking.mobile }}</p>
-            </div>
-            {% endfor %}
+            <h2>You booked the OUTscape game for the {{ booking.bookdate }} at {{booking.timeslot}}</h2>
+            <p>Number of players :{{ booking.players }}</p>
+            <p>Number of BVG tickets :{{ booking.tickets }}</p>
+            <p>Comment :{{ booking.comment }}</p>
+            <p>Status : {{ booking.status }}</p>
+            <p>Booking_ID : {{ booking.booking_id }}</p>
+            <br>
+            <h3>Your personal infos :</h3>
+            <p>Your name : {{ booking.first_name }}, {{ booking.last_name }}</p>
+            <p>Your email : {{ booking.email }}</p>
+            <p>Your telephone number : {{ booking.mobile }}</p>
         </div>
-        <!-- {% endif %} -->
-        {% endif %}
     </div>
 </section>
+        
+<!-- <p>You need to be connected to your personal account to see your booking.<br>
+            Please <a href="{% url 'account_login' %}">login</a> or <a href="{% url 'account_signup' %}">register</a>.</p> 
+
+
+{% if submitted %}
+Your booking is awaiting approval
+
+    {% else %}
+        {% if user.is_authenticated %} 
+
+        {% endif %} 
+{% endif %}
+    </div>
+</section>
+-->
 {% endblock %}

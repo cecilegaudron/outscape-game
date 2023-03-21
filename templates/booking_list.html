@@ -1,31 +1,28 @@
 {% extends "base.html" %}
 
 {% block content %}
-
-<div>
-    <h1>This is my Bookings List Page</h1>
-</div>
+<section>
+    <div>
+        <h1>This is my Bookings List Page</h1>
+    </div>
 
     <!-- Block with list of Bookings -->
-    <!-- Add these info in the correct document when it is working properly -->
-    <section>
-        <div style="background-color: beige;">
-            {% for booking in booking_list %}
-            <div>
-                    <h2>Your booking is booked for the : {{ booking.bookdate }}</h2>
-                    <p>Hour : {{booking.timeslot}}</p>
-                    <p>Number of players :{{ booking.players }}</p>
-                    <p>Number of BVG tickets :{{ booking.tickets }}</p>
-                    <p>Comment :{{ booking.comment }}</p>
-                    <p>Status : {{ booking.status }}</p>
-                    <br>
-                    <h3>Your personal infos :</h3>
-                    <p>Your name : {{ booking.first_name }}, {{ booking.last_name }}</p>
-                    <p>Your email : {{ booking.email }}</p>
-                    <p>Your telephone number : {{ booking.mobile }}</p>
-            </div>
-            {% endfor %}
-        </div>
-    </section>
+    <!-- For loop to have every input in the database display on the page -->
+
+    <div>
+        <ul>
+        {% for booking in booking_list %}
+            <li style="background-color: beige;">
+                <h2>Your booking is booked for the : {{ booking.bookdate }}</h2>
+                <a href="{% url 'booking-detail' booking.pk %}">See details</a>
+                <p>Hour : {{booking.timeslot}}
+                Comment :{{ booking.comment }}<br>
+                Your username : {{ user }}<br>
+                Your player name : {{ booking.player_name }}<p>
+            </li>    
+        {% endfor %}
+        </ul>
+    </div>
+</section>
 
 {% endblock %}

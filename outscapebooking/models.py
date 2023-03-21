@@ -4,10 +4,10 @@ from django.core.exceptions import ValidationError
 from django.utils.timezone import now
 from datetime import date
 from django.core.validators import MaxValueValidator, MinValueValidator
+from django.urls import reverse
 
 # Different status for the booking
 # By default the booking status is 'pending'
-
 STATUS = ((0, "Pending"), (1, "Confirmed"), (2, "Declined"))
 
 """ Database model for booking app 
@@ -41,7 +41,8 @@ class Booking(models.Model):
     # User model
     player_name = models.ForeignKey(
         User,
-        on_delete=models.CASCADE
+        on_delete=models.CASCADE,
+        related_name="booking"
         )
 
     # User info with whole name
@@ -124,9 +125,6 @@ class Booking(models.Model):
     # Reservation ID
     booking_id = models.AutoField(auto_created=True, primary_key=True)
 
-    # Slug
-    #slug = models.SlugField(max_length=100, unique=True)
-
     class Meta:
         
         # Display the booking list in date descending order
@@ -137,10 +135,22 @@ class Booking(models.Model):
             models.UniqueConstraint(fields=['bookdate', 'timeslot'], name='unique_booking')
         ]
 
+    # Display the date and timeslot of booking as the title
     def __str__(self):
-        # Display the date and timeslot of booking as the title
         return f'Booking on {self.bookdate} {self.timeslot}'
+
+    # Redirection when the form is submitted
+    # An ID is created
+    # https://www.youtube.com/watch?v=m3efqF9abyg&list=PLCC34OHNcOtr025c1kHSPrnP18YPB-NFi&index=5
+    def get_absolute_url(self):
+        #return HttpResponseRedirect('booking.html?submitted=True', args=(str(self.id)) )
+        # 
+        return reverse('booking')
 
     @property
     def time(self):
         return self.TIMESLOT_LIST[self.timeslot][1]
+    """    
+    def user(self):
+        return User.objects.get(pk=self.user_id)
+        """

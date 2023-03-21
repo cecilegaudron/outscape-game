@@ -57,7 +57,7 @@
                         <!-- Info about User authentification -->
                         {% if user.is_authenticated %}
                         <li>
-                            Hi <strong>{{ user.username }} </strong> You are connected
+                            Hi <strong>{{ user.username }} ID number : {{ user.id }} // Player ID : {{ player_name.id }}</strong> You are connected
                         </li>
                         <li>
                             <a href="{% url 'account_logout' %}">Logout</a>
@@ -75,9 +75,12 @@
             </div>
             <div>
                 <ul>
-                    <li><a href="{% url 'booking' %}">MAKE A BOOKING</a></li>
+                    <!-- <li><a href="{% url 'booking' %}">MAKE A BOOKING</a></li>-->
                     <li><a href="{% url 'booking-list' %}">BOOKING LIST</a></li>
-                    <li><a href="{% url 'booking-detail' %}">BOOKING DETAILS</a></li>
+                    {% if user.is_authenticated %}
+                    <li><a href="">{{ user.booking }} BOOKING DETAILS</a></li>
+                    {% endif %}
+
                 </ul>
             </div>
         </nav>

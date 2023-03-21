@@ -1,16 +1,22 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
-from django.views import generic, View
-from django.views.generic import TemplateView, DetailView
+#from django.views import generic, View
+from django.views.generic import TemplateView, ListView, DetailView, CreateView
 from django.utils.timezone import now
 from datetime import date
 from .forms import BookingForm
 from .models import Booking
 
+
+# Basic view for Home Page
+def index(request):
+    return render(request, 'index.html', {})
+
 """
 This is the view for the Booking form
+THIS IS WORKING BUT THE ID IS NOT LINK WITH THE ID USER
 # https://www.youtube.com/watch?v=CVEKe39VFu8
-"""
+
 def make_booking(request):
     # Not load again the form if the user already submitted it
     submitted = False
@@ -27,33 +33,38 @@ def make_booking(request):
             submitted = True
 
     return render(request, "booking.html", {'form': form, 'submitted': submitted})
+"""
 
-# Bookings list 
-class BookingList(generic.ListView):
+class AddBookingView(CreateView):
+    """
+    This is the view for the booking form 
+    """
     model = Booking
-    '''
+    template_name = 'booking.html'
+    fields = ('player_name', 'first_name', 'last_name', 'email', 'mobile', 'bookdate', 'timeslot', 'players', 'tickets', 'comment')
+
+class BookingList(ListView):
+    """
+    ClassBased View for the booking list
     Filter the bookings with confirmed status
     Display only futur bookings
     https://stackoverflow.com/questions/4668619/how-do-i-filter-query-objects-by-date-range-in-django/4668703#4668703
     Order by date
-    '''
-    queryset = Booking.objects.filter(status=1, bookdate__gte=now().date()).order_by('bookdate')
-    # The list view is display on the index page
-    template_name = 'index.html'
-    # If more of 6 bookings a new page is created
-    paginate_by = 10
-
-
-# Display the booking to the user
-class BookingDetailView(DetailView):
-    queryset = Booking.objects.filter(status=1)
     """
     model = Booking
-    booking = Booking.booking_id
-    queryset = Booking.objects.filter(status=1)
-    template_name = ''
-    """
+    template_name = 'booking_list.html'
+    queryset = Booking.objects.filter(status=1, bookdate__gte=now().date()).order_by('bookdate')
 
+
+class BookingDetailView(DetailView):
+    """
+    Display the booking to the user
+    """
+    model = Booking
+    #booking = Booking.booking_id
+    #queryset = Booking.objects.filter(status=1)
+    template_name = 'booking_detail.html'
+    """
     def detail_booking(request, booking_id):
     #def get(self, request, booking_id, *args, **kwargs):
         
@@ -74,7 +85,7 @@ class BookingDetailView(DetailView):
             #player_name = current_user
             #queryset = Booking.objects.filter(status=1, bookdate__gte=now().date())
 
-"""
+
             return render(
                 request, 
                 "booking_detail.html",
