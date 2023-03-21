@@ -9,8 +9,8 @@
     <meta name="description" content="TO BE COMPLETED">
     <meta name="keywords" content="TO BE COMPLETED">
     <meta name="author" content="CÉcile Gaudron">
-    <title>TO BE COMPLETED</title>
-    <link href="../static/css/style.css" rel="stylesheet" type="text/css">
+    <title>OUTscape Game Berlin</title>
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css">
     <link rel="icon" type="image/x-icon" href="https://res.cloudinary.com/di8utbjhc/image/upload/v1679309942/outscape/favicon_y13mcs.png">
     <!-- Load Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -57,7 +57,7 @@
                         <!-- Info about User authentification -->
                         {% if user.is_authenticated %}
                         <li>
-                            Hi <strong>{{ user.username }} ID number : {{ user.id }} // Player ID : {{ player_name.id }}</strong> You are connected
+                            Hi <strong>{{ user.username }} ID number : {{ user.id }}</strong> You are connected
                         </li>
                         <li>
                             <a href="{% url 'account_logout' %}">Logout</a>
@@ -78,7 +78,7 @@
                     <!-- <li><a href="{% url 'booking' %}">MAKE A BOOKING</a></li>-->
                     <li><a href="{% url 'booking-list' %}">BOOKING LIST</a></li>
                     {% if user.is_authenticated %}
-                    <li><a href="">{{ user.booking }} BOOKING DETAILS</a></li>
+                    <li><a href="">{{ player_name.booking }} BOOKING DETAILS</a></li>
                     {% endif %}
 
                 </ul>

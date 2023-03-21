@@ -2,30 +2,39 @@
 {% block title %}OUTscape game bookings List{% endblock %}
 
 {% block content %}
+<!-- Block with list of Bookings -->
 <section>
     <div>
         <h1>This is my Bookings List Page</h1>
     </div>
-
-    <!-- Block with list of Bookings -->
-    <!-- For loop to have every input in the database display on the page -->
-
     <div>
-        <ul>
+        <!-- A For loop to have every input in the database display on the page -->
         {% for booking in booking_list %}
-            <li style="background-color: beige;">
-                <h2>Your booking is booked for the : {{ booking.bookdate }}</h2>
-                <a href="{% url 'booking-detail' booking.pk %}">See details</a>
-                <a href="{% url 'booking-update' booking.pk %}">[Edit the booking]</a>
-                <a href="{% url 'booking-delete' booking.pk %}">[Cancel the booking]</a>
-                <p>Hour : {{booking.timeslot}}
-                Comment :{{ booking.comment }}<br>
-                Your username : {{ user }}<br>
-                Your player name : {{ booking.player_name }}<p>
-            </li>    
+            <!-- Check if the user is authenticated to his personal account -->
+            {% if user.is_authenticated %}
+                <!-- Check if the current user has the ID with the player ID -->
+                <!-- If it is the case, the user can see his booking, edit and delete it -->
+                {% if user.id == booking.player_name.id %}
+                    <ul>
+                        <li style="background-color: beige;">
+                            <h2>Your booking is booked for the : {{ booking.bookdate }}</h2>
+                                <a href="{% url 'booking-detail' booking.pk %}">See details</a>
+                                <a href="{% url 'booking-update' booking.pk %}">[Edit the booking]</a>
+                                <a href="{% url 'booking-delete' booking.pk %}">[Cancel the booking]</a>
+                            <p>Hour : {{ booking.timeslot }}<br>
+                            Comment :{{ booking.comment }}<br>
+                            Your player name : {{ booking.player_name }}<br>
+                            Your player name ID : {{ booking.player_name.id }}<p>
+                        </li>
+                    </ul>
+                {% else %}
+                <p class="alert alert-danger">You have no right on this booking</p>
+                {% endif %}
+            {% else %}
+                <p class="alert alert-secondary mx-auto">You need to be connected to your personal account to see your booking(s).<br>
+                Please <a href="{% url 'account_login' %}">login</a> or <a href="{% url 'account_signup' %}">register</a>.</p>
+            {% endif %}
         {% endfor %}
-        </ul>
     </div>
 </section>
-
 {% endblock %}

@@ -5,23 +5,27 @@
 <section>
     <div class="mx-auto">
         <h1>Delete your booking</h1>
-        <div class="booking-form">
         {% if user.is_authenticated %}
-        <h3>You booked the OUTscape game for the {{ booking.bookdate }} at {{booking.timeslot}}</h3>
-        <!-- Block booking form -->
-            <div class="form-group">
-                <form method="POST">
-                    <!-- Security tocken -->
-                    {% csrf_token %}
-                    <h3>Are you sure ?</h3>
-                    <button type="submit" value="Submit" class="btn btn-danger">Delete booking</button>
-                </form>
-            </div>
-            {% else %}
-        <p>You need to be connected to your personal account to make a booking.<br>
-        Please <a href="{% url 'account_login' %}">login</a> or <a href="{% url 'account_signup' %}">register</a>.</p>
+            {% if user.id == booking.player_name.id %}
+                <div class="booking-form">
+                    <h3>You booked the OUTscape game for the {{ booking.bookdate }} at {{booking.timeslot}}</h3>
+                    <!-- Block booking form -->
+                    <div class="form-group">
+                        <form method="POST">
+                            <!-- Security tocken -->
+                            {% csrf_token %}
+                            <h3>Are you sure ?</h3>
+                            <button type="submit" value="Submit" class="btn btn-danger">Delete booking</button>
+                        </form>
+                    </div>
+                </div>
+            {% else %}        
+                <p class="alert alert-danger">You have not the right to do this. This is a technical problem.</p>
+            {% endif %}
+        {% else %}
+            <p class="alert alert-secondary mx-auto">You need to be connected to your personal account to delete your booking(s).<br>
+            Please <a href="{% url 'account_login' %}">login</a> or <a href="{% url 'account_signup' %}">register</a>.</p>
         {% endif %}
-        </div>
     </div>
 </section>
 {% endblock %}
