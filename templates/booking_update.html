@@ -5,7 +5,7 @@
 <section>
     <div class="mx-auto">
         <h1>Update your booking</h1>
-        <div class="booking-form">
+        <div class="detail-booking">
         {% if user.is_authenticated %}
 
         {% if submitted %}
@@ -18,7 +18,9 @@
                     <!-- Security tocken -->
                     {% csrf_token %}
                     {{ form.as_p }}
-                    <button type="submit" value="Submit" class="btn btn-dark">Update</button>
+                    <div class="button-booking">
+                        <button type="submit" value="Submit" class="btn btn-secondary btn-update">Update</button>
+                    </div>
                 </form>
             </div>
         {% endif %}

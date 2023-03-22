@@ -7,15 +7,19 @@
         <h1>Delete your booking</h1>
         {% if user.is_authenticated %}
             {% if user.id == booking.player_name.id %}
-                <div class="booking-form">
-                    <h3>You booked the OUTscape game for the {{ booking.bookdate }} at {{booking.timeslot}}</h3>
+                <div class="background-booking">
+                    <h2>Your booking is :</h2>
+                    <p class="detail-booking-txt">{{ booking.bookdate }}<br>
+                        at {{booking.timeslot}}</p>
                     <!-- Block booking form -->
                     <div class="form-group">
                         <form method="POST">
                             <!-- Security tocken -->
                             {% csrf_token %}
-                            <h3>Are you sure ?</h3>
-                            <button type="submit" value="Submit" class="btn btn-danger">Delete booking</button>
+                            <p>Are you sure you want to delete your booking?</p>
+                            <button type="submit" value="Submit" class="btn btn-danger btn-cancel">YES I delete</button>
+                            <br>
+                            <button type="submit" value="Submit" class="btn btn-secondary btn-edit">Back</button>
                         </form>
                     </div>
                 </div>

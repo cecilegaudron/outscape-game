@@ -7,22 +7,25 @@
         <h1>YOUR BOOKING</h1>
         {% if user.is_authenticated %}
             {% if user.id == booking.player_name.id %}
-                <div style="background-color: beige;">
-                    <h2>You booked the OUTscape game for the {{ booking.bookdate }} at {{booking.timeslot}}</h2>
-                    <p>Number of players :{{ booking.players }}</p>
-                    <p>Number of BVG tickets :{{ booking.tickets }}</p>
-                    <p>Comment :{{ booking.comment }}</p>
-                    <p>Status : {{ booking.status }}</p>
-                    <p>Booking_ID : {{ booking.booking_id }}<br>
-                    Your player name : {{ booking.player_name }}<br>
-                    Your player name ID : {{ booking.player_name.id }}</div>p>
-                    <br>
+                <div class="detail-booking">
+                    <h2>Your OUTscape game booking is :</h2>
+                    <p class="detail-booking-txt">{{ booking.bookdate }}<br>
+                        at {{booking.timeslot}}</p>
+                    Number of players : <strong>{{ booking.players }}</strong><br>
+                    Number of BVG tickets : <strong>{{ booking.tickets }}</strong><br>
+                    Comment : <strong>{{ booking.comment }}</strong><br>
+                    Your player name : <strong>{{ booking.player_name }}</strong><br>
+                    Your player name ID : <strong>{{ booking.player_name.id }}</strong></p>
+                </div>
+                <div>
                     <h3>Your personal infos :</h3>
-                    <p>Your name : {{ booking.first_name }}, {{ booking.last_name }}</p>
-                    <p>Your email : {{ booking.email }}</p>
-                    <p>Your telephone number : {{ booking.mobile }}</p>
-                    <a href="{% url 'booking-update' booking.pk %}">[Edit the booking]</a>
-                    <a href="{% url 'booking-delete' booking.pk %}">[Cancel the booking]</a>
+                    Your name : <strong></strong>{{ booking.first_name }}, {{ booking.last_name }}</strong><br>
+                    Your email : <strong>{{ booking.email }}</strong><br>
+                    Your telephone number : <strong></strong>{{ booking.mobile }}</strong><br>
+                </div>
+                <div class="button-booking">
+                    <button type="button" class="btn btn-secondary btn-update"><a href="{% url 'booking-update' booking.pk %}">Edit</a></button>
+                    <button type="button" class="btn btn-danger btn-cancel"><a href="{% url 'booking-delete' booking.pk %}">Cancel</a></button>
                 </div>
             {% endif %}
         {% endif %}

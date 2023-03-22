@@ -11,7 +11,6 @@
         </p>
     </div>
     <div>
-        <h2>Your future bookings</h2>
         <!-- A For loop to have every input in the database display on the page -->
         {% for booking in booking_list %}
             <!-- Check if the user is authenticated to his personal account --> 
@@ -20,15 +19,15 @@
                 <!-- If it is the case, the user can see his booking, edit and delete it --> 
                 {% if user.id == booking.player_name.id %}
                     <ul>
-                        <li style="background-color: beige;">
-                            <h2>Your booking is booked for the : {{ booking.bookdate }}</h2>
-                                <a href="{% url 'booking-detail' booking.pk %}">See details</a>
-                                <a href="{% url 'booking-update' booking.pk %}">[Edit the booking]</a>
-                                <a href="{% url 'booking-delete' booking.pk %}">[Cancel the booking]</a>
+                        <li class="list-booking">
+                            <h2>You booked for the : </h2>
+                            <p class="detail-booking-txt">{{ booking.bookdate }}</p>
+                            <a href="{% url 'booking-update' booking.pk %}">[Edit the booking]</a>
+                            <a href="{% url 'booking-delete' booking.pk %}">[Cancel the booking]</a>
                             <p>Hour : {{ booking.timeslot }}<br>
                             Comment :{{ booking.comment }}<br>
-                            Your player name : {{ booking.player_name }}<br>
-                            Your player name ID : {{ booking.player_name.id }}<p>
+                            Your player name : {{ booking.player_name }}</p>
+                            <button type="button" class="btn btn-dark btn-detail"><a href="{% url 'booking-detail' booking.pk %}">See details</a></button>
                         </li>
                     </ul>
                 {% endif %}
