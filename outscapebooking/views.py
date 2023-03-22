@@ -7,6 +7,7 @@ from datetime import date
 from django.urls import reverse_lazy
 from .forms import BookingForm
 from .models import Booking
+from django.utils.functional import cached_property
 
 
 # Basic view for Home Page
@@ -58,6 +59,33 @@ class BookingList(ListView):
     model = Booking
     template_name = 'booking_list.html'
     queryset = Booking.objects.filter(status=1, bookdate__gte=now().date()).order_by('bookdate')
+
+
+"""
+class PersonalBookingList(ListView):
+    FIND ANOTHER SOLUTION THIS IS NOT WORKING
+    ClassBased View for personal booking
+    Filter the bookings with the playername ID
+    Display only the bookings made by this user
+    model = Booking
+    template_name = "booking_list.html"
+
+    #@cached_property
+    def booking_exist(self):
+        if user.id == booking.player_name.id:
+            return Booking.objects.filter(status=1, bookdate__gte=now().date()).order_by('bookdate')
+"""
+
+class PastBookingList(ListView):
+    """
+    NEED TO BE TESTED, DONT KNOW IF IT IS WORKING !
+    ClassBased View for past booking list
+    Display only the past bookings
+    The user can also add experience game feedbacks
+    """
+    model = Booking
+    template_name = 'booking_past.html'
+    queryset = Booking.objects.filter(status=1, bookdate__lt=now().date()).order_by('-bookdate')
 
 
 class BookingDetailView(DetailView):

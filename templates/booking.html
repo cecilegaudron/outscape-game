@@ -22,16 +22,6 @@
                     <button type="submit" value="Submit" class="btn btn-dark">Book the game</button>
                 </form>
             </div>
-
-            <!-- Some JavaScript lines
-                The user can only make a booking with his user ID/player name
-                This is for the plaer name field on the forms.py
-            https://www.youtube.com/watch?v=TAH01Iy5AuE&list=PLCC34OHNcOtr025c1kHSPrnP18YPB-NFi&index=17 -->
-            <script>
-                var name = "{{ user.id }}";
-                document.getElementById("playername").value = name;
-            </script>
-
         <!--{% endif %}-->
         {% else %}
         <p>You need to be connected to your personal account to make a booking.<br>
@@ -40,4 +30,12 @@
         </div>
     </div>
 </section>
+<!-- Some JavaScript lines
+The user can only make a booking with his user ID/player name
+This is for the plaer name field on the forms.py
+https://www.youtube.com/watch?v=TAH01Iy5AuE&list=PLCC34OHNcOtr025c1kHSPrnP18YPB-NFi&index=17 -->
+<script>
+    var name = "{{ user.id }}";
+    document.getElementById("playername").value = name;
+</script>
 {% endblock %}
