@@ -12,7 +12,7 @@
     <title>OUTscape Game Berlin</title>
     <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css">
     <link rel="icon" type="image/x-icon" href="https://res.cloudinary.com/di8utbjhc/image/upload/v1679309942/outscape/favicon_y13mcs.png">
-    <!-- Load Bootstrap -->
+    <!-- Load Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
@@ -21,7 +21,6 @@
     <!-- Load an icon library to show a hamburger menu (bars) on small screens -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-
 <body>
     <!-- Header with logo and navigation bar -->
     <header>
@@ -42,9 +41,6 @@
                 <!-- Hamburger menu Bar icon -->
                 <a href="javascript:void(0);" class="icon" onclick="myFunction()"><i class="fa-solid fa-bars"></i></a>
             </div>
-
-
-
             <!-- <div class="container">
                 <div class="row">
                   <div class="col-sm">
@@ -68,42 +64,36 @@
                 </div>
             </div> -->
         </nav>
-                    <ul>
-                        <!-- Info about User authentification -->
-                        {% if user.is_authenticated %}
-                        <li>
-                            Hi <strong>{{ user.username }} ID number : {{ user.id }}</strong> You are connected
-                        </li>
-                        <li>
-                            <a href="{% url 'account_logout' %}">Logout</a>
-                        </li>
-                        {% else %}
-                        <li>
-                            <a href="{% url 'account_signup' %}">Registrer</a>
-                        </li>
-                        <li>
-                            <a href="{% url 'account_login' %}">Login</a>
-                        </li>
-                        {% endif %}
-                    </ul>
-                </div>
-            </div>
-            <!-- If the user is authenticated the booking list is display -->
-            <div>
-                {% if user.is_authenticated %}
-                    <a href="{% url 'booking-list' %}">BOOKING LIST</a>
-                {% endif %}
+        <nav>
+            <!-- Navbar for user connected -->
+            <div class="nav-connected">
+                <ul>
+                    <!-- Info about User authentification -->
+                    {% if user.is_authenticated %}
+                    <li>
+                        <i class="fa-solid fa-user-large"></i> You are connected as <strong>{{ user.username }}</strong>
+                    </li>
+                    <li>
+                        <a href="{% url 'booking' %}">Book the game</a> | <a href="{% url 'booking-list' %}">Your booking</a> | <a href="{% url 'account_logout' %}">Logout</a>
+                    </li>
+                    {% else %}
+                    <li>
+                        <a href="{% url 'account_signup' %}">Registrer</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'account_login' %}">Login</a>
+                    </li>
+                    {% endif %}
+                </ul>
             </div>
         </nav>
     </header>
-
     <!-- Content block -->
     <main>
         {% block content %}
         <!-- Place for content -->
         {% endblock content %}
     </main>
-
     <!-- Footer with Copyright and Social Networks Links -->
     <footer>
         <div class="container">
@@ -122,7 +112,7 @@
                 </div>
             </div>
             <div>
-                    <p>This is an educational site created as part of <a href="https://codeinstitute.net/" target="_blank" rel="noopener" aria-label="Visit the Code Institude website">Code Institute</a>'s Full Stack Software Development course. Created by CÉcile <a href="https://github.com/cecilegaudron/" target="_blank" rel="noopener" aria-label="Visit my GitHub account>"><i class="fa-brands fa-github"></i></a></p>
+                <p>This is an educational site created as part of <a href="https://codeinstitute.net/" target="_blank" rel="noopener" aria-label="Visit the Code Institude website">Code Institute</a>'s Full Stack Software Development course. Created by CÉcile <a href="https://github.com/cecilegaudron/" target="_blank" rel="noopener" aria-label="Visit my GitHub account>"><i class="fa-brands fa-github"></i></a></p>
             </div>
             </div>
         </div>

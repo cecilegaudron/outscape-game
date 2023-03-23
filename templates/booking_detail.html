@@ -24,8 +24,8 @@
                     Your telephone number : <strong></strong>{{ booking.mobile }}</strong><br>
                 </div>
                 <div class="button-booking">
-                    <button type="button" class="btn btn-secondary btn-update"><a href="{% url 'booking-update' booking.pk %}">Edit</a></button>
-                    <button type="button" class="btn btn-danger btn-cancel"><a href="{% url 'booking-delete' booking.pk %}">Cancel</a></button>
+                    <button type="button" class="btn btn-secondary btn-grey"><a href="{% url 'booking-update' booking.pk %}">Edit</a></button>
+                    <button type="button" class="btn btn-danger btn-red"><a href="{% url 'booking-delete' booking.pk %}">Cancel</a></button>
                 </div>
             {% endif %}
         {% endif %}

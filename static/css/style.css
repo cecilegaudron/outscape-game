@@ -13,10 +13,13 @@ body {
     font-size: 1.2rem;
 }
 
-section, div {
+section {
     max-width: 100%;
-    margin: 1%;
     overflow: hidden;
+}
+
+div {
+    max-width: 90%;
 }
 
 #logo {
@@ -40,6 +43,10 @@ section, div {
     text-decoration: none;
 }
 
+.center-content {
+    text-align: center;
+}
+
 /* General styles for text */
 h1 {
     text-align: center;
@@ -58,6 +65,7 @@ h2 {
 p {
     font-family: 'Kanit', sans-serif;
     font-size: 1.1rem;
+    padding: 2%;
 }
 
 /* Styles for text on booking forms, input, details */
@@ -67,7 +75,6 @@ p {
     font-weight: bolder;
     text-align: center;
 }
-
 
 /* Navigation Bar for Mobile it is a Hamburger Menu */
 /* Add a black background color to the top navigation */
@@ -188,6 +195,23 @@ Show the link that contains should open and close the topnav (.icon) */
 }
 */
 
+/* Nav bar if user is connected */
+.nav-connected li {
+    background-color: #c26c51;
+    padding: 1%;
+    list-style-type: none;
+    width:80%;
+    color: #e8e7e7;
+}
+
+.nav-connected a {
+    color: #e8e7e7;
+}
+
+.nav-connected a:hover {
+    color: black;
+}
+
 /* Footer */
 footer {
     background-color: black;
@@ -258,12 +282,12 @@ footer a:hover {
     text-align: center;
 }
 
-.btn-update a:hover {
+.btn-grey a:hover {
     color: black;
     text-decoration: none;
 }
 
-.btn-cancel a:hover {
+.btn-red a:hover {
     color: black;
     text-decoration: none;
 }

@@ -1,6 +1,5 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
-#from django.views import generic, View
 from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.utils.timezone import now
 from datetime import date
@@ -8,11 +7,20 @@ from django.urls import reverse_lazy
 from .forms import BookingForm
 from .models import Booking
 from django.utils.functional import cached_property
+from django.contrib import messages
 
 
 # Basic view for Home Page
 def index(request):
     return render(request, 'index.html', {})
+
+# Basic view for Home Page
+def game(request):
+    return render(request, 'game.html', {})
+
+# Basic view for Home Page
+def contact(request):
+    return render(request, 'contact.html', {})
 
 """
 This is the view for the Booking form
@@ -45,7 +53,6 @@ class AddBookingView(CreateView):
     model = Booking
     form_class = BookingForm
     template_name = 'booking.html'
-    #fields = ('player_name', 'first_name', 'last_name', 'email', 'mobile', 'bookdate', 'timeslot', 'players', 'tickets', 'comment')
 
 
 class BookingList(ListView):

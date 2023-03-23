@@ -60,7 +60,7 @@ class Booking(models.Model):
 
     # Email
     email = models.EmailField(
-        "Your email address*", 
+        "Your email address*",
         blank=False,
         unique=True
         )
@@ -135,6 +135,7 @@ class Booking(models.Model):
             models.UniqueConstraint(fields=['bookdate', 'timeslot'], name='unique_booking')
         ]
 
+
     # Display the date and timeslot of booking as the title
     def __str__(self):
         return f'Booking on {self.bookdate} {self.timeslot}'
@@ -148,7 +149,3 @@ class Booking(models.Model):
     @property
     def time(self):
         return self.TIMESLOT_LIST[self.timeslot][1]
-    """    
-    def user(self):
-        return User.objects.get(pk=self.user_id)
-        """
