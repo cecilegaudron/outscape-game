@@ -3,14 +3,40 @@
 
 {% block content %}
 
-<section class="welcome mx-auto">
-    <div>
+<!-- Title section -->
+<section class="mx-auto">
+    <div class="welcome-img">
         <h1>Welcome to the OUTscape Berlin</h1>
         <h2>The Great escape through the city</h2>
-        <img id="welcome-img" class="img-fluid" src="https://res.cloudinary.com/di8utbjhc/image/upload/v1679310565/outscape/pexels-pixabay-berlin_xwddgj.jpg" alt="Fernsehturm Berlin">
+        <img class="img-fluid" src="https://res.cloudinary.com/di8utbjhc/image/upload/v1679310565/outscape/pexels-pixabay-berlin_xwddgj.jpg" alt="Fernsehturm Berlin">
     </div>
 </section>
 
+<!-- First part section -->
+<article>
+    <div>
+        <p>
+            OUTscape Game is at the crossroads of a treasure hunt and an escape game.<br>
+            In groups or solo, solve the investigation and find the stolen bust of Nefertiti. Scattered around Berlin-Mitte, the clues are found in the open air, at the foot of the most beautiful buildings of the German capital.
+        </p>
+    </div>
+    <div>
+        <!-- PICTOS -->
+    </div>
+</article>
+
+<!-- Second part section -->
+<section>
+    <div>
+        <h2>Ready to take up the challenge ?</h2>
+        <p>
+            Help with an investigation in the heart of Berlin-Mitte. From Alexanderplatz to the hiding place of the Nefertiti bust, listen to the city, observe it and make it talk. Only Berlin and your instincts will allow you to help the police and advance through the city at all costs to find the stolen bust of Nefertiti.
+        </p>
+        <div class="center-content">
+            <button class="btn btn-dark btn-detail"><a href="{% url 'booking' %}">Book the game</a></button>
+        </div>
+    </div>
+</section>
 
 
 {% endblock %}

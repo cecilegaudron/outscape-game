@@ -18,10 +18,6 @@ section {
     overflow: hidden;
 }
 
-div {
-    max-width: 90%;
-}
-
 #logo {
     width: 70%;
     margin: 2% !important;
@@ -34,7 +30,7 @@ div {
 }
 
 .btn {
-    margin: 1%;
+    margin: 2%;
     text-align: center;
 }
 
@@ -60,11 +56,13 @@ h2 {
     font-family: 'Kanit', sans-serif;
     font-weight: bolder;
     font-size: 1.3rem;
+    padding: 2%;
+    text-align: center;
 }
 
 p {
     font-family: 'Kanit', sans-serif;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     padding: 2%;
 }
 
@@ -236,13 +234,11 @@ footer a:hover {
 }
 
 /* Home page */
-#welcome-img {
-    width: 100%;
+.welcome-img {
+    max-width: 100% !important;
+    text-align: center;
 }
 
-.welcome {
-    margin: auto;
-}
 
 /* Booking form */
 .background-booking {
