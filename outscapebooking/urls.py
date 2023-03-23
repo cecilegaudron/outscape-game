@@ -4,12 +4,15 @@ from .views import BookingList, BookingDetailView, AddBookingView, UpdateBooking
 
 
 urlpatterns = [
-    # URL for Home Page
+    # URLs for info pages
     path('', views.index, name="index"),
+    path('contact.html', views.contact, name="contact"),
+    path('game.html', views.game, name="game"),
 
+    # URL for Booking form
     path('booking/', AddBookingView.as_view(), name='booking'),
 
-    # URL for Booking List
+    # URL for Booking list
     path('booking_list', BookingList.as_view(), name='booking-list'),
 
     # URL for Booking detail called by its Primary Key
@@ -23,7 +26,4 @@ urlpatterns = [
 
     # URL for Past Booking List
     path('booking_past', PastBookingList.as_view(), name='booking-past'),
-    
-    #path('booking_detail.html/<booking_id>', views.BookingDetailView.as_view(), name='booking-detail'),
-    # path('booking_detail.html', views.BookingDetailView.as_view(), name='booking-detail'),
 ]
