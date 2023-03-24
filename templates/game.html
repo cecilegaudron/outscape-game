@@ -8,7 +8,7 @@
     <div class="welcome-img">
         <h1>The OUTscape game</h1>
         <h2>What is it ? How to play ? </h2>
-        <img class="img-fluid" src="https://res.cloudinary.com/di8utbjhc/image/upload/v1679310565/outscape/pexels-pixabay-berlin_xwddgj.jpg" alt="Fernsehturm Berlin">
+        <img class="img-fluid" src="https://res.cloudinary.com/di8utbjhc/image/upload/v1679677962/outscape/gendarmenmarkt_u6war0.jpg" alt="Gendarmenmarkt Berlin">
     </div>
 </section>
 
@@ -26,7 +26,6 @@
     <div class="center-content">
         <button class="btn btn-dark btn-detail"><a href="{% url 'booking' %}">Book the game</a></button>
     </div>
-    <div id="map"></div>
 </section>
 <!-- Third section with FAQ and accordion with Boostrap 
 https://getbootstrap.com/docs/5.0/components/accordion/ -->
@@ -118,21 +117,13 @@ https://getbootstrap.com/docs/5.0/components/accordion/ -->
                 <strong>Yes, the game is maintained even in rainy weather.</strong> However, if the Berlin weather forecast calls for an orange or red alert for any reason (storm, thunderstorm, wind), the game session will be cancelled and rescheduled at your convenience, at no additional cost.
               </div>
             </div>
-          </div>
+          </div> 
           </div>
       </div>
 </article>
 
 <script>
     var APIKey = "AIzaSyC1HMGsfQ2euhL8I36K7msfa6Ux-K_TzQk"
-    function initMap() {
-        const map = new google.maps.Map(document.getElementById("map"), {
-        zoom: 8,
-        center: { lat: 35.717, lng: 139.731 },
-        });
-    }
-
-    window.initMap = initMap;
 </script>
 
 {% endblock %}
