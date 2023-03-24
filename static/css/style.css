@@ -239,6 +239,10 @@ footer a:hover {
     text-align: center;
 }
 
+.picto {
+    width: 70%;
+}
+
 
 /* Booking form */
 .background-booking {
@@ -253,12 +257,8 @@ footer a:hover {
 .list-booking {
     background-color: #e8e7e7;
     text-align: center;
-}
-
-.list-booking {
     list-style-type: none;
 }
-
 .btn-detail {
     background-color: #c26c51 !important;
 }
@@ -301,8 +301,5 @@ footer a:hover {
 
 button.accordion-button:focus {
     box-shadow: inherit;
-}
-
-.accordion-header {
     color: #c26c51;
 }
