@@ -291,3 +291,18 @@ footer a:hover {
 .button-booking {
     text-align: center;
 }
+
+/* Game page */
+
+.accordion-button:not(.collapsed) {
+    background-color: transparent !important;
+    color: inherit;
+}
+
+button.accordion-button:focus {
+    box-shadow: inherit;
+}
+
+.accordion-header {
+    color: #c26c51;
+}

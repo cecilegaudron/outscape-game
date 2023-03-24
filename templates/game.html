@@ -21,18 +21,119 @@
         </p>
     </div>
 </article>
-<!-- Second part section -->
-<article>
-    <div>
-        <p>
-            Whether you are with family, friends, partners or colleagues, our OUTscape game is for Berliners and visitors alike. Take advantage of this investigation to glean clues in Berlin-Mitte.<br>
-            Start the game at Alexanderplatz where one of our investigators will give you the necessary equipment to solve the investigation.
-        </p>
+<!-- Second part section with pictos -->
+<section>
+    <div class="container center-content">
+        <div class="row">
+            <div class="col">
+                <img class="img-fluid" src="" alt="">
+                <h2>A GAME IN THE CITY</h2>
+            </div>
+            <div class="col">
+                <img class="img-fluid" src="" alt="">
+                <h2>1 GAME - 2 CASES</h2>
+            </div>
+            <div class="col">
+                <img class="img-fluid" src="" alt="">
+                <h2>1-6 PLAYERS</h2>
+            </div>
+        </div>
     </div>
+    <div class="center-content">
+        <button class="btn btn-dark btn-detail"><a href="{% url 'booking' %}">Book the game</a></button>
+    </div>
+</section>
+<!-- Third section with FAQ and accordion with Boostrap 
+https://getbootstrap.com/docs/5.0/components/accordion/ -->
+<article>
+    <div class="accordion accordion-flush" id="accordionExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                How long does the game last? 
+            </button>
+          </h2>
+          <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+                You are not timed for the duration of the game, but there is a 3-hour time limit for your return to Alexanderplatz.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingTwo">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                How many players can participate?
+            </button>
+          </h2>
+          <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <strong>The game can be played alone, in pairs or in groups.</strong> There is no minimum or maximum number of players. However, for a better game experience, we recommend a group of 6 players maximum. You can't book for more than 10 people.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingThree">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                Will other people be on my team?
+            </button>
+          </h2>
+          <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+                No, we guarantee that no one outside of your team will be on your team.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingFour">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                Can a child play?
+              </button>
+            </h2>
+            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                Yes, but it is preferable that the child be over 7 years old to understand and participate in the riddles. Remember that the game requires walking. If the reservation is made for a group of children, an adult must absolutely be present.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingFive">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                Can a person with limited mobility play?
+              </button>
+            </h2>
+            <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                <strong>A person with reduced mobility can play.</strong> The various game sites, located on public roads, are accessible to wheelchairs. 
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingSix">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                Do we need to bring equipment?
+              </button>
+            </h2>
+            <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                All the material necessary to solve the riddles is provided by us. However, we advise you to <strong>bring walking shoes or sneakers and rain gear</strong>.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingSeven">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                Is the game maintained in case of rain?
+              </button>
+            </h2>
+            <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                <strong>Yes, the game is maintained even in rainy weather.</strong> However, if the Berlin weather forecast calls for an orange or red alert for any reason (storm, thunderstorm, wind), the game session will be cancelled and rescheduled at your convenience, at no additional cost.
+              </div>
+            </div>
+          </div>
+          </div>
+      </div>
 </article>
-
-
-
 
 
 
