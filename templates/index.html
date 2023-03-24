@@ -6,7 +6,8 @@
 <!-- Title section -->
 <section class="mx-auto">
     <div class="welcome-img">
-        <h1>Welcome to the OUTscape Berlin</h1>
+        <h1>Welcome <br>
+            to the OUTscape Berlin</h1>
         <h2>The Great escape through the city</h2>
         <img class="img-fluid" src="https://res.cloudinary.com/di8utbjhc/image/upload/v1679310565/outscape/pexels-pixabay-berlin_xwddgj.jpg" alt="Fernsehturm Berlin">
     </div>
@@ -37,6 +38,9 @@
             </div>
         </div>
     </div>
+    <div class="center-content">
+        <button class="btn btn-dark btn-detail"><a href="{% url 'booking' %}">Book the game</a></button>
+    </div>
 </article>
 
 <!-- Second part section -->
@@ -46,11 +50,21 @@
         <p>
             Help with an investigation in the heart of Berlin-Mitte. From Alexanderplatz to the hiding place of the Nefertiti bust, listen to the city, observe it and make it talk. Only Berlin and your instincts will allow you to help the police and advance through the city at all costs to find the stolen bust of Nefertiti.
         </p>
-        <div class="center-content">
-            <button class="btn btn-dark btn-detail"><a href="{% url 'booking' %}">Book the game</a></button>
-        </div>
+    </div>
+    <div>
+        <h2>
+            Scenario
+        </h2>
+        <p>
+            <strong>Berlin Alexanderplatz, around 4 a.m.</strong><br><br>
+            A pensive figure is leaning against the bar.<br><br>
+            <em>“In the Crime stream, we were all on the ropes”.</em> How was it possible these days to snatch the bust of Nefertiti from the heavily guarded Neues Museum ? <em>“It was eating away at my brain. And that bag that was found on the spot ? Inside, there was no logical or apparent connection between the objects it contained. But where the hell do I start? “.</em><br><br>
+            The Chief inspector emptied the bottom of his Pils, crushed his cigarette. In spite of his fatigue, he would not sleep all night. He needed help, he knew it. A fresh look at the Nefertiti case.
+        </p>
+    </div>
+    <div class="center-content">
+        <button class="btn btn-dark btn-detail"><a href="{% url 'booking' %}">Book the game</a></button>
     </div>
 </section>
-
 
 {% endblock %}

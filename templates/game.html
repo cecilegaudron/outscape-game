@@ -6,8 +6,8 @@
 <!-- Title section -->
 <section class="welcome mx-auto">
     <div class="welcome-img">
-        <h1>Welcome to the OUTscape Berlin</h1>
-        <h2>The Great escape through the city</h2>
+        <h1>The OUTscape game</h1>
+        <h2>What is it ? How to play ? </h2>
         <img class="img-fluid" src="https://res.cloudinary.com/di8utbjhc/image/upload/v1679310565/outscape/pexels-pixabay-berlin_xwddgj.jpg" alt="Fernsehturm Berlin">
     </div>
 </section>
@@ -26,10 +26,14 @@
     <div class="center-content">
         <button class="btn btn-dark btn-detail"><a href="{% url 'booking' %}">Book the game</a></button>
     </div>
+    <div id="map"></div>
 </section>
 <!-- Third section with FAQ and accordion with Boostrap 
 https://getbootstrap.com/docs/5.0/components/accordion/ -->
 <article>
+    <h2>
+        Frequently Asked Questions
+    </h2>
     <div class="accordion accordion-flush" id="accordionExample">
         <div class="accordion-item">
           <h2 class="accordion-header" id="headingOne">
@@ -121,6 +125,14 @@ https://getbootstrap.com/docs/5.0/components/accordion/ -->
 
 <script>
     var APIKey = "AIzaSyC1HMGsfQ2euhL8I36K7msfa6Ux-K_TzQk"
+    function initMap() {
+        const map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 8,
+        center: { lat: 35.717, lng: 139.731 },
+        });
+    }
+
+    window.initMap = initMap;
 </script>
 
 {% endblock %}
