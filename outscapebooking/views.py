@@ -8,19 +8,31 @@ from .forms import BookingForm
 from .models import Booking
 from django.utils.functional import cached_property
 from django.contrib import messages
+from django.core.mail import send_mail
 
 
 # Basic view for Home Page
 def index(request):
     return render(request, 'index.html', {})
 
-# Basic view for Home Page
+
+# Basic view for Game Page
 def game(request):
     return render(request, 'game.html', {})
 
-# Basic view for Home Page
+
+# Basic view for Contact Page
 def contact(request):
-    return render(request, 'contact.html', {})
+    if request.method == "POST":
+        contact_name = request.POST['contact-name']
+        contact_email = request.POST['contact-email']
+        contact_message = request.POST['contact-message']
+
+        return render(request, 'contact.html', {'contact_name': contact_name})
+
+    else:
+        return render(request, 'contact.html', {})
+
 
 """
 This is the view for the Booking form

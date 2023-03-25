@@ -298,7 +298,6 @@ footer a:hover {
 }
 
 /* Game page */
-
 .accordion-button:not(.collapsed) {
     background-color: transparent !important;
     color: inherit;
@@ -307,4 +306,22 @@ footer a:hover {
 button.accordion-button:focus {
     box-shadow: inherit;
     color: #c26c51;
+}
+
+.map {
+    width: 90%;
+}
+
+/* Contact Form */
+.form-contact {
+    padding: 4%;
+    width: 70%;
+}
+
+.form-contact label {
+    padding-top: 6%;
+}
+
+.form-contact textarea {
+    width: 100%;
 }
