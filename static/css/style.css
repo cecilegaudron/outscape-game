@@ -313,8 +313,17 @@ button.accordion-button:focus {
     color: #c26c51;
 }
 
+.accordion-button {
+    font-size: 1.4rem;
+}
+
 .map {
-    width: 90%;
+    height: 400px;
+}
+
+.map iframe {
+    max-height: 100%;
+
 }
 
 /* Contact Form */
