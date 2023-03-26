@@ -31,7 +31,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["outscapebooking.herokuapp.com", "localhost"]
 
@@ -114,9 +114,10 @@ DATABASES = {
 }
 
 
-
-# Password validation
-# https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
+"""
+Password validation
+https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
+"""
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -134,8 +135,10 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-# Internationalization
-# https://docs.djangoproject.com/en/3.2/topics/i18n/
+"""
+Internationalization
+https://docs.djangoproject.com/en/3.2/topics/i18n
+"""
 
 LANGUAGE_CODE = 'en-us'
 
@@ -148,8 +151,10 @@ USE_L10N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.2/howto/static-files/
+""" 
+Static files (CSS, JavaScript, Images)
+https://docs.djangoproject.com/en/3.2/howto/static-files/
+"""
 
 STATIC_URL = '/static/'
 
@@ -161,25 +166,20 @@ MEDIA_URL = '/media/'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
+""" 
+Default primary key field type
+https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
+"""
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-# Email Settings for project
-# https://docs.djangoproject.com/en/4.1/topics/email/
+"""
+Email Settings for contact form
+https://docs.djangoproject.com/en/4.1/topics/email
+"""
 EMAIL_HOST = 'localhost'
 EMAIL_PORT = '1025'
 EMAIL_HOST_USER = ''
 EMAIL_HOST_PASSWORD = ''
 EMAIL_USE_TLS = False
-
-
-# Email Settings for 'real' project
-# EMAIL_HOST = 'smtp.gmail.com'
-# EMAIL_PORT = 587
-# EMAIL_HOST_USER = 'webmaster.les.rouges@gmail.com'
-# EMAIL_HOST_PASSWORD = 'rN57QfvjxSxT'
-# EMAIL_USE_TLS = True
-# EMAIL_USE_SSL = False
