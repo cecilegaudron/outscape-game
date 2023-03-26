@@ -28,6 +28,15 @@ def contact(request):
         contact_email = request.POST['contact-email']
         contact_message = request.POST['contact-message']
 
+        # Function sending the email
+        send_mail(
+            'Customer message from' + contact_name, # subject
+            contact_message, # message
+            contact_email, # from email
+            ['karaokeprototype153@simplelogin.com'], # to email
+            fail_silently=False,
+        )
+
         return render(request, 'contact.html', {'contact_name': contact_name})
 
     else:

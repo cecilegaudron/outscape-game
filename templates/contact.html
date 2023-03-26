@@ -3,16 +3,22 @@
 
 {% block content %}
 
+<!-- First section -->
 <section class="mx-auto">
     <div>
         <h1>Contact Us</h1>
     </div>
     <div>
-        <p>
-            If you have any questions, doubts, points to clarify about our OUTscape Game, or a particular or personalized request, we are at your disposal.<br><br>
-            Please contact us via this contact form. <br><br> 
-            If you would like to participate in our OUTscape Game, please use the <a href="{% url 'booking' %}">booking module</a>.
-        </p>
+        {% if contact_name %}
+            <h2>Thanks {{ contact_name }} !</h2>
+            <p>We received your email and we answer to you shortly.</p>
+            <br><br>
+        {% else %}
+            <p>
+                If you have any questions, doubts, points to clarify about our OUTscape Game, or a particular or personalized request, we are at your disposal.<br><br>
+                Please contact us via this contact form. <br><br> 
+                If you would like to participate in our OUTscape Game, please use the <a href="{% url 'booking' %}">booking module</a>.
+            </p>
     </div>
     <!-- Contact Form with Bootstrap 
     <div>
@@ -45,6 +51,7 @@
         </form>
     </div>
     -->
+<!-- Section with contact form -->
     <div>
         <form action="{% url 'contact' %}" method="post" class="form-contact center-content">
             {% csrf_token %}
@@ -65,6 +72,7 @@
             </div>
         </form>
     </div>
+    {% endif%}
 </section>
 
 {% endblock %}
