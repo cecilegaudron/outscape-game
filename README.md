@@ -61,7 +61,7 @@ The graphic charter is available here :
 LINK TO THE HOSTED DOCUMENT - TO BE COMPLETED
 
 ### Logo
-The logo was created by me. It represents a key, which is one of the symbols of escape games, along with the padlock. As the game is played outside, a skyline of the most representative buildings of the city of Berlin are arranged on the key. 
+The logo is created by me. It represents a key, which is one of the symbols of escape games, along with the padlock. As the game is played outside, a skyline of the most representative buildings of the city of Berlin are arranged on the key. 
 The punchline "The great escape" can be added to the logo on some communication supports to bring an added value.
 
 ### Fonts
@@ -76,15 +76,117 @@ The pictograms on the home page were made by me. They make it possible to synthe
 The pictures on the homepage and on the Game page do not give any particular information about the activity offered for sale on the website, except the fact that the game takes place in Berlin. The Fernsehturm is the symbol of the city of Berlin. The other picture represents Gendarmenmarkt which is a tourist place where the players will have to go. The intention is to illustrate the website simply, to give a concrete visual to the Internet user.
 In the future, photos will be taken by the organizers in a real situation in the city of Berlin with elements of the game in the hands of players.
 
+## Development
+TO BE COMPLETED
 
+### Database
+TO BE COMPLETED
 
+### Page Construction
+- **Django Templates**
+I used Django templates to build my pages. The head, logo, navigation bar, navigation if the user is connected and the footer are filled in the base.html document. 
+The stylesheet is called by the link {% static 'css/style.css' %} so that all pages regardless of their location. The pages for logging in, registering or logging out of the user account are not in the same folder as the Home page for example. 
+The different content pages use this document to load common elements such as the footer or the navigation, among others. The content pages only contain their own content.
 
+TO BE COMPLETED
 
+### Menu
+The menu is presented in two ways: 
+- **Collapsed Menu for mobiles**
+In order to make the navigation pleasant for mobile users, the menu is presented in a collapsed way. More commonly called hamburger menu, this menu unfolds as soon as the user selects the "hamburger" icon with the three horizontal lines. 
+- **Navigation bar for large screens**
+For computer users, the navigation menu is presented in the traditional way, on a horizontal line with the different links presented.
 
+The link leading to the page for booking is deliberately highlighted. Indeed, it is the main action of the user on the website. This link must absolutely be put forward.
+Icons of social networks, Instagram and Facebook, are also present in the navigation because these platforms are very important nowadays and particularly in the context of an online sale. That's why these icons are present in the navigation.
 
+### Menu for logged-in users
+Below the navigation menu is a small brick-colored insert with the following information.
+1. **If the user is not logged in :**  
+- Register
+- Login
+
+2. **If the user is logged in :**
+- Book the game
+- Your booking
+- Log out
+
+A small icon of a man is displayed as well as the user name is displayed at the login.
+TO BE COMPLETED avec un screenshot
+
+### Features
+-__Header__
+The header is composed of the OUTscape game logo, the navigation menu (collapsed for mobile and bar for computer) and the menu for connected users.
+-__Footer__
+The footer is composed of links to the game's social networks, Facebook and Instagram. 
+There are also links to my GitHub as well as the copyright with the current year.
+
+TO BE COMPLETED
+
+### Features Left to Implement
+In the future version of the website, the organizers do not want users to need to create an account, nor do they need to log in to make a reservation. The organizers want to make the booking as easy as possible without having to create yet another customer account on a website. Moreover, this will eliminate the possible problems of keeping personal data. As soon as the game has been played, the personal informations of the customers will not be kept in the database.
+
+-__Online payment__
+Online payment is one of the most important features of the website after booking. It is very important that people can pay for the game when they book. This will be possible when the website goes live with Stripe.
+With calculation of the price to be paid if transport tickets are requested. 
+
+-__User ratings and reviews__
+After the game, users can receive an email with the possibility to give a rating and write a comment about their game experience. Both of these will then be posted on the website.
+
+-__Sending emails to users__
+For better communication with customers and to perfect the organization, it is more than essential that customers receive emails from the OUTscape game:
+- Reservation request confirmation email
+- Booking confirmation email with game scenario and practical information (meeting place, access map, sneakers and rain gear to bring, how to meet for the meeting, etc.) 
+- Reminder email a few days before the scheduled date of the day
+- Email confirmation of reservation changes and cancellations
+- Thank you email after the game and request for feedbacks and ratings
+
+-__Acceptance of cookies__
+A banner will be present when the internet user arrives on the website. The internet user will be able to accept or decline cookies.
+
+- __Addition of new pages__
+For the site that will actually go live, new pages will be added:
+- **General Terms and Conditions of Sale**: essential when using an online sales service in order to establish a clear contract with the user and the organizer
+- **About**: a page to introduce the creators of the game, the origin of the idea, their background. This page is necessary to make the experience human, it is always more appreciable to book a service with someone who has been introduced to us. It also implies a notion of trust by removing the feeling of paying for the game without knowing if it's a scam, all this while keeping the professional side.
+
+-__Translation of the website into German and French__
+It is possible to play the OUTscape game in English, French or German. The site must therefore be available in these three languages. Small flags will be available in the navigation bar and in the collapsed menu.
+
+-__Synchronization with Google Calendar__
+So that the admins can save the appointments for the next bookings in their personal digital agenda, in order not to forget any appointment.
+
+-__Management with Google Calendar__
+For the owners of the game, it would be very interesting if they could manage their slots for the game. If there are days or times when neither organizer is available, this possibility should not be offered for booking.
+
+-__Dual administrator account__
+There are two owners of the game and it would be more interesting if each had their own space, even if the information is shared. For example, they will take turns to run the game. They should be able to assign certain reservations to each other so that everyone knows what they have to do. That each one can note on the agenda his unavailability to take care of the game :
+- View and validate client comments following the game
+- Consult and validate the notes given by the clients following the game
+- Generate invoices by directly associating the information given by the client
+
+-__Sending emails to admins__
+Admins should also receive emails or alerts when a reservation is made. The confirmation must be done quickly, so the admins must be quickly, easily and automatically informed of a reservation request.
+Same for a modification request or a cancellation.
+
+TO BE COMPLETED
+
+## Testing
+TO BE COMPLETED
+
+### Validator Testing
+- HTML
+No errors were returned when passing through the official [W3C validator](https://validator.w3.org/nu/)
+- CSS
+No errors were found when passing through the official [Jigsaw validator](https://jigsaw.w3.org/css-validator/)
+- JavaScript
+No errors were found when passing through the official [JSHint validator](https://jshint.com/)
+- Python
+TO BE COMPLETED
+
+### Unfixed Bugs
+TO BE COMPLETED
 
 ## Deployment
-
 The website has been deployed via Heroku.
 The project is created on GitHub with the 'gitpod full template' provided by Code Institute. [Code Institute Template](https://github.com/Code-Institute-Org/gitpod-full-template)  
 
@@ -191,3 +293,34 @@ Cloudinary is the service used to stored the media.
   4. Click on the *Deploy branch* button
 
 The site is live here : [OUTscape website on Heroku](https://outscapebooking.herokuapp.com/)
+
+## Technologies
+TO BE COMPETED
+
+### Softwares
+- **Illustrator**
+The logo was created with Illustrator software in order to create a vector file capable of being printed in high resolution as well as being displayed on a website with a mini weight. In addition, the vector format allows for a responsive image, as it adapts to different screen sizes.
+
+- **InDesign**
+The wireframes were made with InDesign software. This is not the software commonly used on this kind of file, but I know this software well because I've been using it for years, I feel at ease on it and I spend less time making the wireframes with this software than with a more common online solution.
+
+### Django Libraries
+TO BE COMPLETED
+
+## Credits
+TO BE COMPLETED
+
+### Content
+TO BE COMPLETED
+
+### Media
+1. **Logo**
+The logo is created by me.
+
+2. **Pictures**
+- Home page picture : [Pexels.com](​​https://www.pexels.com/fr-fr/photo/photo-a-faible-angle-de-la-tour-de-grande-hauteur-513594/)
+- Game page picture : 
+[Pexels.com](​​https://www.pexels.com/fr-fr/photo/la-nouvelle-eglise-de-berlin-3662115/)
+
+### Special thanks
+TO BE COMPLETED
