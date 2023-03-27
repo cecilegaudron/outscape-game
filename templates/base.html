@@ -24,7 +24,7 @@
 <body>
     <!-- Header with logo and navigation bar -->
     <header>
-        <div id="logo">
+        <div id="logo" class="center-content">
             <a href="{% url 'index' %}"><img class="img-fluid" src="https://res.cloudinary.com/di8utbjhc/image/upload/v1679248476/outscape/logo-outscape_ova2gu.png" alt="OUTscape logo"></a>
         </div>
         <!-- Navigation bar -->
@@ -40,32 +40,10 @@
                 <!-- Hamburger menu Bar icon -->
                 <a href="javascript:void(0);" class="icon" onclick="myFunction()"><i class="fa-solid fa-bars"></i></a>
             </div>
-            <!-- <div class="container">
-                <div class="row">
-                  <div class="col-sm">
-                    <a href="{% url 'index' %}">Home</a>
-                  </div>
-                  <div class="col-sm">
-                    <a href="game.html">The Game</a>
-                  </div>
-                  <div class="col-sm" id="book">
-                    <a href="{% url 'booking' %}">Book</a>
-                  </div>
-                  <div class="col-sm">
-                    <a href="contact.html">Contact</a>
-                  </div>
-                  <div class="col-sm">
-                    <a href="https://www.instagram.com" target="_blank" rel="noopener" aria-label="Reach out in Instagram"><i class="fa-brands fa-instagram"></i></a>
-                  </div>
-                  <div class="col-sm">
-                    <a href="https://www.facebook.com" target="_blank" rel="noopener" aria-label="Reach out in Facebook"><i class="fa-brands fa-facebook"></i></a>
-                  </div>
-                </div>
-            </div> -->
         </nav>
+        <!-- Navbar for user connected -->
         <nav>
-            <!-- Navbar for user connected -->
-            <div class="nav-connected">
+            <div class="nav-connected center-content">
                 <ul>
                     <!-- Info about User authentification -->
                     {% if user.is_authenticated %}
@@ -73,14 +51,14 @@
                         <i class="fa-solid fa-user-large"></i> You are connected as <strong>{{ user.username }}</strong>
                     </li>
                     <li>
-                        <a href="{% url 'booking' %}">Book the game</a> | <a href="{% url 'booking-list' %}">Your booking</a> | <a href="{% url 'account_logout' %}">Logout</a>
+                        <a href="{% url 'booking' %}">Book the game</a> | <a href="{% url 'booking-list' %}">Your booking</a> | <a href="{% url 'account_logout' %}">Log out</a>
                     </li>
                     {% else %}
                     <li>
                         <a href="{% url 'account_signup' %}">Registrer</a>
                     </li>
                     <li>
-                        <a href="{% url 'account_login' %}">Login</a>
+                        <a href="{% url 'account_login' %}">Log in</a>
                     </li>
                     {% endif %}
                 </ul>
