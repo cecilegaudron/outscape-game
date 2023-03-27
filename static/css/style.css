@@ -13,23 +13,20 @@ body {
     font-size: 1.2rem;
 }
 
-section {
+section, article {
     max-width: 100%;
     overflow: hidden;
 }
 
+@media screen and (min-width: 1100px) {
+    section, article {
+        max-width: 70%;
+    }
+
+}
+
 .alert {
     width: 70%;
-}
-
-.btn {
-    margin: 2%;
-    text-align: center;
-}
-
-.btn a {
-    color: white;
-    text-decoration: none;
 }
 
 .center-content {
@@ -75,21 +72,21 @@ a {
 
 @media screen and (min-width: 700px) {
     #logo {
-        width: 70%;
+        width: 60%;
     }
 
 }
 
 @media screen and (min-width: 900px) {
     #logo {
-        width: 60%;
+        width: 10%;
     }
 
 }
 
 @media screen and (min-width: 1200px) {
     #logo {
-        width: 40%;
+        width: 10%;
     }
 
 }
@@ -130,12 +127,6 @@ Hamburger menu for mobile until 700px */
     color: #c26c51;
 }
 
-/* Add an active class to highlight the current page */
-.menu a.active {
-    background-color: white;
-    color: white;
-}
-
 #book {
     background-color: #c26c51;
     color: white;
@@ -156,7 +147,7 @@ Hamburger menu for mobile until 700px */
     margin: 2%;
 }
 
-/* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). 
+/* When the screen is less than 600 pixels wide, hide all links 
 Show the link that contains should open and close the topnav (.icon) */
 @media screen and (max-width: 700px) {
     .menu a:not(:first-child) {display: none;}
@@ -168,8 +159,8 @@ Show the link that contains should open and close the topnav (.icon) */
 
 }
   
-  /* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
-  @media screen and (max-width: 700px) {
+/* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon */
+@media screen and (max-width: 700px) {
     .menu.responsive {position: relative;}
     .menu.responsive a.icon {
         position: absolute;
@@ -180,7 +171,7 @@ Show the link that contains should open and close the topnav (.icon) */
         float: none;
         display: block;
     }
-  }
+}
 
 @media screen and (min-width: 700px) {
     .menu {
@@ -193,7 +184,7 @@ Show the link that contains should open and close the topnav (.icon) */
     }
 }
 
-/* Nav bar if user is connected */
+/* Nav bar if user is connected with connected status */
 .nav-connected li {
     background-color: #c26c51;
     padding: 1%;
@@ -212,11 +203,25 @@ Show the link that contains should open and close the topnav (.icon) */
 
 .nav-connected {
     margin: 2%;
+    max-width: 95%;
+}
+
+@media screen and (min-width: 900px) {
+    .nav-connected {
+        width: 85%;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .nav-connected {
+        width: 75%;
+    }
 }
 
 /* Footer */
 footer {
     background-color: black;
+    max-width: 100%;
     margin: auto;
     padding: 4%;
 }
@@ -246,12 +251,45 @@ footer a:hover {
 .picto {
     margin-top: 20%;
     text-align: center;
+    width: 50%;
 }
 
-.picto img {
-    width: 10%;
+/* Buttons */
+.btn {
+    margin: 2%;
+    text-align: center;
 }
 
+.btn a {
+    color: white;
+    text-decoration: none;
+}
+
+.btn-grey a:hover {
+    color: black;
+    text-decoration: none;
+}
+
+.btn-red a:hover {
+    color: black;
+    text-decoration: none;
+}
+
+.button-booking {
+    text-align: center;
+}
+
+/* Red button for info */
+.btn-detail {
+    background-color: #c26c51 !important;
+    color: white;
+}
+
+.btn-detail a:hover {
+    background-color: #c16c52e8 !important;
+    color: black;
+    text-decoration: none;
+}
 
 /* Booking form */
 .background-booking {
@@ -267,14 +305,8 @@ footer a:hover {
     background-color: #e8e7e7;
     text-align: center;
     list-style-type: none;
-}
-.btn-detail {
-    background-color: #c26c51 !important;
-}
-
-.btn-detail a:hover {
-    color: black;
-    text-decoration: none;
+    max-width: 90%;
+    margin: 2% !important;
 }
 
 /* Booking detail */
@@ -284,20 +316,6 @@ footer a:hover {
 }
 
 .detail-booking h2 {
-    text-align: center;
-}
-
-.btn-grey a:hover {
-    color: black;
-    text-decoration: none;
-}
-
-.btn-red a:hover {
-    color: black;
-    text-decoration: none;
-}
-
-.button-booking {
     text-align: center;
 }
 
