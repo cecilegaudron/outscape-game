@@ -5,46 +5,27 @@
 <section>
     <div>
         <h1>YOUR BOOKING</h1>
-        {% if user.is_authenticated %}
-            {% if user.id == booking.player_name.id %}
-                <div class="detail-booking">
+        <div class="detail-booking">
+            {% if user.is_authenticated %}
+                {% if user.id == booking.player_name.id %}
                     <h2>Your OUTscape game booking is :</h2>
                     <p class="detail-booking-txt">{{ booking.bookdate }}<br>
                         at {{booking.timeslot}}</p>
-                    Number of players : <strong>{{ booking.players }}</strong><br>
-                    Number of BVG tickets : <strong>{{ booking.tickets }}</strong><br>
-                    Comment : <strong>{{ booking.comment }}</strong><br>
-                    Your player name : <strong>{{ booking.player_name }}</strong><br>
-                    Your player name ID : <strong>{{ booking.player_name.id }}</strong></p>
-                </div>
-                <div>
-                    <h3>Your personal infos :</h3>
-                    Your name : <strong></strong>{{ booking.first_name }}, {{ booking.last_name }}</strong><br>
-                    Your email : <strong>{{ booking.email }}</strong><br>
-                    Your telephone number : <strong></strong>{{ booking.mobile }}</strong><br>
-                </div>
-                <div class="button-booking">
-                    <button type="button" class="btn btn-secondary btn-grey"><a href="{% url 'booking-update' booking.pk %}">Edit</a></button>
-                    <button type="button" class="btn btn-danger btn-red"><a href="{% url 'booking-delete' booking.pk %}">Cancel</a></button>
-                </div>
+                    <p>Number of players : <strong>{{ booking.players }}</strong><br>
+                        Number of BVG tickets : <strong>{{ booking.tickets }}</strong><br>
+                        Comment : <strong>{{ booking.comment }}</strong></p><br>
+                    <hr>
+                    <p><strong>Your personal infos :</strong><br>
+                        Your name : <strong>{{ booking.first_name }}, {{ booking.last_name }}</strong><br>
+                        Your email : <strong>{{ booking.email }}</strong><br>
+                        Your telephone number : <strong>{{ booking.mobile }}</strong></p><br>
+                    <div class="button-booking">
+                        <button type="button" class="btn btn-secondary btn-grey"><a href="{% url 'booking-update' booking.pk %}">Edit</a></button>
+                        <button type="button" class="btn btn-danger btn-red"><a href="{% url 'booking-delete' booking.pk %}">Cancel</a></button>
+                    </div>
+                {% endif %}
             {% endif %}
-        {% endif %}
+        </div>
     </div>
 </section>
-        
-<!-- <p>You need to be connected to your personal account to see your booking.<br>
-            Please <a href="{% url 'account_login' %}">login</a> or <a href="{% url 'account_signup' %}">register</a>.</p> 
-
-
-{% if submitted %}
-Your booking is awaiting approval
-
-    {% else %}
-        {% if user.is_authenticated %} 
-
-        {% endif %} 
-{% endif %}
-    </div>
-</section>
--->
 {% endblock %}
