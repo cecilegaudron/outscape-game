@@ -9,11 +9,18 @@
 <div class="container">
   <div class="row">
     <div class="col-md-8 mt-3 offset-md-2">
+      <h1>Log in</h1>
+      <p>To make a booking, please log in.<br>
+        If you have not created an account yet, then please
+        <a href="{% url 'account_signup' %}">sign up</a> first.
+      </p>
+      <!-- 
       <h1>{% trans "Sign In" %}</h1>
 
       <p>{% blocktrans %}To make a booking, please log in.<br>
         If you have not created an account yet, then please
       <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
+      -->
 
 
       <form class="login" method="POST" action="{% url 'account_login' %}">
@@ -23,7 +30,7 @@
         <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
         {% endif %}
         <div class="center-content">
-          <button class="btn btn-dark btn-detail" type="submit">{% trans "Sign In" %}</button>
+          <button class="btn btn-dark btn-detail" type="submit">Log in</button>
         </div>
       </form>
     </div>
