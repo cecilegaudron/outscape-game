@@ -3,7 +3,7 @@
 
 {% block content %}
 
-<!-- Title section -->
+<!-- Title section with picture -->
 <section class="welcome mx-auto">
     <div class="welcome-img">
         <h1>The game</h1>
@@ -12,8 +12,8 @@
     </div>
 </section>
 
-<!-- First part section -->
-<article>
+<!-- First part section with small speech -->
+<article class="mx-auto">
     <div>
         <p>
             Whether you are with family, friends, partners or colleagues, our OUTscape game is for Berliners and visitors alike. Take advantage of this investigation to glean clues in Berlin-Mitte.<br>
@@ -23,8 +23,9 @@
       <button class="btn btn-dark btn-detail"><a href="{% url 'booking' %}">Book the game</a></button>
   </div>
 </article>
-<!-- Second part section -->
-<section>
+
+<!-- Second part section with practical info and map -->
+<section class="mx-auto">
     <div>
       <h2>Practical Info</h2>
         <p>Start the game at Alexanderplatz where one of our investigators will give you the necessary equipment to solve the investigation.</p>
@@ -33,9 +34,10 @@
       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1077.2380123737742!2d13.412010439501266!3d52.522274713496685!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a84e1f0369dfd1%3A0x883bc6cc75e9cf0f!2sAlexanderpl.%208%2C%2010178%20Berlin!5e0!3m2!1sfr!2sde!4v1679735513839!5m2!1sfr!2sde" allowfullscreen></iframe>
     </div>
 </section>
+
 <!-- Third section with FAQ and accordion with Boostrap 
 https://getbootstrap.com/docs/5.0/components/accordion/ -->
-<article>
+<article class="mx-auto">
     <h2>
         Frequently Asked Questions
     </h2>
