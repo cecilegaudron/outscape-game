@@ -3,11 +3,11 @@
 
 {% block content %}
 <!-- Block with list of Bookings -->
-<section>
+<section class="mx-auto">
     <div>
         <h1>Your booking</h1>
         <p>In this section, you can access to your future bookings to have all the informations for playing the OUTscape game.<br>
-            You also have access to your <a href="{% url 'booking-past' %}">PAST BOOKING</a> if you would like to give feedbacks about your game experience.
+            If you have any bookings yet, <a href="{% url 'booking' %}">make your reservation</a> for the game !
         </p>
     </div>
     <div>
