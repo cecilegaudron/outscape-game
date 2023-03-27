@@ -1,3 +1,88 @@
+# OUTscape Game Berlin
+TO BE COMPLETED
+
+## First Approach
+This milestone project is intended to be actually online in the spring 2023. The OUTscape website has been in the works for several months, but the game isn't completely finished yet, so the website is on hold. I decided to offer to make the OUTscape website for my milestone project 4 for Code Institute because it brought together the various technical constraints requested for the submission. Moreover, it is a concrete project and not only a work project. This is even more motivating and challenging!
+
+The website had to be created with Wordpress, I'm even happier and more motivated to do it from A to Z and to offer a completely customized work to the game creators. They will be able to take full advantage of the different techniques. 
+
+### The project in a few words
+My husband and a friend decided to start a small company to market a game they had in mind for some time: an outdoor escape game. It's a treasure hunt through the streets of Berlin where clues are hidden. The players are given a bag with different objects to be used to solve the different riddles. As they solve the riddles, the players advance through the streets of Berlin. The players must find the bust of Nefertiti that was stolen from the Neues Museum in Berlin.
+
+### Existing Work
+A homepage is already available and online at [OUTscape Berlin](https://outscapeberlin.de)
+This is a small teaser to briefly present the game, while beginning the work of natural referencing. It is only a single page with different sections because the game is available in three languages (German, English and French).
+
+The website has two vocations: 
+-	the first one is to propose an online booking of the game
+-	the second is to be present on the Web and to be able to communicate about the game in a concrete way
+
+### User Stories
+1. **Customers**
+There are several types of customers: 
+- The group of Berliners
+- The group of tourists wanting to see the city while having fun
+- Tthe group of friends celebrating a birthday or a bachelorette/guest party
+- The family with children or teenagers
+- The team of colleagues in team building or team event
+
+These customer groups are different but they have the same way of navigating the website. They want:
+- Have concrete and practical information about the game
+- Book a slot online to participate in the game
+The creation of a customer account is necessary to make the reservation. This personal account then allows you to view the reservation, modify it or even cancel it. 
+TO BE COMPLETED
+
+2. **Admin**
+Admins also need to log in to the site in order to 
+- Confirm reservations submitted by users
+- Modify reservations
+- Cancel reservations (including those previously accepted)
+- View upcoming reservations
+- View customer information
+
+### User Experience Design
+The website must reflect the professionalism of the company. Customers must feel confident and want to purchase a gaming experience. The website must be clean, professional and trustworthy. And of course, it must be easy to use. 
+In the future, customers will not need to create an account on the site to book a gaming slot. This feature is only present for the milestone project 4. It is important that the customer can purchase their gaming experience simply and quickly, without having to register and give all this information. 
+TO BE COMPLETED
+
+### Tree Structure
+![TREE STRUCTURE](/media/screenshots/tree-structure.png)
+
+## AGILE
+To BE COMPLETED
+
+## VISUAL DESIGN
+### Wireframes
+TO BE COMPLETED avec les wireframes
+
+### Graphic Charter
+A graphic charter was created for the project. It contains all the information concerning the visual identity of the project, such as the multiple variations of the logo, the fonts used and the predominant colors. This graphic charter is the foundation of the OUTscape's visual identity and will be used on all communication media (business cards, flyers, stickers...), social networks and of course the website as well as various communications such as booking emails, confirmation emails, etc.
+The graphic charter is available here : 
+LINK TO THE HOSTED DOCUMENT - TO BE COMPLETED
+
+### Logo
+The logo was created by me. It represents a key, which is one of the symbols of escape games, along with the padlock. As the game is played outside, a skyline of the most representative buildings of the city of Berlin are arranged on the key. 
+The punchline "The great escape" can be added to the logo on some communication supports to bring an added value.
+
+### Fonts
+The fonts used for the logo are not available for the web. I looked for other fonts that look like the ones used in the graphic.
+TO BE COMPLETED
+
+### Visual elements
+- **Pictograms**
+The pictograms on the home page were made by me. They make it possible to synthesize an idea such as the game takes place in the streets of the city or that the game can be played with several players.
+
+- **Pictures**
+The pictures on the homepage and on the Game page do not give any particular information about the activity offered for sale on the website, except the fact that the game takes place in Berlin. The Fernsehturm is the symbol of the city of Berlin. The other picture represents Gendarmenmarkt which is a tourist place where the players will have to go. The intention is to illustrate the website simply, to give a concrete visual to the Internet user.
+In the future, photos will be taken by the organizers in a real situation in the city of Berlin with elements of the game in the hands of players.
+
+
+
+
+
+
+
+
 ## Deployment
 
 The website has been deployed via Heroku.
