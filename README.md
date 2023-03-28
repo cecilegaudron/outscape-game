@@ -122,15 +122,39 @@ The pictures on the homepage and on the Game page do not give any particular inf
 In the future, photos will be taken by the organizers in a real situation in the city of Berlin with elements of the game in the hands of players.
 
 ## Development
-TO BE COMPLETED
+The organization of the website is very simple. It is a site composed of **four pages of content, accessible to all**:  
+- Home page
+- The Game
+- Contact
+- Book  
+
+The **pages of connection** to the site for users:  
+- Register
+- Log in
+- Log out  
+
+The "Book" page displays the booking form when the user is logged in.  
+**When the user is logged in, he/she has access to**: 
+- Booking list
+- Booking detail  
+- Booking update 
+- Booking delete  
+
+The admins have **access to a space reserved for them**:  
+- Log in
+- Admin panel with dashboard, list of users, list of bookings...
+
+A 404 page is also available.  
 
 ### Database
 TO BE COMPLETED
 
+![Model Database](/media/screenshots/model-database.png)  
+
 ### Page Construction
 - **Django Templates**
 I used Django templates to build my pages. The head, logo, navigation bar, navigation if the user is connected and the footer are filled in the base.html document. 
-The stylesheet is called by the link {% static 'css/style.css' %} so that all pages regardless of their location. The pages for logging in, registering or logging out of the user account are not in the same folder as the Home page for example.  
+The stylesheet is called by the link **{% static 'css/style.css' %}** so that all pages regardless of their location. The pages for logging in, registering or logging out of the user account are not in the same folder as the Home page for example.  
 The different content pages use this document to load common elements such as the footer or the navigation, among others. The content pages only contain their own content.
 
 TO BE COMPLETED
