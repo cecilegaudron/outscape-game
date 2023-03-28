@@ -17,28 +17,37 @@ from django.contrib import messages
 from django.core.validators import RegexValidator
 
 
-# Different status for the booking
-# By default the booking status is 'pending'
+"""
+Different status for the booking
+By default the booking status is 'pending'
+"""
 STATUS = ((0, "Pending"), (1, "Confirmed"), (2, "Declined"))
 
-""" Database model for booking app 
+
+""" 
+Database model for booking app 
 Every data is save in the database
 Follow the course of CI and this page https://docs.djangoproject.com/fr/4.1/topics/db/models/
 """
 class Booking(models.Model):
 
+    """
+    Validate the booking if the booked date is before today
+    https://stackoverflow.com/questions/66882721/how-to-add-todays-date-to-django-templates
+    https://stackoverflow.com/questions/50439356/django-date-validation-help-needed
+    https://docs.djangoproject.com/en/4.1/ref/validators/
+    Help in Slack
+    """
     def validate_bookdate(value):
-        # Validate the booking if the booked date is before today
-        # https://stackoverflow.com/questions/66882721/how-to-add-todays-date-to-django-templates
-        # https://stackoverflow.com/questions/50439356/django-date-validation-help-needed
-        # https://docs.djangoproject.com/en/4.1/ref/validators/
-        # Help in Slack
+    
         today = now().date()
         if value <= today:
             raise ValidationError("The date cannot be in the past!")
 
-    # List with available timeslots
-    # https://blog.devgenius.io/django-tutorial-on-how-to-create-a-booking-system-for-a-health-clinic-9b1920fc2b78
+    """
+    List with available timeslots
+    https://blog.devgenius.io/django-tutorial-on-how-to-create-a-booking-system-for-a-health-clinic-9b1920fc2b78
+    """
     TIMESLOT_LIST = (
         ("10:00-13:00", "10:00-13:00"),
         ("11:00-14:00", "11:00-14:00"),
@@ -77,13 +86,12 @@ class Booking(models.Model):
         )
 
     # Mobile number with RegexValidator
-    # https://docs.djangoproject.com/en/2.2/ref/validators/
     mobile = models.CharField(
         "Your phone number*", 
         help_text="[Indicate your country code, without space. E.g:+336xxxxxxx/+490157xxxxxxxx]",
         max_length=14,
         blank=False,
-        validators=[RegexValidator(regex=r'^\+?1?\d{9,15}$')],
+        validators=[RegexValidator(regex=r'^\+?1?\d{9,15}$')]
         )
 
     # Date
@@ -105,7 +113,6 @@ class Booking(models.Model):
         )
 
     # Number of players
-    # https://stackoverflow.com/questions/42425933/how-do-i-set-a-default-max-and-min-value-for-an-integerfield-django
     players = models.PositiveIntegerField(
         "Number of players*",
         help_text="[You can't reserve for more than 10 players]",
@@ -147,13 +154,11 @@ class Booking(models.Model):
             models.UniqueConstraint(fields=['bookdate', 'timeslot'], name='unique_booking')
         ]
 
-
     # Display the date and timeslot of booking as the title
     def __str__(self):
         return f'Booking on {self.bookdate} {self.timeslot}'
 
     # Redirection to the booking list when the form is submitted
-    # https://www.youtube.com/watch?v=m3efqF9abyg&list=PLCC34OHNcOtr025c1kHSPrnP18YPB-NFi&index=5
     def get_absolute_url(self):
         return reverse('booking-list')
 
@@ -162,6 +167,7 @@ class Booking(models.Model):
         return self.TIMESLOT_LIST[self.timeslot][1]
 
     # This is the view for the Booking form
+    # SEE IF IT IS NECESSARYY
     def make_booking(request):
         if request.method == "POST":
             form = BookingForm(request.POST)

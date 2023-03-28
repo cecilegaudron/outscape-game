@@ -43,9 +43,7 @@ def contact(request):
             ['karaokeprototype153@simplelogin.com'], # to email
             fail_silently=False,
         )
-
         return render(request, 'contact.html', {'contact_name': contact_name})
-
     else:
         return render(request, 'contact.html', {})
 
@@ -95,10 +93,7 @@ ClassBased View displaying the booking to the user
 """
 class BookingDetailView(DetailView):
     model = Booking
-    #booking = Booking.booking_id
-    #queryset = Booking.objects.filter(status=1)
     template_name = 'booking_detail.html'
-    #fields = ['first_name', 'last_name', 'email', 'mobile', 'bookdate', 'timeslot', 'players', 'tickets', 'comment']
 
 
 """
@@ -109,7 +104,6 @@ class UpdateBookingView(UpdateView):
     model = Booking
     form_class = BookingForm
     template_name = 'booking_update.html'
-    #fields = ['first_name', 'last_name', 'email', 'mobile', 'bookdate', 'timeslot', 'players', 'tickets', 'comment']
 
 
 """
@@ -119,147 +113,3 @@ class DeleteBookingView(DeleteView):
     model = Booking
     template_name = 'booking_delete.html'
     success_url = reverse_lazy('booking-list')
-
-
-"""
-Define functions for error pages
-https://blog.juanwolf.fr/fr/posts/programming/comment-creer-une-page-404-django/
-
-def page_not_found_view(request):
-     return render(request,'404.html')
-"""
-
-"""
-    VOIR SI UTILE
-    AUPARAVANT CETAIT DANS BOOKINGDETAILVIEW
-    def detail_booking(request, booking_id):
-    #def get(self, request, booking_id, *args, **kwargs):
-        
-        if request.user.is_authenticated:
-            reservation = get_object_or_404(Booking, id=booking_id)
-            #model = Booking
-            current_user = request.user
-
-            if current_user == reservation.user:
-                context = {
-                    "id": reservation.booking_id,
-                    "date": reservation.bookdate,
-                    "time": reservation.timeslot
-                }
-        else:
-            return redirect(reverse("account_login"))
-
-            #player_name = current_user
-            #queryset = Booking.objects.filter(status=1, bookdate__gte=now().date())
-
-
-            return render(
-                request, 
-                "booking_detail.html",
-                {
-                    "booking": Booking,
-                    "user": Booking.player_name,
-                    "id": Booking.booking_id
-                },
-            )
-        else:
-            return redirect(reverse("account_login"))
-
-        if request.user.is_authenticated:
-            model = Booking
-            
-            booking = get_object_or_404(Booking, booking_id=booking_id)
-            current_user = request.user
-            player_name = current_user
-            #queryset = Booking.objects.filter(status=1, bookdate__gte=now().date())
-        
-        else:
-            return redirect(reverse("account_login"))
-
-
-class MyBooking(View):
-
-    def get(self, request):
-
-        if request.user.is_authenticated:
-            model = Booking
-            #reservation = get_object_or_404(Booking, id=booking_id)
-            current_user = request.user
-            player_name = current_user
-            queryset = Booking.objects.filter(status=1, bookdate__gte=now().date())
-
-            if current_user == player_name:
-                #template_name = 'booking-detail'
-                #return HttpResponseRedirect('booking_detail.html')
-                booking = Booking.objects.filter(player_name)
-
-                context = {
-                    "Your booking is the:": bookdate,
-                    "At:": timeslot,
-                    "Info": comment
-                }
-
-            else:
-                return redirect(reverse("booking"))
-        else:
-            return redirect(reverse("account_login"))
-
-
-class MyBooking(View):
-
-    def get(self, request, *args, **kwargs):
-        model = Booking
-        queryset = Booking.objects.filter(status=1, bookdate__gte=now().date())
-        # The list view is display on the index page
-        template_name = 'booking-detail'
-
-class MyBooking(View):
-
-    def get(self, request, *args, **kwargs):
-        queryset = Booking.objects.filter(status=1)
-        booking = get_object_or_404(queryset)
-
-        return render(
-            request,
-            "booking_detail.html",
-            {
-                "Your booking": booking,
-                "submitted": False,
-            },
-        )
-        if request.user.is_authenticated:
-            booking = Booking.objects.filter(user=request.user)
-
-            return render(
-                request, 'booking.html',
-                {
-                    'bookings': booking,
-                },
-            )
-
-        else:
-            return redirect(reverse("account_login"))
-
-    def post(self, request, *args, **kwargs):
-
-        queryset = Booking.objects.filter(status=1)
-        booking = get_object_or_404(queryset)
-
-        booking_form = BookingForm(data=request.POST)
-        if booking_form.is_valid():
-            booking_form.instance.email = request.user.email
-            booking_form.instance.name = request.user.username
-            booking = booking_form.save(commit=False)
-            booking.save()
-        else:
-            booking_form = BookingForm()
-
-        return render(
-            request,
-            "booking_detail.html",
-            {
-                "Your booking": booking,
-                "submitted": True,
-            },
-        )
-"""
