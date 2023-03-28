@@ -78,21 +78,18 @@ a {
     #logo {
         width: 60%;
     }
-
 }
 
 @media screen and (min-width: 900px) {
     #logo {
         width: 10%;
     }
-
 }
 
 @media screen and (min-width: 1200px) {
     #logo {
         width: 10%;
     }
-
 }
 
 /* Styles for text on booking forms, input, details */
@@ -316,7 +313,7 @@ footer a:hover {
 @media screen and (min-width: 700px) {
     .list-booking {
         width: 60%;
-}
+    }
 }
 
 /* Booking detail */
