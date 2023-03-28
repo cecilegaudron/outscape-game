@@ -1,13 +1,20 @@
-from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponseRedirect
+# Import to deploy view
+from django.shortcuts import render
+# Import differents views
 from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView
+# Import for date on booking form
 from django.utils.timezone import now
 from datetime import date
+# Import reverse URL resolver apply only if the value is needed
 from django.urls import reverse_lazy
+# Import form and model
 from .forms import BookingForm
 from .models import Booking
+# Import store function for future reference
 from django.utils.functional import cached_property
+# Import for messaging system
 from django.contrib import messages
+# Import for send mail with contact form
 from django.core.mail import send_mail
 
 
@@ -44,82 +51,49 @@ def contact(request):
 
 
 """
-This is the view for the Booking form
-THIS IS WORKING BUT THE ID IS NOT LINK WITH THE ID USER
-# https://www.youtube.com/watch?v=CVEKe39VFu8
-
-def make_booking(request):
-    # Not load again the form if the user already submitted it
-    submitted = False
-    if request.method == "POST":
-        form = BookingForm(request.POST)
-        
-        # If else loop with valid condition for saving data
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect('booking.html?submitted=True')
-    else:
-        form = BookingForm
-        if 'submitted' in request.GET:
-            submitted = True
-
-    return render(request, "booking.html", {'form': form, 'submitted': submitted})
+This is the view for the booking form 
 """
-
-
 class AddBookingView(CreateView):
-    """
-    This is the view for the booking form 
-    """
     model = Booking
     form_class = BookingForm
     template_name = 'booking.html'
 
+"""
+    # This is the view for the Booking form
+    def make_booking(request):
+        if request.method == "POST":
+            form = BookingForm(request.POST)
+            # If else loop with valid condition for saving data
+            if form.is_valid():
+                form.save()
+            else:
+                messages.error(request, ('There is an error on your form, please try again'))
+                return render(request, 'booking.html', {})
 
+            messages.success(request, ('Your booking has been submitted successfully'))
+            return render(request, 'booking_list.html', {})
+        else:
+            return render(request, 'booking.html', {})
+"""
+
+
+"""
+ClassBased View for the booking list
+Filter the bookings with confirmed status
+Display only futur bookings
+https://stackoverflow.com/questions/4668619/how-do-i-filter-query-objects-by-date-range-in-django/4668703#4668703
+Order by date
+"""
 class BookingList(ListView):
-    """
-    ClassBased View for the booking list
-    Filter the bookings with confirmed status
-    Display only futur bookings
-    https://stackoverflow.com/questions/4668619/how-do-i-filter-query-objects-by-date-range-in-django/4668703#4668703
-    Order by date
-    """
     model = Booking
     template_name = 'booking_list.html'
     queryset = Booking.objects.filter(status=1, bookdate__gte=now().date()).order_by('bookdate')
 
 
 """
-class PersonalBookingList(ListView):
-    FIND ANOTHER SOLUTION THIS IS NOT WORKING
-    ClassBased View for personal booking
-    Filter the bookings with the playername ID
-    Display only the bookings made by this user
-    model = Booking
-    template_name = "booking_list.html"
-
-    #@cached_property
-    def booking_exist(self):
-        if user.id == booking.player_name.id:
-            return Booking.objects.filter(status=1, bookdate__gte=now().date()).order_by('bookdate')
+ClassBased View displaying the booking to the user
 """
-
-class PastBookingList(ListView):
-    """
-    NEED TO BE TESTED, DONT KNOW IF IT IS WORKING !
-    ClassBased View for past booking list
-    Display only the past bookings
-    The user can also add experience game feedbacks
-    """
-    model = Booking
-    template_name = 'booking_past.html'
-    queryset = Booking.objects.filter(status=1, bookdate__lt=now().date()).order_by('-bookdate')
-
-
 class BookingDetailView(DetailView):
-    """
-    ClassBased View displaying the booking to the user
-    """
     model = Booking
     #booking = Booking.booking_id
     #queryset = Booking.objects.filter(status=1)
@@ -127,27 +101,35 @@ class BookingDetailView(DetailView):
     #fields = ['first_name', 'last_name', 'email', 'mobile', 'bookdate', 'timeslot', 'players', 'tickets', 'comment']
 
 
+"""
+ClassBased View for the booking update
+IF NEEDED OTHERS FIELDS THAN BOOKING, JUST CREATE A NEW FORM JUST FOR THE UPDATE
+"""
 class UpdateBookingView(UpdateView):
-    """
-    ClassBased View for the booking update
-    IF NEEDED OTHERS FIELDS THAN BOOKING, JUST CREATE A NEW FORM JUST FOR THE UPDATE
-    """
     model = Booking
     form_class = BookingForm
     template_name = 'booking_update.html'
     #fields = ['first_name', 'last_name', 'email', 'mobile', 'bookdate', 'timeslot', 'players', 'tickets', 'comment']
 
 
+"""
+ClassBased View for the booking remove
+"""
 class DeleteBookingView(DeleteView):
-    """
-    ClassBased View for the booking remove
-    """
     model = Booking
     template_name = 'booking_delete.html'
     success_url = reverse_lazy('booking-list')
 
 
-    """
+"""
+Define functions for error pages
+https://blog.juanwolf.fr/fr/posts/programming/comment-creer-une-page-404-django/
+
+def page_not_found_view(request):
+     return render(request,'404.html')
+"""
+
+"""
     VOIR SI UTILE
     AUPARAVANT CETAIT DANS BOOKINGDETAILVIEW
     def detail_booking(request, booking_id):
