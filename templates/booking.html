@@ -2,6 +2,7 @@
 {% block title %}Book the OUTscape game{% endblock %}
 
 {% block content %}
+
 <section>
     <div class="mx-auto">
         <h1>MAKE A BOOKING</h1>
@@ -29,8 +30,9 @@
                 <form method="POST" action="{% url 'booking' %}">
                     <!-- Security tocken -->
                     {% csrf_token %}
-                    <!-- https://www.geeksforgeeks.org/form-as_p-render-django-forms-as-paragraph/ -->
-                    {{ form.as_p }}
+                    <!-- https://www.geeksforgeeks.org/form-as_p-render-django-forms-as-paragraph/
+                    {{ form.as_p }} -->
+                    {{ booking_form }}
                     <div class="center-content">
                         <button type="submit" value="Submit" class="btn btn-dark btn-detail">Book the game</button>
                     </div>
@@ -46,7 +48,7 @@
 </section>
 <!-- Some JavaScript lines
 The user can only make a booking with his user ID/player name
-This is for the plaer name field on the forms.py
+This is for the player name field on the forms.py
 https://www.youtube.com/watch?v=TAH01Iy5AuE&list=PLCC34OHNcOtr025c1kHSPrnP18YPB-NFi&index=17 -->
 <script>
     var name = "{{ user.id }}";

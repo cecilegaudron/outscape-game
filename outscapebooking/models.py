@@ -16,6 +16,7 @@ from django.contrib import messages
 # Import RegexValidator to validate phone number
 from django.core.validators import RegexValidator
 
+
 # Different status for the booking
 # By default the booking status is 'pending'
 STATUS = ((0, "Pending"), (1, "Confirmed"), (2, "Declined"))
@@ -72,7 +73,7 @@ class Booking(models.Model):
     email = models.EmailField(
         "Your email address*",
         blank=False,
-        unique=True
+        unique=False
         )
 
     # Mobile number with RegexValidator

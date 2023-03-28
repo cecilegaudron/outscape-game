@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'outscapebooking',
 ]
 
+
 SITE_ID = 1
 
 # AllAuth settings 
