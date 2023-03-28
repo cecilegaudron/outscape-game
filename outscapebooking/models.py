@@ -1,10 +1,20 @@
+# Import django model
 from django.db import models
+# Import duser model
 from django.contrib.auth.models import User
+# Import ValidationError
 from django.core.exceptions import ValidationError
+# Import date for calendar and date validation
 from django.utils.timezone import now
 from datetime import date
+# Import validators max and min value for players and tickets
 from django.core.validators import MaxValueValidator, MinValueValidator
+# Import redirection URL
 from django.urls import reverse
+# Import messaging system
+from django.contrib import messages
+# Import RegexValidator to validate phone number
+from django.core.validators import RegexValidator
 
 # Different status for the booking
 # By default the booking status is 'pending'
@@ -65,13 +75,14 @@ class Booking(models.Model):
         unique=True
         )
 
-    # Mobile number
+    # Mobile number with RegexValidator
     # https://docs.djangoproject.com/en/2.2/ref/validators/
     mobile = models.CharField(
         "Your phone number*", 
-        help_text="[Indicate your country code]",
+        help_text="[Indicate your country code, without space. E.g:+336xxxxxxx/+490157xxxxxxxx]",
         max_length=14,
         blank=False,
+        validators=[RegexValidator(regex=r'^\+?1?\d{9,15}$')],
         )
 
     # Date
@@ -143,9 +154,21 @@ class Booking(models.Model):
     # Redirection to the booking list when the form is submitted
     # https://www.youtube.com/watch?v=m3efqF9abyg&list=PLCC34OHNcOtr025c1kHSPrnP18YPB-NFi&index=5
     def get_absolute_url(self):
-        #return HttpResponseRedirect('booking.html?submitted=True', args=(str(self.id)) )
         return reverse('booking-list')
 
     @property
     def time(self):
         return self.TIMESLOT_LIST[self.timeslot][1]
+
+    # This is the view for the Booking form
+    def make_booking(request):
+        if request.method == "POST":
+            form = BookingForm(request.POST)
+            # If else loop with valid condition for saving data
+            if form.is_valid():
+                form.save()
+            messages.success(request, ('Your booking has been submitted successfully'))
+            return render(request, 'booking_list.html', {})
+        else:
+            messages.error(request, ('Your booking is failed please follow the error messages on the form'))
+        return render(request, 'booking.html', {})
