@@ -82,7 +82,23 @@ The iteration 3 can be consulted [here](https://github.com/cecilegaudron/outscap
 
 ## VISUAL DESIGN
 ### Wireframes
-TO BE COMPLETED avec les wireframes
+The wireframes represent the mobile view and the desktop view of the website.  
+
+- **Mobile**  
+
+![Mobile Wireframe 1](/media/screenshots/wireframe-mobile1.png)  
+
+![Mobile Wireframe 2](/media/screenshots/wireframe-mobile2.png)  
+
+![Mobile Wireframe 3](/media/screenshots/wireframe-mobile3.png)  
+
+- **Desktop**  
+
+![Desktop Wireframe 1](/media/screenshots/wireframe-desk1.png)  
+
+![Desktop Wireframe 2](/media/screenshots/wireframe-desk2.png)  
+
+![Desktop Wireframe 3](/media/screenshots/wireframe-desk3.png)  
 
 ### Graphic Charter
 A graphic charter was created for the project. It contains all the information concerning the visual identity of the project, such as the multiple variations of the logo, the fonts used and the predominant colors. This graphic charter is the foundation of the OUTscape's visual identity and will be used on all communication media (business cards, flyers, stickers...), social networks and of course the website as well as various communications such as booking emails, confirmation emails, etc.  
