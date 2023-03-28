@@ -1,8 +1,17 @@
 # OUTscape Game Berlin
 TO BE COMPLETED
 
+## Table of Contents
+- [First Approach](#firstapproach)
+- [Agile](#agile)
+- [Visual Design](#visualdesign)
+- [Development](#development)
+- [Testing](#testing)
+- [Technologies](#technologies)
+- [Credits](#credits)
+
 ## First Approach
-This milestone project is intended to be actually online in the spring 2023. The OUTscape website has been in the works for several months, but the game isn't completely finished yet, so the website is on hold. I decided to offer to make the OUTscape website for my milestone project 4 for Code Institute because it brought together the various technical constraints requested for the submission. Moreover, it is a concrete project and not only a work project. This is even more motivating and challenging!
+This milestone project is intended to be actually online in the spring 2023. The OUTscape website has been in the works for several months, but the game isn't completely finished yet, so the website is on hold. I decided to offer to make the OUTscape website for my milestone project 4 for Code Institute because it brought together the various technical constraints requested for the submission. Moreover, it is a concrete project and not only a work project. This is even more motivating and challenging!  
 
 The website had to be created with Wordpress, I'm even happier and more motivated to do it from A to Z and to offer a completely customized work to the game creators. They will be able to take full advantage of the different techniques. 
 
@@ -11,7 +20,7 @@ My husband and a friend decided to start a small company to market a game they h
 
 ### Existing Work
 A homepage is already available and online at [OUTscape Berlin](https://outscapeberlin.de)
-This is a small teaser to briefly present the game, while beginning the work of natural referencing. It is only a single page with different sections because the game is available in three languages (German, English and French).
+This is a small teaser to briefly present the game, while beginning the work of natural referencing. It is only a single page with different sections because the game is available in three languages (German, English and French).  
 
 The website has two vocations: 
 -	the first one is to propose an online booking of the game
@@ -33,7 +42,7 @@ The creation of a customer account is necessary to make the reservation. This pe
 TO BE COMPLETED
 
 2. **Admin**
-Admins also need to log in to the site in order to 
+Admins also need to log in to the site in order to :
 - Confirm reservations submitted by users
 - Modify reservations
 - Cancel reservations (including those previously accepted)
@@ -41,39 +50,59 @@ Admins also need to log in to the site in order to
 - View customer information
 
 ### User Experience Design
-The website must reflect the professionalism of the company. Customers must feel confident and want to purchase a gaming experience. The website must be clean, professional and trustworthy. And of course, it must be easy to use. 
+The website must reflect the professionalism of the company. Customers must feel confident and want to purchase a gaming experience. The website must be clean, professional and trustworthy. And of course, it must be easy to use.  
 In the future, customers will not need to create an account on the site to book a gaming slot. This feature is only present for the milestone project 4. It is important that the customer can purchase their gaming experience simply and quickly, without having to register and give all this information. 
 TO BE COMPLETED
 
 ### Tree Structure
 ![TREE STRUCTURE](/media/screenshots/tree-structure.png)
 
+
 ## AGILE
-To BE COMPLETED
+I used the Agile methodology to organize my work.  
+I created Epic stories that contain the most important tasks, which are also the biggest in terms of work to be done. Then I split these Epic stories into User stories that detail the different tasks to be done.  
+Some User stories are labeled "MustHave", it's something that is very important and must be present in the final project.  
+Others are labeled "ShouldHave", they are less important, but still interesting to implement. They may not be present in the final project. They will nevertheless be included in the project that will actually be put online for the game organizers.  
+The iterations represent about one week of work each.
+
+![Iterations board](/media/screenshots/agile-board.png)
+
+- **Iteration 1**  
+The iteration 1 can be consulted [here](https://github.com/cecilegaudron/outscape-game/milestone/1)
+
+![Iteration 1](/media/screenshots/agile-iteration1.png)
+
+- **Iteration 2**  
+The iteration 2 can be consulted [here](https://github.com/cecilegaudron/outscape-game/milestone/2)
+![Iteration 2](/media/screenshots/agile-iteration2.png)
+
+- **Iteration 3**  
+The iteration 3 can be consulted [here](https://github.com/cecilegaudron/outscape-game/milestone/3)
+![Iteration 3](/media/screenshots/agile-iteration3.png)
 
 ## VISUAL DESIGN
 ### Wireframes
 TO BE COMPLETED avec les wireframes
 
 ### Graphic Charter
-A graphic charter was created for the project. It contains all the information concerning the visual identity of the project, such as the multiple variations of the logo, the fonts used and the predominant colors. This graphic charter is the foundation of the OUTscape's visual identity and will be used on all communication media (business cards, flyers, stickers...), social networks and of course the website as well as various communications such as booking emails, confirmation emails, etc.
-The graphic charter is available here : 
-LINK TO THE HOSTED DOCUMENT - TO BE COMPLETED
+A graphic charter was created for the project. It contains all the information concerning the visual identity of the project, such as the multiple variations of the logo, the fonts used and the predominant colors. This graphic charter is the foundation of the OUTscape's visual identity and will be used on all communication media (business cards, flyers, stickers...), social networks and of course the website as well as various communications such as booking emails, confirmation emails, etc.  
+The graphic charter is available here : [Graphic Charter](https://drive.google.com/file/d/1RP0541dsNWJTJjWlPPK5DmRFllAQtQWW/view?usp=share_link)
 
 ### Logo
-The logo is created by me. It represents a key, which is one of the symbols of escape games, along with the padlock. As the game is played outside, a skyline of the most representative buildings of the city of Berlin are arranged on the key. 
+The logo is created by me. It represents a key, which is one of the symbols of escape games, along with the padlock. As the game is played outside, a skyline of the most representative buildings of the city of Berlin are arranged on the key.  
 The punchline "The great escape" can be added to the logo on some communication supports to bring an added value.
 
 ### Fonts
-The fonts used for the logo are not available for the web. I looked for other fonts that look like the ones used in the graphic.
-TO BE COMPLETED
+The fonts used for the logo are not available for the web. I looked for other fonts that look like the ones used in the graphic. 
+"Kanit" has several styles which looks like the font used for "Berlin".  
+Also the font “Lato” is closed to the “OUT” of OUTscape presents on the logo.
 
 ### Visual elements
 - **Pictograms**
 The pictograms on the home page were made by me. They make it possible to synthesize an idea such as the game takes place in the streets of the city or that the game can be played with several players.
 
 - **Pictures**
-The pictures on the homepage and on the Game page do not give any particular information about the activity offered for sale on the website, except the fact that the game takes place in Berlin. The Fernsehturm is the symbol of the city of Berlin. The other picture represents Gendarmenmarkt which is a tourist place where the players will have to go. The intention is to illustrate the website simply, to give a concrete visual to the Internet user.
+The pictures on the homepage and on the Game page do not give any particular information about the activity offered for sale on the website, except the fact that the game takes place in Berlin. The Fernsehturm is the symbol of the city of Berlin. The other picture represents Gendarmenmarkt which is a tourist place where the players will have to go. The intention is to illustrate the website simply, to give a concrete visual to the Internet user.  
 In the future, photos will be taken by the organizers in a real situation in the city of Berlin with elements of the game in the hands of players.
 
 ## Development
@@ -85,7 +114,7 @@ TO BE COMPLETED
 ### Page Construction
 - **Django Templates**
 I used Django templates to build my pages. The head, logo, navigation bar, navigation if the user is connected and the footer are filled in the base.html document. 
-The stylesheet is called by the link {% static 'css/style.css' %} so that all pages regardless of their location. The pages for logging in, registering or logging out of the user account are not in the same folder as the Home page for example. 
+The stylesheet is called by the link {% static 'css/style.css' %} so that all pages regardless of their location. The pages for logging in, registering or logging out of the user account are not in the same folder as the Home page for example.  
 The different content pages use this document to load common elements such as the footer or the navigation, among others. The content pages only contain their own content.
 
 TO BE COMPLETED
@@ -95,9 +124,9 @@ The menu is presented in two ways:
 - **Collapsed Menu for mobiles**
 In order to make the navigation pleasant for mobile users, the menu is presented in a collapsed way. More commonly called hamburger menu, this menu unfolds as soon as the user selects the "hamburger" icon with the three horizontal lines. 
 - **Navigation bar for large screens**
-For computer users, the navigation menu is presented in the traditional way, on a horizontal line with the different links presented.
+For computer users, the navigation menu is presented in the traditional way, on a horizontal line with the different links presented.  
 
-The link leading to the page for booking is deliberately highlighted. Indeed, it is the main action of the user on the website. This link must absolutely be put forward.
+The link leading to the page for booking is deliberately highlighted. Indeed, it is the main action of the user on the website. This link must absolutely be put forward.  
 Icons of social networks, Instagram and Facebook, are also present in the navigation because these platforms are very important nowadays and particularly in the context of an online sale. That's why these icons are present in the navigation.
 
 ### Menu for logged-in users
@@ -118,7 +147,7 @@ TO BE COMPLETED avec un screenshot
 -__Header__
 The header is composed of the OUTscape game logo, the navigation menu (collapsed for mobile and bar for computer) and the menu for connected users.
 -__Footer__
-The footer is composed of links to the game's social networks, Facebook and Instagram. 
+The footer is composed of links to the game's social networks, Facebook and Instagram.   
 There are also links to my GitHub as well as the copyright with the current year.
 
 TO BE COMPLETED
@@ -127,7 +156,7 @@ TO BE COMPLETED
 In the future version of the website, the organizers do not want users to need to create an account, nor do they need to log in to make a reservation. The organizers want to make the booking as easy as possible without having to create yet another customer account on a website. Moreover, this will eliminate the possible problems of keeping personal data. As soon as the game has been played, the personal informations of the customers will not be kept in the database.
 
 -__Online payment__
-Online payment is one of the most important features of the website after booking. It is very important that people can pay for the game when they book. This will be possible when the website goes live with Stripe.
+Online payment is one of the most important features of the website after booking. It is very important that people can pay for the game when they book. This will be possible when the website goes live with Stripe.  
 With calculation of the price to be paid if transport tickets are requested. 
 
 -__User ratings and reviews__
@@ -165,7 +194,7 @@ There are two owners of the game and it would be more interesting if each had th
 - Generate invoices by directly associating the information given by the client
 
 -__Sending emails to admins__
-Admins should also receive emails or alerts when a reservation is made. The confirmation must be done quickly, so the admins must be quickly, easily and automatically informed of a reservation request.
+Admins should also receive emails or alerts when a reservation is made. The confirmation must be done quickly, so the admins must be quickly, easily and automatically informed of a reservation request.  
 Same for a modification request or a cancellation.
 
 TO BE COMPLETED
@@ -187,14 +216,14 @@ TO BE COMPLETED
 TO BE COMPLETED
 
 ## Deployment
-The website has been deployed via Heroku.
+The website has been deployed via Heroku.  
 The project is created on GitHub with the 'gitpod full template' provided by Code Institute. [Code Institute Template](https://github.com/Code-Institute-Org/gitpod-full-template)  
 
 The project name is *outscape*.  
 The name of the app is *outscapebooking*.  
 
 - **Install Django and supporting libraries**
-On Gitpod, it is necessary to install Django and supporting libraries. I decide to follow the deployment steps proposed by Code Institute. 
+On Gitpod, it is necessary to install Django and supporting libraries. I decide to follow the deployment steps proposed by Code Institute.
   1. Install Django4, psycopg2 and Cloudinary  
 
     > pip3 install 'django<4' gunicorn  
@@ -222,7 +251,6 @@ ElephantSQL is the service of choice for creating an external database.
 
 - **Create the env.py file**  
 This file contains the secret datas about the project.  
-
   > import os
   > os.environ["DATABASE_URL"] = "Paste the database URL"
   > os.environ["SECRET_KEY"] = "My Secret Key"
@@ -235,11 +263,10 @@ This file contains the secret datas about the project.
     >if os.path.isfile("env.py"):
     >   import env
 
-  2. Remove the secret key and link it to the SECRET_KEY variable on Heroku.
+  2. Remove the secret key and link it to the SECRET_KEY variable on Heroku.  
     > SECRET_KEY = os.environ.get('SECRET_KEY')
 
-  3. Comment out the old database section. And paste a new database paragraph and link to the DATABASE_URL variable on Heroku.
-
+  3. Comment out the old database section. And paste a new database paragraph and link to the DATABASE_URL variable on Heroku.  
     > DATABASES = {
     >   'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
     >}
