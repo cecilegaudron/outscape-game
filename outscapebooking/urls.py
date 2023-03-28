@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from .views import BookingList, BookingDetailView, AddBookingView, UpdateBookingView, DeleteBookingView, PastBookingList
+from .views import BookingList, BookingDetailView, AddBookingView, UpdateBookingView, DeleteBookingView
 
 
 urlpatterns = [
@@ -23,7 +23,4 @@ urlpatterns = [
 
     # URL for Booking delete
     path('booking/<int:pk>/delete', DeleteBookingView.as_view(), name='booking-delete'),
-
-    # URL for Past Booking List
-    path('booking_past', PastBookingList.as_view(), name='booking-past'),
 ]
