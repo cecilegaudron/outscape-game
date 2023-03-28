@@ -2,7 +2,6 @@
 {% block title %}Book the OUTscape game{% endblock %}
 
 {% block content %}
-
 <section>
     <div class="mx-auto">
         <h1>MAKE A BOOKING</h1>
@@ -16,23 +15,18 @@
         </p>
     </div>
 </section>
-
 <section>
         <div class="booking-form list-booking">
         {% if user.is_authenticated %}
-
         {% if submitted %}
             Your reservation request has been sent. You will get a feedback from the organizers very soon
-
         {% else %}
         <!-- Block booking form -->
             <div class="form-group">
                 <form method="POST" action="{% url 'booking' %}">
                     <!-- Security tocken -->
                     {% csrf_token %}
-                    <!-- https://www.geeksforgeeks.org/form-as_p-render-django-forms-as-paragraph/
-                    {{ form.as_p }} -->
-                    {{ booking_form }}
+                    {{ form.as_p }}
                     <div class="center-content">
                         <button type="submit" value="Submit" class="btn btn-dark btn-detail">Book the game</button>
                     </div>
