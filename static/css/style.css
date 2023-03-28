@@ -29,6 +29,10 @@ section, article {
     width: 70%;
 }
 
+.alert-secondary {
+    margin: 2%;
+}
+
 .center-content {
     text-align: center;
 }
