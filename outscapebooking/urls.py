@@ -1,6 +1,7 @@
 from django.urls import path
 from . import views
-from .views import BookingList, BookingDetailView, AddBookingView, UpdateBookingView, DeleteBookingView
+from .views import BookingList, BookingDetailView, AddBookingView, \
+    UpdateBookingView, DeleteBookingView
 
 
 urlpatterns = [
@@ -10,17 +11,32 @@ urlpatterns = [
     path('game.html', views.game, name="game"),
 
     # URL for Booking form
-    path('booking/', AddBookingView.as_view(), name='booking'),
+    path(
+        'booking/',
+        AddBookingView.as_view(),
+        name='booking'),
 
     # URL for Booking list
-    path('booking_list', BookingList.as_view(), name='booking-list'),
+    path(
+        'booking_list',
+        BookingList.as_view(),
+        name='booking-list'),
 
     # URL for Booking detail called by its Primary Key
-    path('booking/<int:pk>/', BookingDetailView.as_view(), name='booking-detail'),
+    path(
+        'booking/<int:pk>/',
+        BookingDetailView.as_view(),
+        name='booking-detail'),
 
     # URL for Booking update
-    path('booking/update/<int:pk>/', UpdateBookingView.as_view(), name='booking-update'),
+    path(
+        'booking/update/<int:pk>/',
+        UpdateBookingView.as_view(),
+        name='booking-update'),
 
     # URL for Booking delete
-    path('booking/<int:pk>/delete', DeleteBookingView.as_view(), name='booking-delete'),
+    path(
+        'booking/<int:pk>/delete',
+        DeleteBookingView.as_view(),
+        name='booking-delete'),
 ]
