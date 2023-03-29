@@ -40,7 +40,7 @@
         </div>
         <!-- Navigation bar -->
         <!-- https://www.w3schools.com/howto/howto_js_topnav_responsive.asp -->
-        <nav>
+        <nav class="center-content">
             <div class="menu" id="myMenu">
                 <a href="{% url 'index' %}">Home</a>
                 <a href="{% url 'game' %}">The Game</a>
@@ -52,8 +52,11 @@
                 <a href="javascript:void(0);" class="icon" onclick="myFunction()"><i class="fa-solid fa-bars"></i></a>
             </div>
         </nav>
-        <!-- Navbar for user connected -->
-        <nav>
+    </header>
+    <!-- Content block -->
+    <main>
+        <section class="mx-auto connected">
+            <!-- Navbar for user connected -->
             <div class="nav-connected center-content">
                 <ul>
                     <!-- Info about User authentification -->
@@ -74,10 +77,7 @@
                     {% endif %}
                 </ul>
             </div>
-        </nav>
-    </header>
-    <!-- Content block -->
-    <main>
+        </section>
         {% block content %}
         <!-- Place for content -->
         {% endblock content %}
