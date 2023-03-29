@@ -22,10 +22,8 @@
                         <li class="list-booking">
                             <h2>You booked for the : </h2>
                             <p class="detail-booking-txt">{{ booking.bookdate }}</p>
-                            <a href="{% url 'booking-update' booking.pk %}">[Edit the booking]</a>
-                            <a href="{% url 'booking-delete' booking.pk %}">[Cancel the booking]</a>
                             <p>Hour : {{ booking.timeslot }}<br>
-                                Comment :{{ booking.comment }}<br>
+                                Comment : {{ booking.comment }}<br>
                                 Your player name : {{ booking.player_name }}</p>
                             <button type="button" class="btn btn-dark btn-detail"><a href="{% url 'booking-detail' booking.pk %}">See details</a></button>
                         </li>
