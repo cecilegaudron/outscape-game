@@ -22,7 +22,6 @@ section, article {
     section, article {
         max-width: 70%;
     }
-
 }
 
 .alert {
@@ -67,28 +66,37 @@ a {
 
 /* Logo */
 #logo {
-    width: 80%;
+    width: 60%;
     margin: 4% !important;
     background-color: white;
-    display: block;
-    float: none;
+    display: flex;
+    justify-content: center;
 }
 
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 576px) {
     #logo {
-        width: 60%;
+        width: 50%;
+        margin: 2% !important;
     }
 }
 
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 768px) {
     #logo {
-        width: 10%;
+        width: 40%;
+        margin: 2% !important;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    #logo {
+        width: 30%;
+        margin: 1% !important;
     }
 }
 
 @media screen and (min-width: 1200px) {
     #logo {
-        width: 10%;
+        width: 30%;
     }
 }
 
