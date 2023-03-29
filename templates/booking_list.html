@@ -11,12 +11,12 @@
         </p>
     </div>
     <div>
-        <!-- A For loop to have every input in the database display on the page -->
-        {% for booking in booking_list %}
-            <!-- Check if the user is authenticated to his personal account --> 
-            {% if user.is_authenticated %}
-                <!-- Check if the current user has the ID with the player ID --> 
-                <!-- If it is the case, the user can see his booking, edit and delete it --> 
+        <!-- Check if the user is authenticated to his personal account --> 
+        {% if user.is_authenticated %}
+            <!-- A For loop to have every input in the database display on the page -->
+            {% for booking in booking_list %}
+                <!-- Check if the current user has the ID with the player ID 
+                If it is the case, the user can see his booking, edit and delete it --> 
                 {% if user.id == booking.player_name.id %}
                     <ul>
                         <li class="list-booking">
@@ -24,16 +24,19 @@
                             <p class="detail-booking-txt">{{ booking.bookdate }}</p>
                             <p>Hour : {{ booking.timeslot }}<br>
                                 Comment : {{ booking.comment }}<br>
-                                Your player name : {{ booking.player_name }}</p>
                             <button type="button" class="btn btn-dark btn-detail"><a href="{% url 'booking-detail' booking.pk %}">See details</a></button>
                         </li>
                     </ul>
+                    {% else %}
+                    <p class="alert alert-secondary mx-auto">You have 0 confirmed booking.<br>
+                        If you have already made a booking request, it must be validated by the organizers. This may take a few hours.
+                    </p>
                 {% endif %}
+            {% endfor %}
             {% else %}
                 <p class="alert alert-secondary mx-auto">You need to be connected to your personal account to see your booking(s).<br>
                 Please <a href="{% url 'account_login' %}">login</a> or <a href="{% url 'account_signup' %}">register</a>.</p>
-            {% endif %}
-        {% endfor %}
+        {% endif %}
     </div>
 </section>
 {% endblock %}

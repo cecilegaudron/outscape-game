@@ -44,29 +44,27 @@
     </header>
     <!-- Content block -->
     <main>
-        <section class="mx-auto connected">
-            <!-- Navbar for user connected -->
-            <div class="nav-connected center-content">
-                <ul>
-                    <!-- Info about User authentification -->
-                    {% if user.is_authenticated %}
-                    <li>
-                        <i class="fa-solid fa-user-large"></i> You are connected as <strong>{{ user.username }}</strong>
-                    </li>
-                    <li>
-                        <a href="{% url 'booking' %}">Book the game</a> | <a href="{% url 'booking-list' %}">Your booking</a> | <a href="{% url 'account_logout' %}">Log out</a>
-                    </li>
-                    {% else %}
-                    <li>
-                        <a href="{% url 'account_signup' %}">Registrer</a>
-                    </li>
-                    <li>
-                        <a href="{% url 'account_login' %}">Log in</a>
-                    </li>
-                    {% endif %}
-                </ul>
-            </div>
-        </section>
+        <!-- Navbar for user connected -->
+        <div class="nav-connected center-content mx-auto">
+            <ul>
+                <!-- Info about User authentification -->
+                {% if user.is_authenticated %}
+                <li>
+                    <i class="fa-solid fa-user-large"></i> You are connected as <strong>{{ user.username }}</strong>
+                </li>
+                <li>
+                    <a href="{% url 'booking' %}">Book the game</a> | <a href="{% url 'booking-list' %}">Your booking</a> | <a href="{% url 'account_logout' %}">Log out</a>
+                </li>
+                {% else %}
+                <li>
+                    <a href="{% url 'account_signup' %}">Registrer</a>
+                </li>
+                <li>
+                    <a href="{% url 'account_login' %}">Log in</a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
         <!-- Display messaging system -->
         <br>
         <div>

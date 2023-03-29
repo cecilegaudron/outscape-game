@@ -1,7 +1,8 @@
 # Import to deploy view
 from django.shortcuts import render
 # Import differents views
-from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.views.generic import TemplateView, ListView, DetailView, \
+    CreateView, UpdateView, DeleteView
 # Import for date on booking form
 from django.utils.timezone import now
 from datetime import date
@@ -65,7 +66,7 @@ class AddBookingView(SuccessMessageMixin, CreateView):
     form_class = BookingForm
     template_name = 'booking.html'
     # Success message displays when the form is valid
-    success_message = "Your booking is submitted. Your request pending. \
+    success_message = "Your booking is submitted. Your request is pending. \
         The organizers must accept your booking."
 
     def form_invalid(self, form):

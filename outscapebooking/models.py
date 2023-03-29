@@ -24,22 +24,22 @@ By default the booking status is 'pending'
 STATUS = ((0, "Pending"), (1, "Confirmed"), (2, "Declined"))
 
 
-""" 
-Database model for booking app 
-Every data is save in the database
-Follow the course of CI and this page https://docs.djangoproject.com/fr/4.1/topics/db/models/
-"""
 class Booking(models.Model):
+    """
+    Database model for booking app
+    Every data is save in the database
+    Follow the course of CI
+    And this page https://docs.djangoproject.com/fr/4.1/topics/db/models/
+    """
 
-    """
-    Validate the booking if the booked date is before today
-    https://stackoverflow.com/questions/66882721/how-to-add-todays-date-to-django-templates
-    https://stackoverflow.com/questions/50439356/django-date-validation-help-needed
-    https://docs.djangoproject.com/en/4.1/ref/validators/
-    Help in Slack
-    """
     def validate_bookdate(value):
-    
+        """
+        Validate the booking if the booked date is before today
+        https://stackoverflow.com/questions/66882721/how-to-add-todays-date-to-django-templates
+        https://stackoverflow.com/questions/50439356/django-date-validation-help-needed
+        https://docs.djangoproject.com/en/4.1/ref/validators/
+        Help in Slack
+        """
         today = now().date()
         if value <= today:
             raise ValidationError("The date cannot be in the past!")
@@ -87,8 +87,9 @@ class Booking(models.Model):
 
     # Mobile number with RegexValidator
     mobile = models.CharField(
-        "Your phone number*", 
-        help_text="[Indicate your country code, without space. E.g:+336xxxxxxx/+490157xxxxxxxx]",
+        "Your phone number*",
+        help_text="[Indicate your country code,  \
+            without space. E.g:+336xxxxxxx/+490157xxxxxxxx]",
         max_length=14,
         blank=False,
         validators=[RegexValidator(regex=r'^\+?1?\d{9,15}$')]
@@ -101,7 +102,7 @@ class Booking(models.Model):
         blank=False,
         validators=[validate_bookdate]
         )
-    
+
     # Timeslots
     timeslot = models.CharField(
         "Choose your time slot*",
@@ -145,13 +146,16 @@ class Booking(models.Model):
     booking_id = models.AutoField(auto_created=True, primary_key=True)
 
     class Meta:
-        
         # Display the booking list in date descending order
         ordering = ['bookdate']
-        
-        # Constraint date and timeslot fields to be unique to avoid double bookings on the same timeslot
+
+        # Constraint date and timeslot fields to be unique
+        # To avoid double bookings on the same timeslot
         constraints = [
-            models.UniqueConstraint(fields=['bookdate', 'timeslot'], name='unique_booking')
+            models.UniqueConstraint(
+                fields=['bookdate', 'timeslot'],
+                name='unique_booking'
+                )
         ]
 
     # Display the date and timeslot of booking as the title
@@ -174,8 +178,10 @@ class Booking(models.Model):
             # If else loop with valid condition for saving data
             if form.is_valid():
                 form.save()
-            messages.success(request, ('Your booking has been submitted successfully'))
+            messages.success(request, ('Your booking has been  \
+                submitted successfully'))
             return render(request, 'booking_list.html', {})
         else:
-            messages.error(request, ('Your booking is failed please follow the error messages on the form'))
+            messages.error(request, ('Your booking is failed please follow  \
+                the error messages on the form'))
         return render(request, 'booking.html', {})
