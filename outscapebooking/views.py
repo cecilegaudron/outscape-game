@@ -102,19 +102,30 @@ class BookingDetailView(DetailView):
     template_name = 'booking_detail.html'
 
 
-class UpdateBookingView(UpdateView):
+class UpdateBookingView(SuccessMessageMixin, UpdateView):
     """
     ClassBased View for the booking update
     """
     model = Booking
     form_class = BookingForm
     template_name = 'booking_update.html'
+    success_message = "Your booking has been successfully updated!"
+
+    def form_invalid(self, form):
+        """
+        If the form is invalid a message is displaying for the user
+        """
+        messages.warning(self.request,
+                         'There was a problem processing your booking.\
+             Please double check below your information.')
+        return super().form_invalid(form)
 
 
-class DeleteBookingView(DeleteView):
+class DeleteBookingView(SuccessMessageMixin, DeleteView):
     """
     ClassBased View for the booking remove
     """
     model = Booking
     template_name = 'booking_delete.html'
     success_url = reverse_lazy('booking-list')
+    success_message = "Your booking has been successfully cancelled."
