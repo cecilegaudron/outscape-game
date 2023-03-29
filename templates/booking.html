@@ -2,8 +2,8 @@
 {% block title %}Book the OUTscape game{% endblock %}
 
 {% block content %}
-<section>
-    <div class="mx-auto">
+<section class="mx-auto">
+    <div>
         <h1>MAKE A BOOKING</h1>
         <p>
             The price of the game is 80€. This amount includes the different riddles of the game and <strong>the price does not vary according to the number of players</strong>.<br><br>
@@ -14,30 +14,27 @@
             A trip by metro is necessary for the game. If you don’t have a transit card or single tickets, <strong>we can provide them for 3€ each</strong>. You can specify this in the reservation form.
         </p>
     </div>
-</section>
-<section>
-        <div class="booking-form list-booking">
-        {% if user.is_authenticated %}
-        {% if submitted %}
-            Your reservation request has been sent. You will get a feedback from the organizers very soon
-        {% else %}
-        <!-- Block booking form -->
-            <div class="form-group">
-                <form method="POST" action="{% url 'booking' %}">
-                    <!-- Security tocken -->
-                    {% csrf_token %}
-                    {{ form.as_p }}
-                    <div class="center-content">
-                        <button type="submit" value="Submit" class="btn btn-dark btn-detail">Book the game</button>
-                    </div>
-                </form>
-            </div>
-        <!--{% endif %}-->
-        {% else %}
-        <p>You need to be connected to your personal account to make a booking.<br>
-        Please <a href="{% url 'account_login' %}">login</a> or <a href="{% url 'account_signup' %}">register</a>.</p>
-        {% endif %}
+    <div class="booking-form background-booking">
+    {% if user.is_authenticated %}
+    {% if submitted %}
+        Your reservation request has been sent. You will get a feedback from the organizers very soon
+    {% else %}
+    <!-- Block booking form -->
+        <div class="form-group">
+            <form method="POST" action="{% url 'booking' %}">
+                <!-- Security tocken -->
+                {% csrf_token %}
+                {{ form.as_p }}
+                <div class="center-content">
+                    <button type="submit" value="Submit" class="btn btn-dark btn-detail">Book the game</button>
+                </div>
+            </form>
         </div>
+    <!--{% endif %}-->
+    {% else %}
+    <p>You need to be connected to your personal account to make a booking.<br>
+        Please <a href="{% url 'account_login' %}">login</a> or <a href="{% url 'account_signup' %}">register</a>.</p>
+    {% endif %}
     </div>
 </section>
 <!-- Some JavaScript lines

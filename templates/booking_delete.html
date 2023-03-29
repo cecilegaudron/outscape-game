@@ -2,8 +2,8 @@
 {% block title %}Delete your OUTscape game booking{% endblock %}
 
 {% block content %}
-<section>
-    <div class="mx-auto">
+<section class="mx-auto">
+    <div>
         <h1>Delete your booking</h1>
         {% if user.is_authenticated %}
             {% if user.id == booking.player_name.id %}
