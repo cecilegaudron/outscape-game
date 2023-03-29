@@ -17,11 +17,28 @@ class BookingForm(forms.ModelForm):
 
     class Meta:
         model = Booking
-        fields = ('player_name', 'first_name', 'last_name', 'email', 'mobile', 'bookdate', 'timeslot', 'players', 'tickets', 'comment')
+        fields = (
+            'player_name',
+            'first_name',
+            'last_name',
+            'email',
+            'mobile',
+            'bookdate',
+            'timeslot',
+            'players',
+            'tickets',
+            'comment'
+            )
 
         widgets = {
-            # The player name fiel is with a value null, the JavaScript put the value on it, this field is hidden
-            'player_name': forms.TextInput(attrs={'class': 'form-control', 'value': '', 'id': 'playername', 'type': 'hidden'}),
+            # Player name field is a value null
+            # JavaScript put the value on it, this field is hidden
+            'player_name': forms.TextInput(attrs={
+                'class': 'form-control',
+                'value': '',
+                'id': 'playername',
+                'type': 'hidden'
+                }),
             'first_name': forms.TextInput(attrs={'class': 'form-control'}),
             'last_name': forms.TextInput(attrs={'class': 'form-control'}),
             'email': forms.TextInput(attrs={'class': 'form-control'}),
