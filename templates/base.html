@@ -22,17 +22,6 @@
     <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css">
 </head>
 <body>
-    <!-- Display messaging system -->
-    <br>
-    <div>
-    {% if messages %}
-        {% for message in messages %}
-        <div class="alert alert-secondary" role="alert">
-            {{ message }}
-          </div>
-        {% endfor %}
-    {% endif %}
-    </div> 
     <!-- Header with logo and navigation bar -->
     <header>
         <div id="logo" class="center-content">
@@ -78,6 +67,17 @@
                 </ul>
             </div>
         </section>
+        <!-- Display messaging system -->
+        <br>
+        <div>
+            {% if messages %}
+                {% for message in messages %}
+                <div class="alert alert-warning" role="alert">
+                    {{ message }}
+                </div>
+                {% endfor %}
+            {% endif %}
+        </div> 
         {% block content %}
         <!-- Place for content -->
         {% endblock content %}

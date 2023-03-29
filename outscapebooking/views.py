@@ -14,22 +14,29 @@ from .models import Booking
 from django.utils.functional import cached_property
 # Import for messaging system
 from django.contrib import messages
+from django.contrib.messages.views import SuccessMessageMixin
 # Import for send mail with contact form
 from django.core.mail import send_mail
 
 
-# Basic view for Home Page
 def index(request):
+    """
+    Basic view for Home Page
+    """
     return render(request, 'index.html', {})
 
 
-# Basic view for Game Page
 def game(request):
+    """
+    Basic view for Game Page
+    """
     return render(request, 'game.html', {})
 
 
-# Basic view for Contact Page
 def contact(request):
+    """
+    Basic view for Contact Page
+    """
     if request.method == "POST":
         contact_name = request.POST['contact-name']
         contact_email = request.POST['contact-email']
@@ -37,79 +44,77 @@ def contact(request):
 
         # Function sending the email
         send_mail(
-            'Customer message from' + contact_name, # subject
-            contact_message, # message
-            contact_email, # from email
-            ['karaokeprototype153@simplelogin.com'], # to email
+            'Customer message from' + contact_name,  # subject
+            contact_message,  # message
+            contact_email,  # from email
+            ['karaokeprototype153@simplelogin.com'],  # to email
             fail_silently=False,
+            # Success message displays when the form is valid
+            success_message="Your message has been sent successfully!"
         )
         return render(request, 'contact.html', {'contact_name': contact_name})
     else:
         return render(request, 'contact.html', {})
 
 
-"""
-This is the view for the booking form 
-"""
-class AddBookingView(CreateView):
+class AddBookingView(SuccessMessageMixin, CreateView):
+    """
+    This is the view for the booking form
+    """
     model = Booking
     form_class = BookingForm
     template_name = 'booking.html'
+    # Success message displays when the form is valid
+    success_message = "Your booking is submitted. Your request pending. \
+        The organizers must accept your booking."
 
-"""
-    # This is the view for the Booking form
-    def make_booking(request):
-        if request.method == "POST":
-            form = BookingForm(request.POST)
-            # If else loop with valid condition for saving data
-            if form.is_valid():
-                form.save()
-            else:
-                messages.error(request, ('There is an error on your form, please try again'))
-                return render(request, 'booking.html', {})
-
-            messages.success(request, ('Your booking has been submitted successfully'))
-            return render(request, 'booking_list.html', {})
-        else:
-            return render(request, 'booking.html', {})
-"""
+    def form_invalid(self, form):
+        """
+        If the form is invalid a message is displaying for the user
+        """
+        messages.warning(self.request,
+                         'There was a problem processing your booking.\
+             Please double check below your information.')
+        return super().form_invalid(form)
 
 
-"""
-ClassBased View for the booking list
-Filter the bookings with confirmed status
-Display only futur bookings
-https://stackoverflow.com/questions/4668619/how-do-i-filter-query-objects-by-date-range-in-django/4668703#4668703
-Order by date
-"""
 class BookingList(ListView):
+    """
+    ClassBased View for the booking list
+    Filter the bookings with confirmed status
+    Display only futur bookings
+    https://stackoverflow.com/questions/4668619/how-do-i-filter-query-objects-by-date-range-in-django/4668703#4668703
+    Order by date
+    """
     model = Booking
     template_name = 'booking_list.html'
-    queryset = Booking.objects.filter(status=1, bookdate__gte=now().date()).order_by('bookdate')
+    queryset = Booking.objects.filter(
+        status=1,
+        bookdate__gte=now().date()
+        ).order_by('bookdate')
 
 
-"""
-ClassBased View displaying the booking to the user
-"""
 class BookingDetailView(DetailView):
+    """
+    ClassBased View displaying the booking to the user
+    """
     model = Booking
     template_name = 'booking_detail.html'
 
 
-"""
-ClassBased View for the booking update
-IF NEEDED OTHERS FIELDS THAN BOOKING, JUST CREATE A NEW FORM JUST FOR THE UPDATE
-"""
 class UpdateBookingView(UpdateView):
+    """
+    ClassBased View for the booking update
+    """
     model = Booking
     form_class = BookingForm
     template_name = 'booking_update.html'
 
 
-"""
-ClassBased View for the booking remove
-"""
 class DeleteBookingView(DeleteView):
+    """
+    ClassBased View for the booking remove
+    """
     model = Booking
     template_name = 'booking_delete.html'
     success_url = reverse_lazy('booking-list')
