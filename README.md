@@ -229,6 +229,12 @@ On this version of the project, users can create a user account. They can then c
 - __Booking Formular__  
 It is accessible only to users logged in to their personal account. Different fields are to be filled in, allowing users to choose the date and time of the game, to indicate the number of players, the number of transport tickets if necessary, a specific comment and to fill in their personal information.  
 
+- __Booking List and Booking Detail__  
+When a user is logged in and a booking has already been made and confirmed by the admins, it is possible to view the booking information in the booking list. The user can only see his booking.  
+
+-__Booking Management__  
+The user can modify or delete his booking when he is logged in to his account. He can do this from his booking list and then from his booking details. He can of course perform these actions only on bookings he has made himself.  
+
 -__Error Page__  
 If a user wishes to access a page that is not referenced, a 404 page is displayed.  
 
@@ -452,20 +458,23 @@ The logo was created with Illustrator software in order to create a vector file 
 - InDesign[OUTscape website on Heroku](https://outscapebooking.herokuapp.com/)
 The wireframes were made with InDesign software. This is not the software commonly used on this kind of file, but I know this software well because I've been using it for years, I feel at ease on it and I spend less time making the wireframes with this software than with a more common online solution.
 
-## Credits
-TO BE COMPLETED
+## Credits  
+### Thank you  
+- A special thank you to my mentor Rory Patrick Sheridan who helped me a lot to understand my problems, who encourages me and gives me good advice throughout the project.  
+- A special thank you to my man who believes in me all the time and who thinks that what I do is great.  
+- Thanks to the tutorial support for their technical help and their insight.  
+- Thanks to my friends on Slack who helped me to solve problems in a few clicks.  
 
-### Content
-TO BE COMPLETED
+### Content  
+I helped myself a lot with the [Codemy YouTube channel](https://www.youtube.com/playlist?list=PLCC34OHNcOtr025c1kHSPrnP18YPB-NFi). His explanations allowed me to understand the logic of Django and to appreciate it.  
+
 
 ### Media
 1. **Logo**
 The logo is created by me.
 
-2. **Pictures**
-- Home page picture : [Pexels.com](​​https://www.pexels.com/fr-fr/photo/photo-a-faible-angle-de-la-tour-de-grande-hauteur-513594/)
+2. **Pictures**  
+- Home page picture : [Pexels.com](​​https://www.pexels.com/fr-fr/photo/photo-a-faible-angle-de-la-tour-de-grande-hauteur-513594/)  
 - Game page picture : 
-[Pexels.com](​​https://www.pexels.com/fr-fr/photo/la-nouvelle-eglise-de-berlin-3662115/)
+[Pexels.com](​​https://www.pexels.com/fr-fr/photo/la-nouvelle-eglise-de-berlin-3662115/)  
 
-### Special thanks
-TO BE COMPLETED
