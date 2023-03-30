@@ -2,23 +2,23 @@
 TO BE COMPLETED
 
 ## Table of Contents
-- [First Approach](#firstapproach)
+- [First Approach](#first-approach)
 - [Agile](#agile)
-- [Visual Design](#visualdesign)
+- [Visual Design](#visual-design)
 - [Development](#development)
 - [Testing](#testing)
 - [Technologies](#technologies)
-- [Credits](#credits)
+- [Credits](#credits) 
 
-## First Approach
+## First Approach  
 This milestone project is intended to be actually online in the spring 2023. The OUTscape website has been in the works for several months, but the game isn't completely finished yet, so the website is on hold. I decided to offer to make the OUTscape website for my milestone project 4 for Code Institute because it brought together the various technical constraints requested for the submission. Moreover, it is a concrete project and not only a work project. This is even more motivating and challenging!  
 
 The website had to be created with Wordpress, I'm even happier and more motivated to do it from A to Z and to offer a completely customized work to the game creators. They will be able to take full advantage of the different techniques. 
 
-### The project in a few words
+### The project in a few words  
 My husband and a friend decided to start a small company to market a game they had in mind for some time: an outdoor escape game. It's a treasure hunt through the streets of Berlin where clues are hidden. The players are given a bag with different objects to be used to solve the different riddles. As they solve the riddles, the players advance through the streets of Berlin. The players must find the bust of Nefertiti that was stolen from the Neues Museum in Berlin.
 
-### Existing Work
+### Existing Work  
 A homepage is already available and online at [OUTscape Berlin](https://outscapeberlin.de)
 This is a small teaser to briefly present the game, while beginning the work of natural referencing. It is only a single page with different sections because the game is available in three languages (German, English and French).  
 
@@ -26,8 +26,8 @@ The website has two vocations:
 -	the first one is to propose an online booking of the game
 -	the second is to be present on the Web and to be able to communicate about the game in a concrete way
 
-### User Stories
-1. **Customers**
+### User Stories  
+1. **Customers**  
 There are several types of customers: 
 - The group of Berliners
 - The group of tourists wanting to see the city while having fun
@@ -41,7 +41,7 @@ These customer groups are different but they have the same way of navigating the
 The creation of a customer account is necessary to make the reservation. This personal account then allows you to view the reservation, modify it or even cancel it. 
 TO BE COMPLETED
 
-2. **Admin**
+2. **Admin**  
 Admins also need to log in to the site in order to :
 - Confirm reservations submitted by users
 - Modify reservations
@@ -49,13 +49,14 @@ Admins also need to log in to the site in order to :
 - View upcoming reservations
 - View customer information
 
-### User Experience Design
+### User Experience Design  
 The website must reflect the professionalism of the company. Customers must feel confident and want to purchase a gaming experience. The website must be clean, professional and trustworthy. And of course, it must be easy to use.  
 In the future, customers will not need to create an account on the site to book a gaming slot. This feature is only present for the milestone project 4. It is important that the customer can purchase their gaming experience simply and quickly, without having to register and give all this information. 
-TO BE COMPLETED
 
 ### Tree Structure
-![TREE STRUCTURE](/media/screenshots/tree-structure.png)
+![TREE STRUCTURE](/media/screenshots/tree-structure.png)  
+
+[Back to top](#table-of-contents)  
 
 
 ## AGILE
@@ -68,20 +69,22 @@ The iterations represent about one week of work each.
 ![Iterations board](/media/screenshots/agile-board.png)
 
 - **Iteration 1**  
-The iteration 1 can be consulted [here](https://github.com/cecilegaudron/outscape-game/milestone/1)
+The iteration 1 can be consulted [here](https://github.com/cecilegaudron/outscape-game/milestone/1)  
 
-![Iteration 1](/media/screenshots/agile-iteration1.png)
+![Iteration 1](/media/screenshots/agile-iteration1.png)  
 
 - **Iteration 2**  
-The iteration 2 can be consulted [here](https://github.com/cecilegaudron/outscape-game/milestone/2)
+The iteration 2 can be consulted [here](https://github.com/cecilegaudron/outscape-game/milestone/2)  
 ![Iteration 2](/media/screenshots/agile-iteration2.png)
 
 - **Iteration 3**  
-The iteration 3 can be consulted [here](https://github.com/cecilegaudron/outscape-game/milestone/3)
-![Iteration 3](/media/screenshots/agile-iteration3.png)
+The iteration 3 can be consulted [here](https://github.com/cecilegaudron/outscape-game/milestone/3)  
+![Iteration 3](/media/screenshots/agile-iteration3.png)  
 
-## VISUAL DESIGN
-### Wireframes
+[Back to top](#table-of-contents)
+
+## VISUAL DESIGN  
+### Wireframes  
 The wireframes represent the mobile view and the desktop view of the website.  
 
 - **Mobile**  
@@ -122,6 +125,8 @@ The pictures on the homepage and on the Game page do not give any particular inf
 In the future, photos will be taken by the organizers in a real situation in the city of Berlin with elements of the game in the hands of players.  
 
 All the graphic elements of the site have been treated with the [BulkResize](https://bulkresizephotos.com/en) site in order to reduce the quality/weight ratio and to save in webp format. They are hosted on Cloudinary.  
+
+[Back to top](#table-of-contents)  
 
 ## Development
 The organization of the website is very simple. It is a site composed of **four pages of content, accessible to all**:  
@@ -293,18 +298,18 @@ Same for a modification request or a cancellation.
 
 TO BE COMPLETED
 
-## Testing
-TO BE COMPLETED
+[Back to top](#table-of-contents)  
 
+## Testing
 ### Validator Testing
-- HTML
-No errors were returned when passing through the official [W3C validator](https://validator.w3.org/nu/)
-- CSS
-No errors were found when passing through the official [Jigsaw validator](https://jigsaw.w3.org/css-validator/)
-- JavaScript
-No errors were found when passing through the official [JSHint validator](https://jshint.com/)
-- Python
-TO BE COMPLETED
+- HTML  
+No errors were returned when passing through the official [W3C validator](https://validator.w3.org/nu/)  
+- CSS  
+No errors were found when passing through the official [Jigsaw validator](https://jigsaw.w3.org/css-validator/)  
+- JavaScript  
+No errors were found when passing through the official [JSHint validator](https://jshint.com/)  
+- Python  
+TO BE COMPLETED  
 
 ### Lighthouse
 I asked the Lighthouse tool to analyze the performance of my site.  
@@ -314,8 +319,18 @@ The results are satisfactory. I still need to fine-tune the SEO and accessibilit
 
 ![Lighthouse for desktop](/media/screenshots/lighthouse-desktop.png)  
 
+### Manual Testings
+- I tested several invalid entries in the booking form. Letters in the phone number field, an invalid email address, a past date, two identical slots and dates, numbers greater than those allowed for players and transportation tickets.  
+- I tested the fact that a user who is not logged in cannot make a booking, nor have access to the list of bookings. I checked that only the logged in user has access to the bookings he has made himself.  
+- I tested the design of the site to make sure it was responsive on Google Chrome Devtools.  
+- I consulted the site on several screens and on several browsers in my possession. I did not see any errors on any of them.  
+- I tested the Javascript feature of linking the user ID with the player name ID. This feature works well. I was able to hide it so that the user could not change it.  
+- Finally, the menu links are not visible if the user does not click on the hamburger icon.  
+
 ### Unfixed Bugs
 TO BE COMPLETED
+
+[Back to top](#table-of-contents)  
 
 ## Deployment
 The website has been deployed via Heroku.  
@@ -421,7 +436,9 @@ Cloudinary is the service used to stored the media.
   3. Be sure to select the *main* branch on the Manual Deploy section
   4. Click on the *Deploy branch* button
 
-The site is live here : [OUTscape website on Heroku](https://outscapebooking.herokuapp.com/)
+The site is live here : [OUTscape website on Heroku](https://outscapebooking.herokuapp.com/)  
+
+[Back to top](#table-of-contents)  
 
 ## Technologies
 1. **Languages**
@@ -456,7 +473,9 @@ The site is live here : [OUTscape website on Heroku](https://outscapebooking.her
 The logo was created with Illustrator software in order to create a vector file capable of being printed in high resolution as well as being displayed on a website with a mini weight. In addition, the vector format allows for a responsive image, as it adapts to different screen sizes.
 
 - InDesign[OUTscape website on Heroku](https://outscapebooking.herokuapp.com/)
-The wireframes were made with InDesign software. This is not the software commonly used on this kind of file, but I know this software well because I've been using it for years, I feel at ease on it and I spend less time making the wireframes with this software than with a more common online solution.
+The wireframes were made with InDesign software. This is not the software commonly used on this kind of file, but I know this software well because I've been using it for years, I feel at ease on it and I spend less time making the wireframes with this software than with a more common online solution.  
+
+[Back to top](#table-of-contents)  
 
 ## Credits  
 ### Thank you  
@@ -466,8 +485,26 @@ The wireframes were made with InDesign software. This is not the software common
 - Thanks to my friends on Slack who helped me to solve problems in a few clicks.  
 
 ### Content  
-I helped myself a lot with the [Codemy YouTube channel](https://www.youtube.com/playlist?list=PLCC34OHNcOtr025c1kHSPrnP18YPB-NFi). His explanations allowed me to understand the logic of Django and to appreciate it.  
+I helped myself a lot with the [Codemy YouTube channel](https://www.youtube.com/playlist?list=PLCC34OHNcOtr025c1kHSPrnP18YPB-NFi). His explanations allowed me to understand the logic of Django and to appreciate it. A big thank you for this YouTube channel !  
 
+- The Custom model was made with the help of the Code Institute "Django Blog" course and the [Django Documentation](https://www.youtube.com/playlist?list=PLCC34OHNcOtr025c1kHSPrnP18YPB-NFi).  
+
+- The validation of the booking is the date requested is prior to today was built through this [ticket](https://stackoverflow.com/questions/66882721/how-to-add-todays-date-to-django-templates) and this other [ticket](https://stackoverflow.com/questions/50439356/django-date-validation-help-needed) of StackOverFlow, as well as the [Django Documentation](https://docs.djangoproject.com/en/4.1/ref/validators/).  
+
+- I used this [article](
+https://blog.devgenius.io/django-tutorial-on-how-to-create-a-booking-system-for-a-health-clinic-9b1920fc2b78) for the creation of the list of timeslot.  
+ 
+- I used this [ticket](https://stackoverflow.com/questions/4668619/how-do-i-filter-query-objects-by-date-range-in-django/4668703#4668703) of StackOverFlow to filter bookings so that only future bookings are displayed.  
+
+- I used the [tutorial](https://www.w3schools.com/howto/howto_js_topnav_responsive.asp) proposed by W3 Schools to build my responsive menu.  
+
+- I used this [video](https://www.youtube.com/watch?v=mpfHDSmqHds&list=PLCC34OHNcOtr025c1kHSPrnP18YPB-NFi&index=15) and especially this [video](https://www.youtube.com/watch?v=TAH01Iy5AuE&list=PLCC34OHNcOtr025c1kHSPrnP18YPB-NFi&index=17) to create the restriction users rights. The users have access only to their booking. The user ID is automatically linked au player name ID. 
+
+- I used this [video](https://www.youtube.com/watch?v=BlNKvq8weWY) to create the users messages.  
+
+- I used this [ticket](https://stackoverflow.com/questions/24822509/success-message-in-deleteview-not-shown) of StackOverFlow to display a user message on a DeleteView.  
+
+- I used this [article](# https://www.section.io/engineering-education/customizing-django-admin/) to change the Admin panel header text.  
 
 ### Media
 1. **Logo**
@@ -477,4 +514,6 @@ The logo is created by me.
 - Home page picture : [Pexels.com](​​https://www.pexels.com/fr-fr/photo/photo-a-faible-angle-de-la-tour-de-grande-hauteur-513594/)  
 - Game page picture : 
 [Pexels.com](​​https://www.pexels.com/fr-fr/photo/la-nouvelle-eglise-de-berlin-3662115/)  
+
+[Back to top](#table-of-contents)  
 
