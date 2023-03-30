@@ -238,7 +238,7 @@ Show the link that contains should open and close the topnav (.icon) */
 
 @media screen and (min-width: 992px) {
     .nav-connected {
-        width: 50%;
+        max-width:50%;
     }
 }
 
