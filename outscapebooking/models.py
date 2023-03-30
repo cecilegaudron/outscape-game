@@ -28,17 +28,11 @@ class Booking(models.Model):
     """
     Database model for booking app
     Every data is save in the database
-    Follow the course of CI
-    And this page https://docs.djangoproject.com/fr/4.1/topics/db/models/
     """
 
     def validate_bookdate(value):
         """
         Validate the booking if the booked date is before today
-        https://stackoverflow.com/questions/66882721/how-to-add-todays-date-to-django-templates
-        https://stackoverflow.com/questions/50439356/django-date-validation-help-needed
-        https://docs.djangoproject.com/en/4.1/ref/validators/
-        Help in Slack
         """
         today = now().date()
         if value <= today:
@@ -46,7 +40,6 @@ class Booking(models.Model):
 
     """
     List with available timeslots
-    https://blog.devgenius.io/django-tutorial-on-how-to-create-a-booking-system-for-a-health-clinic-9b1920fc2b78
     """
     TIMESLOT_LIST = (
         ("10:00-13:00", "10:00-13:00"),
@@ -170,18 +163,3 @@ class Booking(models.Model):
     def time(self):
         return self.TIMESLOT_LIST[self.timeslot][1]
 
-    # This is the view for the Booking form
-    # SEE IF IT IS NECESSARYY
-    def make_booking(request):
-        if request.method == "POST":
-            form = BookingForm(request.POST)
-            # If else loop with valid condition for saving data
-            if form.is_valid():
-                form.save()
-            messages.success(request, ('Your booking has been  \
-                submitted successfully'))
-            return render(request, 'booking_list.html', {})
-        else:
-            messages.error(request, ('Your booking is failed please follow  \
-                the error messages on the form'))
-        return render(request, 'booking.html', {})
