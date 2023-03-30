@@ -252,6 +252,14 @@ No errors were found when passing through the official [JSHint validator](https:
 - Python
 TO BE COMPLETED
 
+### Lighthouse
+I asked the Lighthouse tool to analyze the performance of my site.  
+The results are satisfactory. I still need to fine-tune the SEO and accessibility results.  
+
+![Lighthouse for mobile](/media/screenshots/lighthouse-mobile.png)  
+
+![Lighthouse for desktop](/media/screenshots/lighthouse-desktop.png)  
+
 ### Unfixed Bugs
 TO BE COMPLETED
 
