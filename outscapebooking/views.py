@@ -84,7 +84,6 @@ class BookingList(ListView):
     ClassBased View for the booking list
     Filter the bookings with confirmed status
     Display only futur bookings
-    https://stackoverflow.com/questions/4668619/how-do-i-filter-query-objects-by-date-range-in-django/4668703#4668703
     Order by date
     """
     model = Booking
@@ -129,9 +128,8 @@ class DeleteBookingView(SuccessMessageMixin, DeleteView):
     model = Booking
     template_name = 'booking_delete.html'
 
-    # https://stackoverflow.com/questions/24822509/success-message-in-deleteview-not-shown
     def get_success_url(self):
         messages.success(self.request, 
-        "Your booking has been successfully cancelled."
-        )
+                         "Your booking has been successfully cancelled."
+                         )
         return reverse_lazy('booking-list')
