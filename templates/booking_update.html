@@ -7,10 +7,8 @@
         <h1>Update your booking</h1>
         <div class="detail-booking">
         {% if user.is_authenticated %}
-
-        {% if submitted %}
-            Your reservation request has been sent. You will get a feedback from the organizers very soon
-
+            {% if submitted %}
+                Your reservation request has been sent. You will get a feedback from the organizers very soon
         {% else %}
         <!-- Block booking form -->
             <div class="form-group">
