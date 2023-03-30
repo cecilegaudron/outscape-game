@@ -11,7 +11,6 @@ urlpatterns = [
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 # Change Admin panel header text
-# https://www.section.io/engineering-education/customizing-django-admin/
 admin.site.site_header = "OUTscape game ADMIN"
 admin.site.site_title = "OUTscape game ADMIN"
 admin.site.index_title = "OUTscape game admin"
