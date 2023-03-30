@@ -128,5 +128,10 @@ class DeleteBookingView(SuccessMessageMixin, DeleteView):
     """
     model = Booking
     template_name = 'booking_delete.html'
-    success_url = reverse_lazy('booking-list')
-    success_message = "Your booking has been successfully cancelled."
+
+    # https://stackoverflow.com/questions/24822509/success-message-in-deleteview-not-shown
+    def get_success_url(self):
+        messages.success(self.request, 
+        "Your booking has been successfully cancelled."
+        )
+        return reverse_lazy('booking-list')
