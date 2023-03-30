@@ -5,46 +5,32 @@
 <section class="mx-auto">
     <div>
         <h1>Contact Us</h1>
+        <p>
+            If you have any questions, doubts, points to clarify about our OUTscape Game, or a particular or personalized request, we are at your disposal.<br><br>
+        </p>
     </div>
-    <div class="container">
-        {% if contact_name %}
-            <h2>Thanks {{ contact_name }} !</h2>
-            <p>We received your email and we answer to you shortly.</p>
-            <br><br>
-        {% else %}
-            <p>
-                If you have any questions, doubts, points to clarify about our OUTscape Game, or a particular or personalized request, we are at your disposal.<br><br>
-                Please contact us via this contact form. <br><br> 
-                If you would like to participate in our OUTscape Game, please use the <a href="{% url 'booking' %}">booking module</a>.
-            </p>
-            <div class="row">
-                <!-- Contact Form with Bootstrap -->
-                <form class="form-contact mx-auto" action="#" method="POST">
-                    <!-- Security tocken -->
-                    {% csrf_token %}
-                    <div class="form-group col-xl-10">
-                        <label for="inputName" class="form-label">Your name*</label>
-                        <input type="name" class="form-control" id="inputName" required aria-label="Name">
-                    </div>
-                    <div class="form-group col-xl-10">
-                        <label for="inputEmail" class="form-label">Your email*</label>
-                        <input type="email" class="form-control" id="inputEmail" required aria-label="Email address">
-                    </div>
-                    <div class="form-group col-xl-10">
-                        <label for="inputPhone" class="form-label">Your phone number</label>
-                        <input type="number" class="form-control" id="inputPhone" aria-label="Phone number">
-                    </div>
-                    <div class="form-group col-xl-10">
-                        <label for="inputMessage" class="form-label">Your message*<label>
-                        <textarea type="message" id="inputMessage" class="form-control" required aria-label="Message" rows="6"></textarea>
-                    </div>
-                    <div class="col-12 center-content">
-                        <button type="submit" class="btn btn-black btn-detail" aria-label="Send">Send the message</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-        {% endif%}
+    <div class="detail-booking center-content">
+        <ul>
+            <li>
+                <p class="contact-txt">
+                    <i class="fa-solid fa-phone"></i><br>
+                    01573 15487589
+                </p>
+            </li>
+            <br>
+            <li>
+                <p class="contact-txt">
+                    <i class="fa-regular fa-envelope"></i><br>
+                    emailme.kfpey@simplelogin.com
+                </p>
+            </li>
+        </ul>
+    </div>
+    <div>
+        <p>
+            If you would like to participate in our OUTscape Game, please use the <a href="{% url 'booking' %}">booking module</a>.
+        </p>
+    </div>
 </section>
 
 {% endblock %}
