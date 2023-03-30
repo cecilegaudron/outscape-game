@@ -119,7 +119,9 @@ The pictograms on the home page were made by me. They make it possible to synthe
 
 - **Pictures**
 The pictures on the homepage and on the Game page do not give any particular information about the activity offered for sale on the website, except the fact that the game takes place in Berlin. The Fernsehturm is the symbol of the city of Berlin. The other picture represents Gendarmenmarkt which is a tourist place where the players will have to go. The intention is to illustrate the website simply, to give a concrete visual to the Internet user.  
-In the future, photos will be taken by the organizers in a real situation in the city of Berlin with elements of the game in the hands of players.
+In the future, photos will be taken by the organizers in a real situation in the city of Berlin with elements of the game in the hands of players.  
+
+All the graphic elements of the site have been treated with the [BulkResize](https://bulkresizephotos.com/en) site in order to reduce the quality/weight ratio and to save in webp format. They are hosted on Cloudinary.  
 
 ## Development
 The organization of the website is very simple. It is a site composed of **four pages of content, accessible to all**:  
@@ -146,18 +148,29 @@ The admins have **access to a space reserved for them**:
 
 A 404 page is also available.  
 
-### Database
-TO BE COMPLETED
+### Database  
+- **Database Diagram**  
 
 ![Model Database](/media/screenshots/model-database.png)  
 
+- **Custom Model**  
+I decide to use the User Model without creating another one. Indeed, the admins don't want to store information about the users. They are more interested in knowing the information about the reservations.  
+
+This custom model was therefore very important to create and had to be particularly adapted to expectations.  
+- The "first_name" and "last_name" fields allow to know the identity of the customer for a better communication.  
+- The "email" field eventually allows you to send personalized emails with appointment reminders.  
+- The "mobile" field accepts up to 14 characters. The customer can be German (12 digit numbers) or French (10 digit numbers). It is requested to indicate its indicator for ease of use.  
+- The "players" field only accepts entries between 1 and 10. Tickets can be entered up to 10 as well, but it is also possible not to enter any information.  
+- The "bookdate" field allows to choose the date of the reservation. A calendar opens for users to make their choice. It is not possible to book for the same day, nor in the past.  
+- The "timeslot" field displays several possible timeslots.  
+I want it to be possible to book a time slot only once, so I chose to use the "constraints" method so that a "date" value coupled with a "time" value is considered unique.  
+- The basic status of each new booking is by default 0, i.e. pending. A booking must be confirmed or declined by an admin.  
+
 ### Page Construction
 - **Django Templates**
-I used Django templates to build my pages. The head, logo, navigation bar, navigation if the user is connected and the footer are filled in the base.html document. 
+I used Django templates to build my pages. The head, logo, navigation bar, navigation if the user is connected and the footer are filled in the **base.html** document. 
 The stylesheet is called by the link **{% static 'css/style.css' %}** so that all pages regardless of their location. The pages for logging in, registering or logging out of the user account are not in the same folder as the Home page for example.  
-The different content pages use this document to load common elements such as the footer or the navigation, among others. The content pages only contain their own content.
-
-TO BE COMPLETED
+The different content pages use this document to load common elements such as the footer or the navigation, among others. The content pages only contain their own content.  
 
 ### Menu
 The menu is presented in two ways: 
@@ -173,24 +186,59 @@ Icons of social networks, Instagram and Facebook, are also present in the naviga
 Below the navigation menu is a small brick-colored insert with the following information.
 1. **If the user is not logged in :**  
 - Register
-- Login
+- Login  
+
+![Connected Navigation when the user is log out](/media/screenshots/connected-nav-logout.png) 
 
 2. **If the user is logged in :**
 - Book the game
 - Your booking
-- Log out
+- Log out  
 
-A small icon of a man is displayed as well as the user name is displayed at the login.
-TO BE COMPLETED avec un screenshot
+![Connected Navigation when the user is log in](/media/screenshots/connected-nav-login.png) 
 
-### Features
--__Header__
-The header is composed of the OUTscape game logo, the navigation menu (collapsed for mobile and bar for computer) and the menu for connected users.
--__Footer__
-The footer is composed of links to the game's social networks, Facebook and Instagram.   
-There are also links to my GitHub as well as the copyright with the current year.
+A small icon of a man is displayed as well as the user name is displayed at the login.  
 
-TO BE COMPLETED
+### Features  
+-__Header__  
+The header is composed of the OUTscape game logo, the navigation menu (collapsed for mobile and bar for computer).  
+
+-__Footer__  
+The footer is composed of links to the game's social networks, Facebook and Instagram. There are also links to my GitHub as well as the copyright with the current year.  
+
+-__Home Page__  
+The Home page is the first page that users arrive on. I want this page to be nice, without too much text but so that the user understands quickly what site he is on and what he can expect. From the titles **h1** and **h2**, the user understands that this site is about a game taking place in Berlin.   
+The image confirms the location in Berlin with the Fernsehturm which is one of the symbols of the city. The few lines below briefly explain the game before presenting the scenario at the bottom of the page.  
+The three pictograms briefly present the three main features of the game: **an outdoor game, a game with two riddles and a game for 1 to 6 players**.
+Two "Book the game" buttons allow the user to book his experience quickly during his reading.  
+
+-__The Game__  
+The Game page answers questions users may have: What is it? How to play?  
+The meeting place is indicated in the form of a map. The different questions are presented as an accordion for better readability.  
+
+-__Contact__  
+The contact page gives the different ways to contact (phone and email) the organizers in order to have additional information or to book a personalized game experience. When the game is launched and the site is actually online, this page will contain a contact form whose messages will be sent directly to the organizers' email box.  
+
+-__Admin Panel__  
+This space is reserved for the game administrators. They have the possibility to see the different bookings. They can confirm or cancel a booking.  
+They can also access the users' information if they want to contact them.  
+ 
+-__User Account__  
+On this version of the project, users can create a user account. They can then connect and disconnect from it. This user account allows to make a booking, to consult it, to modify it and to cancel it.  
+
+- __Booking Formular__  
+It is accessible only to users logged in to their personal account. Different fields are to be filled in, allowing users to choose the date and time of the game, to indicate the number of players, the number of transport tickets if necessary, a specific comment and to fill in their personal information.  
+
+-__Error Page__  
+If a user wishes to access a page that is not referenced, a 404 page is displayed.  
+
+-__User Messages__  
+For each action of the user, whether he wants to create his account, log in, log out, a message appears below the navigation to inform him of the success of this operation or its failure. It is the same for actions related to reservations:  
+- Creation of a reservation
+- Modification of a booking
+- Delete a booking  
+
+![User Message](/media/screenshots/user-message.png) 
 
 ### Features Left to Implement
 In the future version of the website, the organizers do not want users to need to create an account, nor do they need to log in to make a reservation. The organizers want to make the booking as easy as possible without having to create yet another customer account on a website. Moreover, this will eliminate the possible problems of keeping personal data. As soon as the game has been played, the personal informations of the customers will not be kept in the database.
@@ -370,17 +418,39 @@ Cloudinary is the service used to stored the media.
 The site is live here : [OUTscape website on Heroku](https://outscapebooking.herokuapp.com/)
 
 ## Technologies
-TO BE COMPETED
+1. **Languages**
+- HTML
+- CSS
+- JAVASCRIPT
+- PYTHON
+- MARKDOWN
 
-### Softwares
-- **Illustrator**
+2. **Cloud Services, Frameworks...**  
+- [GitHub](https://github.com/), service to store the project  
+- [Gitpod](hhttps://www.gitpod.io/), IDE for building the project  
+- [Heroku](https://www.heroku.com/), for deploying the project  
+- [Cloudinary](https://cloudinary.com/), images cloud  
+- [ElephantSQL](https://www.elephantsql.com/), PostgreSQL databases service  
+- [Gunicorn](https://gunicorn.org/), server for Django on Heroku  
+- [Django 3.2](https://www.djangoproject.com/), Python Framework  
+- [Bootstrap 5](https://getbootstrap.com/docs/4.3/getting-started/introduction/), front-end Framework  
+- [PostgreSQL](https://www.postgresql.org/), open source database  
+- [BulkResize](https://bulkresizephotos.com/en), for resizing images
+
+3. **Libraries, Packages, Applications**  
+- [Font Awesome](https://fontawesome.com/), icons website  
+- [Google Fonts](https://fonts.google.com/), fonts website  
+- [allauth](https://django-allauth.readthedocs.io/en/latest/), user accounts management  
+- [dj_database_url](https://pypi.org/project/dj-database-url/), PostgreSQL library  for Django  
+- [pyscopg2](https://www.psycopg.org/docs/), Database adapter for Django  
+- [dj3-cloudinary-storage](https://pypi.org/project/dj3-cloudinary-storage/), Cloudinary integration to Django  
+
+4. **Softwares**  
+- Illustrator[OUTscape website on Heroku](https://outscapebooking.herokuapp.com/)
 The logo was created with Illustrator software in order to create a vector file capable of being printed in high resolution as well as being displayed on a website with a mini weight. In addition, the vector format allows for a responsive image, as it adapts to different screen sizes.
 
-- **InDesign**
+- InDesign[OUTscape website on Heroku](https://outscapebooking.herokuapp.com/)
 The wireframes were made with InDesign software. This is not the software commonly used on this kind of file, but I know this software well because I've been using it for years, I feel at ease on it and I spend less time making the wireframes with this software than with a more common online solution.
-
-### Django Libraries
-TO BE COMPLETED
 
 ## Credits
 TO BE COMPLETED
