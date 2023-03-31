@@ -478,6 +478,13 @@ The wireframes were made with InDesign software. This is not the software common
 
 [Back to top](#table-of-contents)  
 
+## Clone project  
+The steps to create a local clone are :  
+- Go on the GitHub repository
+- On the Code tab, choose the HTTPS and copy the URL
+- On the fav IDE, like VS Studio Code, select "Clone Git Repository"
+- Paste the copied project's URL to create a local clone
+
 ## Credits  
 ### Thank you  
 - A special thank you to my mentor Rory Patrick Sheridan who helped me a lot to understand my problems, who encourages me and gives me good advice throughout the project.  
