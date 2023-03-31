@@ -20,8 +20,8 @@
                         Your email : <strong>{{ booking.email }}</strong><br>
                         Your telephone number : <strong>{{ booking.mobile }}</strong></p><br>
                     <div class="button-booking">
-                        <button type="button" class="btn btn-secondary btn-grey"><a href="{% url 'booking-update' booking.pk %}">Edit</a></button>
-                        <button type="button" class="btn btn-danger btn-red"><a href="{% url 'booking-delete' booking.pk %}">Cancel</a></button>
+                        <a href="{% url 'booking-update' booking.pk %}" class="btn btn-secondary btn-grey" role="button">Edit</a>
+                        <a href="{% url 'booking-delete' booking.pk %}" class="btn btn-danger btn-red" role="button">Cancel</a>
                     </div>
                 {% endif %}
             {% endif %}

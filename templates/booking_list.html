@@ -24,7 +24,7 @@
                             <p class="detail-booking-txt">{{ booking.bookdate }}</p>
                             <p>Hour : {{ booking.timeslot }}<br>
                                 Comment : {{ booking.comment }}<br>
-                            <button type="button" class="btn btn-dark btn-detail"><a href="{% url 'booking-detail' booking.pk %}">See details</a></button>
+                            <a href="{% url 'booking-detail' booking.pk %}" class="btn btn-dark btn-detail" role="button">See details</a>
                         </li>
                     </ul>
                     {% else %}
