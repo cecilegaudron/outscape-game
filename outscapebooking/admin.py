@@ -5,7 +5,7 @@ from .models import Booking
 
 @admin.register(Booking)
 class BookingAdmin(admin.ModelAdmin):
-    """ 
+    """
     The Blog entry is accessible from the Admin panel
     Possible to choose which fields are display
     Possible to choose which fields can be filter
@@ -25,7 +25,7 @@ class BookingAdmin(admin.ModelAdmin):
     list_filter = ('status', 'bookdate')
 
 
-""" 
+"""
 Remove the default groups
 https://www.section.io/engineering-education/customizing-django-admin/
  """

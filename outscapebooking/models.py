@@ -162,4 +162,3 @@ class Booking(models.Model):
     @property
     def time(self):
         return self.TIMESLOT_LIST[self.timeslot][1]
-

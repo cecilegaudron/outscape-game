@@ -129,7 +129,7 @@ class DeleteBookingView(SuccessMessageMixin, DeleteView):
     template_name = 'booking_delete.html'
 
     def get_success_url(self):
-        messages.success(self.request, 
+        messages.success(self.request,
                          "Your booking has been successfully cancelled."
                          )
         return reverse_lazy('booking-list')
