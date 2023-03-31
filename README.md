@@ -1,5 +1,7 @@
 # OUTscape Game Berlin
-TO BE COMPLETED
+This site is intended to promote the OUTscape game in Berlin. Users can book a game slot online. The admins can confirm or cancel the reservation requests.  
+
+![Site responsive](/media/screenshots/responsive-site.png)
 
 ## Table of Contents
 - [First Approach](#first-approach)
@@ -38,8 +40,7 @@ There are several types of customers:
 These customer groups are different but they have the same way of navigating the website. They want:
 - Have concrete and practical information about the game
 - Book a slot online to participate in the game
-The creation of a customer account is necessary to make the reservation. This personal account then allows you to view the reservation, modify it or even cancel it. 
-TO BE COMPLETED
+The creation of a customer account is necessary to make the reservation. This personal account then allows you to view the reservation, modify it or even cancel it.  
 
 2. **Admin**  
 Admins also need to log in to the site in order to :
@@ -251,17 +252,16 @@ For each action of the user, whether he wants to create his account, log in, log
 
 ![User Message](/media/screenshots/user-message.png) 
 
-### Features Left to Implement
+### Features Left to Implement  
 In the future version of the website, the organizers do not want users to need to create an account, nor do they need to log in to make a reservation. The organizers want to make the booking as easy as possible without having to create yet another customer account on a website. Moreover, this will eliminate the possible problems of keeping personal data. As soon as the game has been played, the personal informations of the customers will not be kept in the database.
 
--__Online payment__
-Online payment is one of the most important features of the website after booking. It is very important that people can pay for the game when they book. This will be possible when the website goes live with Stripe.  
-With calculation of the price to be paid if transport tickets are requested. 
+-__Online payment__  
+Online payment is one of the most important features of the website after booking. It is very important that people can pay for the game when they book. This will be possible when the website goes live with Stripe. With calculation of the price to be paid if transport tickets are requested. 
 
--__User ratings and reviews__
+-__User ratings and reviews__  
 After the game, users can receive an email with the possibility to give a rating and write a comment about their game experience. Both of these will then be posted on the website.
 
--__Sending emails to users__
+-__Sending emails to users__  
 For better communication with customers and to perfect the organization, it is more than essential that customers receive emails from the OUTscape game:
 - Reservation request confirmation email
 - Booking confirmation email with game scenario and practical information (meeting place, access map, sneakers and rain gear to bring, how to meet for the meeting, etc.) 
@@ -269,44 +269,41 @@ For better communication with customers and to perfect the organization, it is m
 - Email confirmation of reservation changes and cancellations
 - Thank you email after the game and request for feedbacks and ratings
 
--__Acceptance of cookies__
-A banner will be present when the internet user arrives on the website. The internet user will be able to accept or decline cookies.
+-__Acceptance of cookies__  
+A banner will be present when the internet user arrives on the website. The internet user will be able to accept or decline cookies.  
 
-- __Addition of new pages__
+-__Addition of new pages__  
 For the site that will actually go live, new pages will be added:
 - **General Terms and Conditions of Sale**: essential when using an online sales service in order to establish a clear contract with the user and the organizer
-- **About**: a page to introduce the creators of the game, the origin of the idea, their background. This page is necessary to make the experience human, it is always more appreciable to book a service with someone who has been introduced to us. It also implies a notion of trust by removing the feeling of paying for the game without knowing if it's a scam, all this while keeping the professional side.
+- **About**: a page to introduce the creators of the game, the origin of the idea, their background. This page is necessary to make the experience human, it is always more appreciable to book a service with someone who has been introduced to us. It also implies a notion of trust by removing the feeling of paying for the game without knowing if it's a scam, all this while keeping the professional side.  
 
--__Translation of the website into German and French__
-It is possible to play the OUTscape game in English, French or German. The site must therefore be available in these three languages. Small flags will be available in the navigation bar and in the collapsed menu.
+-__Translation of the website into German and French__  
+It is possible to play the OUTscape game in English, French or German. The site must therefore be available in these three languages. Small flags will be available in the navigation bar and in the collapsed menu.  
 
--__Synchronization with Google Calendar__
-So that the admins can save the appointments for the next bookings in their personal digital agenda, in order not to forget any appointment.
+-__Synchronization with Google Calendar__  
+So that the admins can save the appointments for the next bookings in their personal digital agenda, in order not to forget any appointment.  
 
--__Management with Google Calendar__
-For the owners of the game, it would be very interesting if they could manage their slots for the game. If there are days or times when neither organizer is available, this possibility should not be offered for booking.
+-__Management with Google Calendar__  
+For the owners of the game, it would be very interesting if they could manage their slots for the game. If there are days or times when neither organizer is available, this possibility should not be offered for booking.  
 
--__Dual administrator account__
+-__Dual administrator account__  
 There are two owners of the game and it would be more interesting if each had their own space, even if the information is shared. For example, they will take turns to run the game. They should be able to assign certain reservations to each other so that everyone knows what they have to do. That each one can note on the agenda his unavailability to take care of the game :
 - View and validate client comments following the game
 - Consult and validate the notes given by the clients following the game
 - Generate invoices by directly associating the information given by the client
 
--__Sending emails to admins__
-Admins should also receive emails or alerts when a reservation is made. The confirmation must be done quickly, so the admins must be quickly, easily and automatically informed of a reservation request.  
-Same for a modification request or a cancellation.
-
-TO BE COMPLETED
+-__Sending emails to admins__  
+Admins should also receive emails or alerts when a reservation is made. The confirmation must be done quickly, so the admins must be quickly, easily and automatically informed of a reservation request. Same for a modification request or a cancellation.  
 
 [Back to top](#table-of-contents)  
 
-## Testing  
+## Testing 
 | **Problems**                                                                                                                                        | **Actions**                                                                                                                                                                                                                               | **Results**                                                    |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------|
 | django.db.utils.IntegrityError: null value in column "tickets" of relation "bookings" violates not-null constraint                                  | Put blank=True and null=True (was not working with only blank=True)                                                                                                                                                                      | Can validate the booking without an entry in tickets field         |
 | Bugs with the database: "null-nullable field 'timeslot' without a default" AND " integrityError : colum 'hour' of relation 'bookings' contains null values" | Remove the cached migrations files ; reset the database on ElephantSQL ; makemigrations and migrate again on Gitpod                                                                                                                         | Working again, with the models on the database finally updated |
 | Problem to display the right booking for the right user                                                                                             | Add a booking_id ; add a player_name to have an ID (and can compare player and user)                                                                                                                                                        | Booking ID matches with User ID / Player ID                                |
-| The CSS style sheet is not taken into account by the site deployed on Heroku                                                                         | Remove the settings vars "DISABLE_COLLECSTATIC" on Heroku ; turn Debug setting off ; finally add the line "+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)" on the urls.py file on the project field ; deploy again on Heroku | The CSS style is taken in charge by the deployed site          |
+| The CSS style sheet is not taken into account by the site deployed on Heroku                                                                         | Remove the settings vars "DISABLE_COLLECSTATIC" on Heroku ; turn Debug setting off ; finally add the line "+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)" on the urls.py file on the project field ; deploy again on Heroku to collecstatic files again | The CSS style is taken in charge by the deployed site          |
 |                                                                                                                                                     |                                                                                                                                                                                 
 ### Validator Testing
 - HTML  
@@ -314,9 +311,9 @@ No errors were returned when passing through the official [W3C validator](https:
 - CSS  
 No errors were found when passing through the official [Jigsaw validator](https://jigsaw.w3.org/css-validator/)  
 - JavaScript  
-No errors were found when passing through the official [JSHint validator](https://jshint.com/)  
+This project does not have any custom Javascript, so testing is not required.
 - Python  
-TO BE COMPLETED  
+No errors were found when passing through the official [CI Python Linter](https://pep8ci.herokuapp.com/)  
 
 ### Lighthouse
 I asked the Lighthouse tool to analyze the performance of my site.  
@@ -333,9 +330,6 @@ The results are satisfactory. I still need to fine-tune the SEO and accessibilit
 - I consulted the site on several screens and on several browsers in my possession. I did not see any errors on any of them.  
 - I tested the Javascript feature of linking the user ID with the player name ID. This feature works well. I was able to hide it so that the user could not change it.  
 - Finally, the menu links are not visible if the user does not click on the hamburger icon.  
-
-### Unfixed Bugs
-TO BE COMPLETED
 
 [Back to top](#table-of-contents)  
 
@@ -511,7 +505,9 @@ https://blog.devgenius.io/django-tutorial-on-how-to-create-a-booking-system-for-
 
 - I used this [ticket](https://stackoverflow.com/questions/24822509/success-message-in-deleteview-not-shown) of StackOverFlow to display a user message on a DeleteView.  
 
-- I used this [article](# https://www.section.io/engineering-education/customizing-django-admin/) to change the Admin panel header text.  
+- I used this [article](https://www.section.io/engineering-education/customizing-django-admin/) to change the Admin panel header text.  
+
+- I used this [tutorial](https://www.section.io/engineering-education/customizing-django-admin/) to create the accordion FAQ.
 
 ### Media
 1. **Logo**
